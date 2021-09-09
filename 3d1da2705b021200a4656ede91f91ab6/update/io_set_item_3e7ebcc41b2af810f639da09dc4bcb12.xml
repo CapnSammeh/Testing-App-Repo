@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="io_set_item">
+    <io_set_item action="INSERT_OR_UPDATE">
+        <order>100</order>
+        <sc_cat_item display_value="Create Job Profile">7e7ef0c41b2af810f639da09dc4bcb32</sc_cat_item>
+        <sys_class_name>io_set_item</sys_class_name>
+        <sys_created_by>james.taylor</sys_created_by>
+        <sys_created_on>2021-09-07 10:41:52</sys_created_on>
+        <sys_id>3e7ebcc41b2af810f639da09dc4bcb12</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Requester.Create Job Profile</sys_name>
+        <sys_package display_value="Employee Center Core" source="sn_hr_sp">3d1da2705b021200a4656ede91f91ab6</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</sys_scope>
+        <sys_update_name>io_set_item_3e7ebcc41b2af810f639da09dc4bcb12</sys_update_name>
+        <sys_updated_by>james.taylor</sys_updated_by>
+        <sys_updated_on>2021-09-07 10:41:52</sys_updated_on>
+        <variable_set display_value="Requester">78f774801b2af810f639da09dc4bcb2e</variable_set>
+    </io_set_item>
+</record_update>
