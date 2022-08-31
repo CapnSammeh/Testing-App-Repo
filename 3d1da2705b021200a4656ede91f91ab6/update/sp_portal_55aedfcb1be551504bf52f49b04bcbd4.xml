@@ -1,16 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sp_portal">
     <sp_portal action="INSERT_OR_UPDATE">
-        <css_variables/>
+        <css_variables>$brand-primary:#FFCC00;
+$body-bg:#ffffff;
+$state-success-text:#181A1F;
+$sp-homepage-bg:#fff;
+$sp-navbar-divider-color:#FFFF00;
+$text-color:#1E1E1E;
+$sp-logo-margin-y:.6rem;
+$navbar-inverse-link-hover-color:#ffffff;
+$panel-bg:#ffffff;
+$brand-success:#51ae00;
+$navbar-inverse-bg:#FFFFFF;
+$brand-warning:#F0E000;
+$brand-danger:#E42338;
+$sp-tagline-color:#181A1F;
+$navbar-inverse-link-color:#DADDE2;
+$brand-info:#38aaf4;
+$link-color:#3c59e7;
+$sp-logo-margin-x:.6rem;
+$btn-default-bg:#ffffff;
+$text-muted:#656E81;
+</css_variables>
         <default>false</default>
         <enable_ais>true</enable_ais>
         <enable_favorites>true</enable_favorites>
         <hide_portal_name>false</hide_portal_name>
-        <homepage display_value="ec_pro_dashboard">0c9e5ccd537030101865ddeeff7b12cb</homepage>
+        <homepage display_value="sidekick_home">e2766f831b2951504bf52f49b04bcb04</homepage>
         <icon>5bd3e7031b2951504bf52f49b04bcbf7</icon>
         <kb_knowledge_base/>
         <kb_knowledge_page display_value="esc_knowledge_home">f8b574a0b7202300d0ac9277ee11a91d</kb_knowledge_page>
         <login_page display_value="login">6995a144cb11120000f8d856634c9c25</login_page>
-        <logo>ba95c23323c42300fb0c949e27bf6563</logo>
+        <logo>849c73c71b6951504bf52f49b04bcb8a</logo>
         <notfound_page display_value="404">3c2c9063cb11020000f8d856634c9c1f</notfound_page>
         <quick_start_config>[{"favorite":{"icon_checked":"fa-heart","icon_unchecked":"fa-heart-o","color":"primary"}}]</quick_start_config>
         <sc_catalog/>
@@ -19,20 +39,20 @@
         <search_application display_value="ESC Portal Default Search Application">7296910f53171010069addeeff7b12e7</search_application>
         <search_results_configuration display_value="ESC Portal Search">9264a1c353571010069addeeff7b121e</search_results_configuration>
         <sp_chat_queue/>
-        <sp_rectangle_menu display_value="Employee Center Menu">493d01365368301056c1ddeeff7b1207</sp_rectangle_menu>
+        <sp_rectangle_menu display_value="Sidekick Main Menu">03d973071b6951504bf52f49b04bcbe4</sp_rectangle_menu>
         <sys_class_name>sp_portal</sys_class_name>
         <sys_created_by>kate.cargamento</sys_created_by>
         <sys_created_on>2022-08-31 05:22:55</sys_created_on>
         <sys_id>55aedfcb1be551504bf52f49b04bcbd4</sys_id>
-        <sys_mod_count>1</sys_mod_count>
+        <sys_mod_count>15</sys_mod_count>
         <sys_name>Employee Center</sys_name>
         <sys_package display_value="Employee Center Core" source="sn_hr_sp">3d1da2705b021200a4656ede91f91ab6</sys_package>
         <sys_policy/>
         <sys_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</sys_scope>
         <sys_update_name>sp_portal_55aedfcb1be551504bf52f49b04bcbd4</sys_update_name>
-        <sys_updated_by>laiza.fronda</sys_updated_by>
-        <sys_updated_on>2022-08-31 05:45:43</sys_updated_on>
-        <theme display_value="SK EC Theme">bd4b9f0b1be551504bf52f49b04bcb57</theme>
+        <sys_updated_by>kate.cargamento</sys_updated_by>
+        <sys_updated_on>2022-08-31 07:33:38</sys_updated_on>
+        <theme display_value="Sidekick Theme">0864ef031b2951504bf52f49b04bcb59</theme>
         <title>Employee Center</title>
         <ts_index_group/>
         <url_suffix>sidekick</url_suffix>
@@ -49,13 +69,13 @@
         <image_width/>
         <size_bytes>1150</size_bytes>
         <size_compressed>377</size_compressed>
-        <state>pending</state>
+        <state>available</state>
         <sys_created_by>laiza.fronda</sys_created_by>
         <sys_created_on>2022-08-31 05:45:43</sys_created_on>
         <sys_id>5bd3e7031b2951504bf52f49b04bcbf7</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_updated_by>laiza.fronda</sys_updated_by>
-        <sys_updated_on>2022-08-31 05:45:43</sys_updated_on>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_updated_by>guest</sys_updated_by>
+        <sys_updated_on>2022-08-31 05:45:44</sys_updated_on>
         <table_name>ZZ_YYsp_portal</table_name>
         <table_sys_id>55aedfcb1be551504bf52f49b04bcbd4</table_sys_id>
     </sys_attachment>
@@ -76,5 +96,44 @@
         <sys_created_by>laiza.fronda</sys_created_by>
         <sys_created_on>2022-08-31 05:45:43</sys_created_on>
         <sys_id>1fd3e7031b2951504bf52f49b04bcbf7</sys_id>
+    </sys_attachment_doc>
+    <sys_attachment action="INSERT_OR_UPDATE">
+        <average_image_color/>
+        <chunk_size_bytes>700000</chunk_size_bytes>
+        <compressed>true</compressed>
+        <content_type>image/svg+xml</content_type>
+        <file_name>logo</file_name>
+        <hash>db28be7b04457eec2d58d7d61463bd85d5b7a887e318d5ee5e29afb4ea464154</hash>
+        <image_height/>
+        <image_width/>
+        <size_bytes>6586</size_bytes>
+        <size_compressed>2849</size_compressed>
+        <state>pending</state>
+        <sys_created_by>kate.cargamento</sys_created_by>
+        <sys_created_on>2022-08-31 07:33:38</sys_created_on>
+        <sys_id>849c73c71b6951504bf52f49b04bcb8a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>kate.cargamento</sys_updated_by>
+        <sys_updated_on>2022-08-31 07:33:38</sys_updated_on>
+        <table_name>ZZ_YYsp_portal</table_name>
+        <table_sys_id>55aedfcb1be551504bf52f49b04bcbd4</table_sys_id>
+    </sys_attachment>
+    <sys_attachment_doc action="INSERT_OR_UPDATE">
+        <data>H4sIAAAAAAAAAA==</data>
+        <length>16</length>
+        <position>0</position>
+        <sys_attachment display_value="logo" sys_id="849c73c71b6951504bf52f49b04bcb8a">849c73c71b6951504bf52f49b04bcb8a</sys_attachment>
+        <sys_created_by>kate.cargamento</sys_created_by>
+        <sys_created_on>2022-08-31 07:33:38</sys_created_on>
+        <sys_id>c49c73c71b6951504bf52f49b04bcb8a</sys_id>
+    </sys_attachment_doc>
+    <sys_attachment_doc action="INSERT_OR_UPDATE">
+        <data>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</data>
+        <length>3788</length>
+        <position>1</position>
+        <sys_attachment display_value="logo" sys_id="849c73c71b6951504bf52f49b04bcb8a">849c73c71b6951504bf52f49b04bcb8a</sys_attachment>
+        <sys_created_by>kate.cargamento</sys_created_by>
+        <sys_created_on>2022-08-31 07:33:38</sys_created_on>
+        <sys_id>489c73c71b6951504bf52f49b04bcb8a</sys_id>
     </sys_attachment_doc>
 </record_update>
