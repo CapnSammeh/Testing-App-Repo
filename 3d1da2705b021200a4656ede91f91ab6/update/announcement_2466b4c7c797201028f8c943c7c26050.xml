@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="announcement">
+    <announcement action="INSERT_OR_UPDATE">
+        <active>false</active>
+        <click_target>urlNew</click_target>
+        <details/>
+        <details_link_text>Download store application</details_link_text>
+        <details_page/>
+        <details_url>https://store.servicenow.com/sn_appstore_store.do#!/store/application/4249e63a28d54d61bb6fbf61fd86cccb</details_url>
+        <dismiss_options>dismissible</dismiss_options>
+        <display_first>true</display_first>
+        <display_style display_value="Urgent">339ea11ae7d4030075c2a117c2f6a9cf</display_style>
+        <from>2021-04-08 04:24:46</from>
+        <glyph>external-link</glyph>
+        <glyph_alt_text/>
+        <name>Download Employee Center from the store</name>
+        <public>false</public>
+        <roles>sp_admin</roles>
+        <show_for_unauthenticated_users_only>false</show_for_unauthenticated_users_only>
+        <summary>Starting in Rome, we will deliver the Employee Center through the ServiceNow store. This will allow us to deliver more new features, faster than ever. Please download the store application.</summary>
+        <sys_class_name>announcement</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-04-08 04:27:33</sys_created_on>
+        <sys_id>2466b4c7c797201028f8c943c7c26050</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Download Employee Center from the store</sys_name>
+        <sys_package display_value="Employee Center Core" source="sn_hr_sp">3d1da2705b021200a4656ede91f91ab6</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</sys_scope>
+        <sys_update_name>announcement_2466b4c7c797201028f8c943c7c26050</sys_update_name>
+        <sys_updated_by>james.taylor</sys_updated_by>
+        <sys_updated_on>2021-09-03 01:52:18</sys_updated_on>
+        <title>We’re moving! New Employee Center download required</title>
+        <to/>
+        <type>67eaf134e7a3320075c2a117c2f6a9d2,52fa79f8e763320075c2a117c2f6a991</type>
+    </announcement>
+    <sys_translated_text action="delete_multiple" query="documentkey=2466b4c7c797201028f8c943c7c26050"/>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</claim_owner_scope>
+        <claim_timestamp>185c6dac2d40000001</claim_timestamp>
+        <metadata_update_name>announcement_2466b4c7c797201028f8c943c7c26050</metadata_update_name>
+        <previous_claim_app_version>26.0.4</previous_claim_app_version>
+        <previous_claim_name>Employee Center Core</previous_claim_name>
+        <previous_claim_scope>3d1da2705b021200a4656ede91f91ab6</previous_claim_scope>
+        <sys_created_by>sam.herring</sys_created_by>
+        <sys_created_on>2023-01-18 21:48:23</sys_created_on>
+        <sys_id>bdcef79c1b68e110f639da09dc4bcb45</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>sam.herring</sys_updated_by>
+        <sys_updated_on>2023-01-18 21:48:23</sys_updated_on>
+    </sys_claim>
+</record_update>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_instance">
+    <sp_instance action="DELETE">
+        <active>true</active>
+        <class_name/>
+        <color>warning</color>
+        <css/>
+        <glyph/>
+        <id/>
+        <order>1</order>
+        <roles/>
+        <short_description/>
+        <size>md</size>
+        <sp_column display_value="1">ab2ee9071bf634907663a82c274bcb50</sp_column>
+        <sp_widget display_value="link-button">abc50de6d702120023c84f80de61036a</sp_widget>
+        <sys_class_name>sp_instance</sys_class_name>
+        <sys_created_by>james.taylor</sys_created_by>
+        <sys_created_on>2021-09-29 08:13:40</sys_created_on>
+        <sys_id>9c8f2d471bf634907663a82c274bcb12</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Employee Center Core" source="sn_hr_sp">3d1da2705b021200a4656ede91f91ab6</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</sys_scope>
+        <sys_update_name>sp_instance_9c8f2d471bf634907663a82c274bcb12</sys_update_name>
+        <sys_updated_by>james.taylor</sys_updated_by>
+        <sys_updated_on>2021-09-29 08:14:23</sys_updated_on>
+        <title/>
+        <url/>
+        <widget_parameters><![CDATA[{
+	"href": {
+		"value": "",
+		"displayValue": ""
+	},
+	"button_text": {
+		"value": "",
+		"displayValue": ""
+	}
+}]]></widget_parameters>
+    </sp_instance>
+    <sys_translated_text action="DELETE" query="documentkey=9c8f2d471bf634907663a82c274bcb12"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</application>
+        <file_path/>
+        <instance_id>5705a594dbb018d8413450b6f496194f</instance_id>
+        <instance_name>deloitteaus7</instance_name>
+        <name>sp_instance_9c8f2d471bf634907663a82c274bcb12</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sp_instance"&gt;&lt;sp_instance action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;class_name/&gt;&lt;color&gt;warning&lt;/color&gt;&lt;css/&gt;&lt;glyph/&gt;&lt;id/&gt;&lt;order&gt;1&lt;/order&gt;&lt;roles/&gt;&lt;short_description/&gt;&lt;size&gt;md&lt;/size&gt;&lt;sp_column display_value="1"&gt;ab2ee9071bf634907663a82c274bcb50&lt;/sp_column&gt;&lt;sp_widget display_value="link-button"&gt;abc50de6d702120023c84f80de61036a&lt;/sp_widget&gt;&lt;sys_class_name&gt;sp_instance&lt;/sys_class_name&gt;&lt;sys_created_by&gt;james.taylor&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2021-09-29 08:13:40&lt;/sys_created_on&gt;&lt;sys_id&gt;9c8f2d471bf634907663a82c274bcb12&lt;/sys_id&gt;&lt;sys_mod_count&gt;4&lt;/sys_mod_count&gt;&lt;sys_name/&gt;&lt;sys_package display_value="Employee Center Core" source="sn_hr_sp"&gt;3d1da2705b021200a4656ede91f91ab6&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Employee Center Core"&gt;3d1da2705b021200a4656ede91f91ab6&lt;/sys_scope&gt;&lt;sys_update_name&gt;sp_instance_9c8f2d471bf634907663a82c274bcb12&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;james.taylor&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2021-09-29 08:14:23&lt;/sys_updated_on&gt;&lt;title/&gt;&lt;url/&gt;&lt;widget_parameters&gt;&lt;![CDATA[{
+	"href": {
+		"value": "",
+		"displayValue": ""
+	},
+	"button_text": {
+		"value": "",
+		"displayValue": ""
+	}
+}]]&gt;&lt;/widget_parameters&gt;&lt;/sp_instance&gt;&lt;sys_translated_text action="delete_multiple" query="documentkey=9c8f2d471bf634907663a82c274bcb12"/&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-111777765</payload_hash>
+        <record_name/>
+        <reverted_from/>
+        <source>69a7ba2a1bd638107663a82c274bcbca</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>james.taylor</sys_created_by>
+        <sys_created_on>2021-09-29 08:14:23</sys_created_on>
+        <sys_id>70bf65871bf634907663a82c274bcb9c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>17c309e75200000001</sys_recorded_at>
+        <sys_updated_by>james.taylor</sys_updated_by>
+        <sys_updated_on>2021-09-29 08:14:23</sys_updated_on>
+        <type>Instance</type>
+        <update_guid>f8bf658722f6349061a931dc4fab7d9b</update_guid>
+        <update_guid_history>f8bf658722f6349061a931dc4fab7d9b:-111777765,beaf258749f63490e37a11e7cc7ece71:1594957469,d1afe187a5f6349075324bb88c81d880:-179952510,48afe1874ff63490c65206d81fafd83b:376635009,168f618770f63490a5ecaae8e8950826:-799996470</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="">6331d6d41b037490f639da09dc4bcb66</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>mark.galulu</sys_created_by>
+        <sys_created_on>2021-10-03 07:53:20</sys_created_on>
+        <sys_db_object display_value="" name="sp_instance">sp_instance</sys_db_object>
+        <sys_id>27893469611a4b45964e34f6834ff751</sys_id>
+        <sys_metadata>9c8f2d471bf634907663a82c274bcb12</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Employee Center Core" source="sn_hr_sp">3d1da2705b021200a4656ede91f91ab6</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</sys_scope>
+        <sys_scope_delete display_value="">0583d6de2a2743609422ef5f67d2a400</sys_scope_delete>
+        <sys_update_name>sp_instance_9c8f2d471bf634907663a82c274bcb12</sys_update_name>
+        <sys_update_version display_value="sp_instance_9c8f2d471bf634907663a82c274bcb12">70bf65871bf634907663a82c274bcb9c</sys_update_version>
+        <sys_updated_by>mark.galulu</sys_updated_by>
+        <sys_updated_on>2021-10-03 07:53:20</sys_updated_on>
+    </sys_metadata_delete>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</claim_owner_scope>
+        <claim_timestamp>185c6dabbfd0000001</claim_timestamp>
+        <metadata_update_name>sp_instance_9c8f2d471bf634907663a82c274bcb12</metadata_update_name>
+        <previous_claim_app_version>26.0.4</previous_claim_app_version>
+        <previous_claim_name>Employee Center Core</previous_claim_name>
+        <previous_claim_scope>3d1da2705b021200a4656ede91f91ab6</previous_claim_scope>
+        <sys_created_by>sam.herring</sys_created_by>
+        <sys_created_on>2023-01-18 21:48:21</sys_created_on>
+        <sys_id>51ceb79c1b68e110f639da09dc4bcb93</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>sam.herring</sys_updated_by>
+        <sys_updated_on>2023-01-18 21:48:21</sys_updated_on>
+    </sys_claim>
+</record_update>

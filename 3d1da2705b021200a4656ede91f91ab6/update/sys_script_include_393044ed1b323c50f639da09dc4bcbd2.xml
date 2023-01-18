@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>sn_hr_sp.cd_Audience</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>cd_Audience</name>
+        <script><![CDATA[var cd_Audience = Class.create();
+cd_Audience.prototype = {
+	initialize: function() {
+		this.NULL_QUERY = "sys_id=null";
+		this.hrPluginActive = GlidePluginManager.isActive('com.sn_hr_core');
+	},
+	
+	/** Return an array of users described by any of the audience records
+	* @param audienceIds string Comma separated string of sn_cd_audience sys_id's
+	* @return array User sys_id's
+	*/
+	getAudience: function(audienceIds) {
+		var userMap = this.getAudienceMap(audienceIds);
+	
+		var userArray = [];
+		for (var key in userMap)
+			userArray.push(key);
+		
+		return userArray;
+	},
+	
+	/** Return a Map of users described by any of the audience records
+	* @param audienceIds string Comma separated string of sn_cd_audience sys_id's
+	* @return array User sys_id's
+	*/
+	getAudienceMap: function(audienceIds) {
+		var userMap = {};
+		
+		var grAudience = new GlideRecord("sn_cd_audience");
+		grAudience.addQuery("sys_id", "IN", audienceIds);
+		grAudience.addNotNullQuery("audience_type");
+		grAudience.query();
+		while (grAudience.next()) {
+			var audienceType = grAudience.getValue("audience_type");
+			var audienceQuery = grAudience.getValue("audience_query");
+			
+			if (audienceType == "upload_file") {
+				var grAudienceData = new GlideRecord("sn_cd_audience_data");			
+				grAudienceData.addQuery("audience", grAudience.sys_id);
+				grAudienceData.addNotNullQuery("user");
+				grAudienceData.query();
+				while (grAudienceData.next())
+					userMap[grAudienceData.getValue("user")] = true;
+				
+			} else if (audienceType == "sn_hr_core_criteria" && this.hrPluginActive && !gs.nil(audienceQuery)) {
+				var hrCriteriaUsers = new sn_hr_core.hr_Criteria().getUsersForHRCriteria(audienceQuery);
+				for (var i = 0; i < hrCriteriaUsers.length; i++)
+					userMap[hrCriteriaUsers[i]] = true;
+			
+			} else if (audienceType == "user_criteria" && !gs.nil(audienceQuery)) {
+				var grUserCriteria = new GlideRecord("sys_user");
+				grUserCriteria.addEncodedQuery(this.getUserCriteriaQuery(audienceQuery));
+				grUserCriteria.query();
+				while (grUserCriteria.next())
+					userMap[grUserCriteria.getUniqueValue()] = true;
+				
+			} else if (audienceType == "sn_hr_core_profile" && this.hrPluginActive && !gs.nil(audienceQuery)) {
+				var grHrProfile = new GlideRecord("sn_hr_core_profile");
+				grHrProfile.addEncodedQuery(audienceQuery);
+				grHrProfile.query();
+				while (grHrProfile.next())
+					userMap[grHrProfile.getValue("user")] = true;
+				
+			} else if (audienceType == "sys_user" && !gs.nil(audienceQuery)) {
+				var grUser = new GlideRecord("sys_user");
+				grUser.addEncodedQuery(audienceQuery);
+				grUser.query();
+				while (grUser.next())
+					userMap[grUser.getUniqueValue()] = true;
+			}
+		}
+		
+		return userMap;
+	},
+	
+	/** Determine whether a user is in any of the audiences
+	* @param audienceIds string Comma separated string of sn_cd_audience sys_id's
+	* @param userId string sys_id of user
+	* @return boolean Whether the user is in any of the audience records
+	*/
+	isUserInAudience: function(audienceIds, userId, simulation, caseId) {
+		if (!audienceIds || !userId)
+			return false;
+		
+		var grAudience = new GlideRecord("sn_cd_audience");
+		grAudience.addQuery("sys_id", "IN", audienceIds);
+		grAudience.addNotNullQuery("audience_type");
+		grAudience.query();
+		while (grAudience.next()) {
+			var audienceType = grAudience.getValue("audience_type");
+			var audienceQuery = grAudience.getValue("audience_query");
+			
+			if (audienceType == "upload_file") {
+				var grAudienceData = new GlideRecord("sn_cd_audience_data");
+				grAudienceData.addQuery("audience", grAudience.sys_id);
+				grAudienceData.addQuery("user", userId);
+				grAudienceData.addNotNullQuery("user");
+				grAudienceData.query();
+				if (grAudienceData.hasNext())
+					return true;
+				
+			} else if (audienceType == "sn_hr_core_criteria" && this.hrPluginActive && !gs.nil(audienceQuery)) {
+				var hrCriteriaIds = audienceQuery.split(",");
+				for (var i = 0; i < hrCriteriaIds.length; i++)
+					if(new sn_hr_core.hr_Criteria().evaluateById(hrCriteriaIds[i], userId, simulation, caseId))
+						return true;
+				
+			} else if (audienceType == "user_criteria" && !gs.nil(audienceQuery)) {
+				var grUserCriteria = new GlideRecord("sys_user");
+				grUserCriteria.addEncodedQuery(this.getUserCriteriaQuery(audienceQuery, userId));
+				grUserCriteria.query();
+				if (grUserCriteria.hasNext())
+					return true;
+				
+			} else if (audienceType == "sn_hr_core_profile" && this.hrPluginActive && !gs.nil(audienceQuery)) {
+				var grHrProfile = new GlideRecord("sn_hr_core_profile");
+				grHrProfile.addEncodedQuery(this._addUserToQuery(audienceQuery, "user", userId));
+				grHrProfile.query();
+				if (grHrProfile.hasNext())
+					return true;
+				
+			} else if (audienceType == "sys_user" && !gs.nil(audienceQuery)) {
+				var grUser = new GlideRecord("sys_user");
+				grUser.addEncodedQuery(this._addUserToQuery(audienceQuery, "sys_id", userId));
+				grUser.query();
+				if (grUser.hasNext())
+					return true;
+			}
+		}
+		
+		return false;
+	},
+	
+    /* Get audience name
+	 * @param audienceId string sys_id of a audience record
+	 * @return string audience name
+	 */
+	getAudienceName: function(audienceId) {
+		if (!audienceId)
+			return '';
+		
+		var grAudience = new GlideRecord('sn_cd_audience');
+		grAudience.get(audienceId);
+		
+		return grAudience.getValue('name');
+	},
+	
+    /* Get audience type. Returns an empty string if no audience is found
+	 * @param audienceId string sys_id of a audience record
+	 * @return string audience type
+	 */
+	getAudienceType: function(audienceId) {
+		if (!audienceId)
+			return '';
+		
+		var grAudience = new GlideRecord('sn_cd_audience');
+
+		return grAudience.get(audienceId)
+			? grAudience.getValue('audience_type')
+			: '';
+	},
+	
+	/* Add a user query to an encoded query
+	 * @param encodedQuery string Encoded query to modify
+	 * @param userColumn string Name of column to query user
+	 * @param userId string sys_id of a user record
+	 * @return string Encoded query with @param userId added in to limit condition to a specific user
+	 */
+	_addUserToQuery: function(encodedQuery, userColumn, userId) {
+		var conditions = encodedQuery.split("^NQ");
+		for (var i = 0; i < conditions.length; i++)
+			conditions[i] = userColumn + '=' + userId + "^" + conditions[i];
+		return conditions.join("^NQ");
+	},
+
+	/** Return the count and url for an audience
+	* @param audienceType string The type of audience
+	* @param audienceQuery string The query for an audience: sys_id or encoded query
+	* @return object {count: number, url: string}
+	*/
+	getAudienceCount : function(audienceType, audienceQuery, audienceSysId) {
+		var audience = {
+			count: -1,
+			url: ""
+		};
+
+		var gaAudience;
+		if (audienceType == "upload_file") {
+			gaAudience = new GlideAggregate("sn_cd_audience_data");
+			gaAudience.addQuery("audience", audienceSysId);
+			gaAudience.addNotNullQuery("user");
+
+		} else if (audienceType == "sn_hr_core_criteria" && this.hrPluginActive) {
+			gaAudience = new GlideAggregate("sys_user");
+			gaAudience.addEncodedQuery(this.getHrCriteriaQuery(audienceQuery));
+
+		} else if (audienceType == "user_criteria") {
+			gaAudience = new GlideAggregate("sys_user");
+			gaAudience.addEncodedQuery(this.getUserCriteriaQuery(audienceQuery));
+
+		} else if (audienceType == "sn_hr_core_profile" && this.hrPluginActive) {
+			gaAudience = new GlideAggregate("sn_hr_core_profile");
+			gaAudience.addEncodedQuery(audienceQuery);
+
+		} else if (audienceType == "sys_user") {
+			gaAudience = new GlideAggregate("sys_user");
+			gaAudience.addEncodedQuery(audienceQuery);
+
+		} else
+			return audience;
+
+		gaAudience.addAggregate("COUNT");
+		gaAudience.query();
+		if (gaAudience.next()) {
+			audience.count = gaAudience.getAggregate("COUNT");
+			audience.url = "/" + gaAudience.getTableName() + "_list.do?v=1&sysparm_query=" + gaAudience.getEncodedQuery() + "&sysparm_preview=true&sysparm_view=audience";
+		}
+
+		return audience;
+	},
+
+	/** Get query describing users matching hr criteria
+	* @param hrCriteriaIds string Comma separated string of hr criteria sys_id's
+	* @return string Encoded query describing users matching hr criteria
+	*/
+	getHrCriteriaQuery: function(hrCriteriaIds) {
+		// Ensure @param hrCriteriaIds is string of comma separated sys_id's
+		if (!this.hrPluginActive || !hrCriteriaIds || !hrCriteriaIds.match(/^[a-f\d]{32}(?:,[a-f\d]{32})*$/))
+			return this.NULL_QUERY;
+		return "sys_idINjavascript:new sn_cd.cd_AudienceAJAX().getUsersForHrCriteria('" + hrCriteriaIds + "')";
+	},
+
+	/** Get query describing users matching a user criteria
+	* @param userCriteriaId string User criteria sys_id
+	* @param userId string (optional) sys_id of user to limit query to
+	* @return string Encoded query describing users matching a user_criteria
+	*/
+	getUserCriteriaQuery: function(userCriteriaId, userId) {
+		var grUserCriteria = new GlideRecord("user_criteria");
+		grUserCriteria.addActiveQuery();
+		grUserCriteria.addQuery("sys_id", userCriteriaId);
+		grUserCriteria.addQuery("advanced", false);
+		grUserCriteria.query();
+		if (!userCriteriaId || !grUserCriteria.next())
+			return this.NULL_QUERY;
+
+		var criteriaConditions = [];
+
+		// 'user' field on user_criteria
+		if (grUserCriteria.getValue("user"))
+			criteriaConditions.push("sys_idIN" + grUserCriteria.getValue("user"));
+
+		// Simple reference fields on user_criteria
+		var criteriaFields = ["company", "department", "location"];
+		for (var i = 0; i < criteriaFields.length; i++)
+			if (grUserCriteria.getValue(criteriaFields[i]))
+				criteriaConditions.push(criteriaFields[i] + "IN" + grUserCriteria.getValue(criteriaFields[i]));
+
+		// 'role' field on user_criteria
+		if (grUserCriteria.getValue("role")) {
+			var roles = grUserCriteria.getValue("role").split(",");
+			for (var j = 0; j < roles.length; j++)
+				roles[j] = "roles=" + roles[j];
+			criteriaConditions.push(roles.join("^OR"));
+		}
+
+		// 'group' field on user_criteria
+		if (grUserCriteria.getValue("group")) {
+			var users = [];
+			var gaGrMember = new GlideAggregate("sys_user_grmember");
+			gaGrMember.addQuery("group", "IN", grUserCriteria.getValue("group"));
+			if (userId)
+				gaGrMember.addQuery("user", userId);
+			gaGrMember.groupBy("user");
+			gaGrMember.query();
+			while (gaGrMember.next())
+				users.push(gaGrMember.getValue("user"));
+			
+			if (!users.length)
+				criteriaConditions.push(this.NULL_QUERY);
+			else
+				criteriaConditions.push("sys_idIN" + users.join(","));
+		}
+		
+		return (userId ? ("sys_id=" + userId + "^") : '' ) + criteriaConditions.join(grUserCriteria.match_all ? "^" : "^OR");
+	},
+
+	/** Create audience data based on search terms and update tracker (used by upload_file in audience directive)
+	* @param firstHeader string Column used to search for users (limited to 'user_name' and 'email')
+	* @param searchList string Comma separated list of search terms (e.g 'abel.tuter,abraham.lincoln')
+	* @param audienceSysId string sys id of sn_cd_audience table
+	*/
+	uploadOperation: function(firstHeader, searchList, audienceSysId) {
+		var tracker = GlideExecutionTracker.getLastRunning();
+		tracker.run();
+		if (searchList.length != 0)
+			searchList = searchList.split(",");
+		else
+			searchList = [];
+
+		var identifierMap = {};
+		var usersFound = 0;
+		var usersNotFound = 0;
+		var processId = tracker.getSysID();
+		var totalRows = searchList.length;
+		var totalPercent = 0;
+		var percentPerRow = 100 / totalRows;
+		
+		// remove audience from old records
+		var grAudienceData = new GlideRecord('sn_cd_audience_data');
+		grAudienceData.addQuery("audience", audienceSysId);
+		grAudienceData.setValue("audience", "");
+		grAudienceData.updateMultiple();
+
+		// Import uploaded data to bulk case data table
+		if (firstHeader == "user_name" || firstHeader == "email") {
+			for (var i = 0; i < totalRows; i++) {
+				// Increment percent complete
+				var percentComplete = (i + 1) * percentPerRow;
+				var percentIncrease = percentComplete - totalPercent;
+				if (percentIncrease >= 1) {
+					var percentIncreaseFloor = Math.floor(percentIncrease);
+					totalPercent += percentIncreaseFloor;
+					tracker.incrementPercentComplete(percentIncreaseFloor);
+				}
+
+				// Skip duplicates
+				if (identifierMap.hasOwnProperty(searchList[i]))
+					continue;
+				
+				// Create audience data record and increment userFound/usersNotFound
+			    grAudienceData = new GlideRecord("sn_cd_audience_data");
+				grAudienceData.setValue("process_id", processId);
+				grAudienceData.setValue("identifier", searchList[i]);
+				grAudienceData.setValue("audience", audienceSysId);
+				var sysUserGR = new GlideRecord("sys_user");
+				if (sysUserGR.get(firstHeader, searchList[i])) {
+					grAudienceData.setValue("user", sysUserGR.getUniqueValue());
+					if (!identifierMap[searchList[i]]) // Only count users that were not already found
+						usersFound++;
+					identifierMap[searchList[i]] = true;
+				} else {
+					usersNotFound++;
+					identifierMap[searchList[i]] = false;
+				}
+
+				grAudienceData.insert();
+			}
+		}
+
+		tracker.updateResult({
+			recordCount: totalRows,
+			processId: processId,
+			usersFound: usersFound,
+			usersNotFound: usersNotFound
+		});
+	},
+
+	type: 'cd_Audience'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>vishnu.rai</sys_created_by>
+        <sys_created_on>2021-09-24 08:16:49</sys_created_on>
+        <sys_id>393044ed1b323c50f639da09dc4bcbd2</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>cd_Audience</sys_name>
+        <sys_package display_value="Employee Center Core" source="sn_hr_sp">3d1da2705b021200a4656ede91f91ab6</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</sys_scope>
+        <sys_update_name>sys_script_include_393044ed1b323c50f639da09dc4bcbd2</sys_update_name>
+        <sys_updated_by>vishnu.rai</sys_updated_by>
+        <sys_updated_on>2021-09-24 08:16:49</sys_updated_on>
+    </sys_script_include>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</claim_owner_scope>
+        <claim_timestamp>185c6dabc560000001</claim_timestamp>
+        <metadata_update_name>sys_script_include_393044ed1b323c50f639da09dc4bcbd2</metadata_update_name>
+        <previous_claim_app_version>26.0.4</previous_claim_app_version>
+        <previous_claim_name>Employee Center Core</previous_claim_name>
+        <previous_claim_scope>3d1da2705b021200a4656ede91f91ab6</previous_claim_scope>
+        <sys_created_by>sam.herring</sys_created_by>
+        <sys_created_on>2023-01-18 21:48:21</sys_created_on>
+        <sys_id>55ceb79c1b68e110f639da09dc4bcba4</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>sam.herring</sys_updated_by>
+        <sys_updated_on>2023-01-18 21:48:21</sys_updated_on>
+    </sys_claim>
+</record_update>

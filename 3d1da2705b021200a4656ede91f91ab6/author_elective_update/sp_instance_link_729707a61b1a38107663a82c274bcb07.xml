@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_instance_link">
+    <sp_instance_link action="DELETE">
+        <active>true</active>
+        <class_name/>
+        <color>info</color>
+        <css/>
+        <glyph>users</glyph>
+        <id/>
+        <kb_article/>
+        <kb_category/>
+        <kb_topic/>
+        <order>1</order>
+        <roles/>
+        <sc_cat_item/>
+        <sc_category display_value="Managing Our Talent">4ce1977f1b92f810f639da09dc4bcbe2</sc_category>
+        <short_description/>
+        <size>md</size>
+        <sp_column display_value="1">7e87736f1bdef8107663a82c274bcb92</sp_column>
+        <sp_page display_value="ihr_sc_category_2">ce27df331bd2f810f639da09dc4bcb9c</sp_page>
+        <sp_widget display_value="Icon Link">3caa67afcb13020000f8d856634c9c2e</sp_widget>
+        <sys_class_name>sp_instance_link</sys_class_name>
+        <sys_created_by>james.taylor</sys_created_by>
+        <sys_created_on>2021-09-03 04:50:05</sys_created_on>
+        <sys_id>729707a61b1a38107663a82c274bcb07</sys_id>
+        <sys_mod_count>12</sys_mod_count>
+        <sys_name>Managing Our Talent</sys_name>
+        <sys_package display_value="Employee Center Core" source="sn_hr_sp">3d1da2705b021200a4656ede91f91ab6</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</sys_scope>
+        <sys_update_name>sp_instance_link_729707a61b1a38107663a82c274bcb07</sys_update_name>
+        <sys_updated_by>mark.galulu</sys_updated_by>
+        <sys_updated_on>2021-09-14 00:56:56</sys_updated_on>
+        <title>Managing Our Talent</title>
+        <type>sc_category</type>
+        <url/>
+        <widget_parameters><![CDATA[{
+	"link_template": {
+		"value": "Color Box",
+		"displayValue": "Color Box"
+	}
+}]]></widget_parameters>
+    </sp_instance_link>
+    <sys_translated_text action="DELETE" query="documentkey=729707a61b1a38107663a82c274bcb07"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</application>
+        <file_path/>
+        <instance_id>5705a594dbb018d8413450b6f496194f</instance_id>
+        <instance_name>deloitteaus7</instance_name>
+        <name>sp_instance_link_729707a61b1a38107663a82c274bcb07</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sp_instance_link"&gt;&lt;sp_instance_link action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;class_name/&gt;&lt;color&gt;info&lt;/color&gt;&lt;css/&gt;&lt;glyph&gt;users&lt;/glyph&gt;&lt;id/&gt;&lt;kb_article/&gt;&lt;kb_category/&gt;&lt;kb_topic/&gt;&lt;order&gt;1&lt;/order&gt;&lt;roles/&gt;&lt;sc_cat_item/&gt;&lt;sc_category display_value="Managing Our Talent"&gt;4ce1977f1b92f810f639da09dc4bcbe2&lt;/sc_category&gt;&lt;short_description/&gt;&lt;size&gt;md&lt;/size&gt;&lt;sp_column display_value="1"&gt;7e87736f1bdef8107663a82c274bcb92&lt;/sp_column&gt;&lt;sp_page display_value="ihr_sc_category_2"&gt;ce27df331bd2f810f639da09dc4bcb9c&lt;/sp_page&gt;&lt;sp_widget display_value="Icon Link"&gt;3caa67afcb13020000f8d856634c9c2e&lt;/sp_widget&gt;&lt;sys_class_name&gt;sp_instance_link&lt;/sys_class_name&gt;&lt;sys_created_by&gt;james.taylor&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2021-09-03 04:50:05&lt;/sys_created_on&gt;&lt;sys_id&gt;729707a61b1a38107663a82c274bcb07&lt;/sys_id&gt;&lt;sys_mod_count&gt;12&lt;/sys_mod_count&gt;&lt;sys_name&gt;Managing Our Talent&lt;/sys_name&gt;&lt;sys_package display_value="Employee Center Core" source="sn_hr_sp"&gt;3d1da2705b021200a4656ede91f91ab6&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Employee Center Core"&gt;3d1da2705b021200a4656ede91f91ab6&lt;/sys_scope&gt;&lt;sys_update_name&gt;sp_instance_link_729707a61b1a38107663a82c274bcb07&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;mark.galulu&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2021-09-14 00:56:56&lt;/sys_updated_on&gt;&lt;title&gt;Managing Our Talent&lt;/title&gt;&lt;type&gt;sc_category&lt;/type&gt;&lt;url/&gt;&lt;widget_parameters&gt;&lt;![CDATA[{
+	"link_template": {
+		"value": "Color Box",
+		"displayValue": "Color Box"
+	}
+}]]&gt;&lt;/widget_parameters&gt;&lt;/sp_instance_link&gt;&lt;sys_translated_text action="delete_multiple" query="documentkey=729707a61b1a38107663a82c274bcb07"/&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-1530875170</payload_hash>
+        <record_name>Managing Our Talent</record_name>
+        <reverted_from/>
+        <source>69a7ba2a1bd638107663a82c274bcbca</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>mark.galulu</sys_created_by>
+        <sys_created_on>2021-09-14 00:56:56</sys_created_on>
+        <sys_id>3abb76861b6234507663a82c274bcb8d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>17be1ce92a80000001</sys_recorded_at>
+        <sys_updated_by>mark.galulu</sys_updated_by>
+        <sys_updated_on>2021-09-14 00:56:56</sys_updated_on>
+        <type>Instance with Link</type>
+        <update_guid>b2bb76861462345097e4b0bb68cb0c8d</update_guid>
+        <update_guid_history>b2bb76861462345097e4b0bb68cb0c8d:-1530875170,16abb2860462345082ece37c6b55b51b:-534157891,108b7286d6623450baa95428e9005ed5:-1530875170,666bbe462562345076df6f369eaf1c32:-1856076771,1f31eb7b38d2f81059969086416e67ac:344207899,1a2163bb6fd2f81081517bdd7aebe1d2:-1556260611,ce97376f55def81081226fb4495b9600:-515689952,ea284fa6871a38103bfb9d77c995bcc3:-234119428,55284fa6bb1a3810ee791f748896fb1e:1448116702,bb18cba65f1a38103124c061c528d08c:717110462,05084ba6dd1a3810c82f5e2769919aff:-1026527405,bcc787a6ac1a38108e2d719a2b11c5f6:-1049412668,b69707a6be1a381022cce771fa1bd309:-1255514685</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Managing Our Talent">0c0997ce1ba234507663a82c274bcbd0</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>mark.galulu</sys_created_by>
+        <sys_created_on>2021-09-14 03:04:49</sys_created_on>
+        <sys_db_object display_value="" name="sp_instance_link">sp_instance_link</sys_db_object>
+        <sys_id>108f67e6fbdc481886052e0b74f74259</sys_id>
+        <sys_metadata>729707a61b1a38107663a82c274bcb07</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Managing Our Talent</sys_name>
+        <sys_package display_value="Employee Center Core" source="sn_hr_sp">3d1da2705b021200a4656ede91f91ab6</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</sys_scope>
+        <sys_scope_delete display_value="">0583d6de2a2743609422ef5f67d2a400</sys_scope_delete>
+        <sys_update_name>sp_instance_link_729707a61b1a38107663a82c274bcb07</sys_update_name>
+        <sys_update_version display_value="sp_instance_link_729707a61b1a38107663a82c274bcb07">3abb76861b6234507663a82c274bcb8d</sys_update_version>
+        <sys_updated_by>mark.galulu</sys_updated_by>
+        <sys_updated_on>2021-09-14 03:04:49</sys_updated_on>
+    </sys_metadata_delete>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</claim_owner_scope>
+        <claim_timestamp>185c6dabd300000001</claim_timestamp>
+        <metadata_update_name>sp_instance_link_729707a61b1a38107663a82c274bcb07</metadata_update_name>
+        <previous_claim_app_version>26.0.4</previous_claim_app_version>
+        <previous_claim_name>Employee Center Core</previous_claim_name>
+        <previous_claim_scope>3d1da2705b021200a4656ede91f91ab6</previous_claim_scope>
+        <sys_created_by>sam.herring</sys_created_by>
+        <sys_created_on>2023-01-18 21:48:22</sys_created_on>
+        <sys_id>e9ceb79c1b68e110f639da09dc4bcbb4</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>sam.herring</sys_updated_by>
+        <sys_updated_on>2023-01-18 21:48:22</sys_updated_on>
+    </sys_claim>
+</record_update>

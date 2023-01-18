@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_instance">
+    <sp_instance action="DELETE">
+        <active>true</active>
+        <class_name/>
+        <color>default</color>
+        <css/>
+        <glyph>th-list</glyph>
+        <id/>
+        <order>1</order>
+        <roles/>
+        <short_description/>
+        <size>md</size>
+        <sp_column display_value="1">0edd1e541b437490f639da09dc4bcbc0</sp_column>
+        <sp_widget display_value="Knowledge Featured Articles">ba8d45ffdb50320099f93691f0b8f51b</sp_widget>
+        <sys_class_name>sp_instance</sys_class_name>
+        <sys_created_by>james.taylor</sys_created_by>
+        <sys_created_on>2021-09-14 02:58:01</sys_created_on>
+        <sys_id>ec77934e1ba2b050f639da09dc4bcbf9</sys_id>
+        <sys_mod_count>12</sys_mod_count>
+        <sys_name>FAQs</sys_name>
+        <sys_package display_value="Employee Center Core" source="sn_hr_sp">3d1da2705b021200a4656ede91f91ab6</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</sys_scope>
+        <sys_update_name>sp_instance_ec77934e1ba2b050f639da09dc4bcbf9</sys_update_name>
+        <sys_updated_by>mark.galulu</sys_updated_by>
+        <sys_updated_on>2021-10-03 08:48:41</sys_updated_on>
+        <title>FAQs</title>
+        <url/>
+        <widget_parameters><![CDATA[{
+	"table": {
+		"value": "kb_knowledge",
+		"displayValue": "Knowledge"
+	},
+	"display_field": {
+		"value": "short_description",
+		"displayValue": "short_description"
+	},
+	"secondary_fields": {
+		"value": "rating",
+		"displayValue": "rating"
+	},
+	"max_records": {
+		"value": "5",
+		"displayValue": "5"
+	},
+	"always_show": {
+		"value": "true",
+		"displayValue": "true"
+	},
+	"show_secondary_fields_label": {
+		"value": "false",
+		"displayValue": "false"
+	},
+	"knowledge_base": {
+		"value": "0d5763ff1bd2f810f639da09dc4bcb6d",
+		"displayValue": "Employee HR Knowledge"
+	}
+}]]></widget_parameters>
+    </sp_instance>
+    <sys_translated_text action="DELETE" query="documentkey=ec77934e1ba2b050f639da09dc4bcbf9"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</application>
+        <file_path/>
+        <instance_id>5705a594dbb018d8413450b6f496194f</instance_id>
+        <instance_name>deloitteaus7</instance_name>
+        <name>sp_instance_ec77934e1ba2b050f639da09dc4bcbf9</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sp_instance"&gt;&lt;sp_instance action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;class_name/&gt;&lt;color&gt;default&lt;/color&gt;&lt;css/&gt;&lt;glyph&gt;th-list&lt;/glyph&gt;&lt;id/&gt;&lt;order&gt;1&lt;/order&gt;&lt;roles/&gt;&lt;short_description/&gt;&lt;size&gt;md&lt;/size&gt;&lt;sp_column display_value="1"&gt;0edd1e541b437490f639da09dc4bcbc0&lt;/sp_column&gt;&lt;sp_widget display_value="Knowledge Featured Articles"&gt;ba8d45ffdb50320099f93691f0b8f51b&lt;/sp_widget&gt;&lt;sys_class_name&gt;sp_instance&lt;/sys_class_name&gt;&lt;sys_created_by&gt;james.taylor&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2021-09-14 02:58:01&lt;/sys_created_on&gt;&lt;sys_id&gt;ec77934e1ba2b050f639da09dc4bcbf9&lt;/sys_id&gt;&lt;sys_mod_count&gt;12&lt;/sys_mod_count&gt;&lt;sys_name&gt;FAQs&lt;/sys_name&gt;&lt;sys_package display_value="Employee Center Core" source="sn_hr_sp"&gt;3d1da2705b021200a4656ede91f91ab6&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Employee Center Core"&gt;3d1da2705b021200a4656ede91f91ab6&lt;/sys_scope&gt;&lt;sys_update_name&gt;sp_instance_ec77934e1ba2b050f639da09dc4bcbf9&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;mark.galulu&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2021-10-03 08:48:41&lt;/sys_updated_on&gt;&lt;title&gt;FAQs&lt;/title&gt;&lt;url/&gt;&lt;widget_parameters&gt;&lt;![CDATA[{
+	"table": {
+		"value": "kb_knowledge",
+		"displayValue": "Knowledge"
+	},
+	"display_field": {
+		"value": "short_description",
+		"displayValue": "short_description"
+	},
+	"secondary_fields": {
+		"value": "rating",
+		"displayValue": "rating"
+	},
+	"max_records": {
+		"value": "5",
+		"displayValue": "5"
+	},
+	"always_show": {
+		"value": "true",
+		"displayValue": "true"
+	},
+	"show_secondary_fields_label": {
+		"value": "false",
+		"displayValue": "false"
+	},
+	"knowledge_base": {
+		"value": "0d5763ff1bd2f810f639da09dc4bcb6d",
+		"displayValue": "Employee HR Knowledge"
+	}
+}]]&gt;&lt;/widget_parameters&gt;&lt;/sp_instance&gt;&lt;sys_translated_text action="delete_multiple" query="documentkey=ec77934e1ba2b050f639da09dc4bcbf9"/&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>1754133062</payload_hash>
+        <record_name>FAQs</record_name>
+        <reverted_from/>
+        <source>69a7ba2a1bd638107663a82c274bcbca</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>mark.galulu</sys_created_by>
+        <sys_created_on>2021-10-03 08:48:41</sys_created_on>
+        <sys_id>deed5e541b437490f639da09dc4bcb97</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>17c45574ad00000001</sys_recorded_at>
+        <sys_updated_by>mark.galulu</sys_updated_by>
+        <sys_updated_on>2021-10-03 08:48:41</sys_updated_on>
+        <type>Instance</type>
+        <update_guid>5aed5e545f4374901444f6cfafb9ed97</update_guid>
+        <update_guid_history>5aed5e545f4374901444f6cfafb9ed97:1754133062,d6ed1e54be4374906719d2c41a1d30d1:1185809975,dbdd5e54d543749027b0c5b4abed6e07:1231086402,47dd1e5486437490914f1b615f276149:1185809975,c5bd5a54814374908d8afab7be9c0c7d:1231086402,d7ad1a54334374901c9ebad0b2efddd1:140329130,c307e94f6cb63490ac21dfde19e37a6b:692323617,cf2990cb09b23490053da26d82d2a1ef:153560832,d3a5f3a4067a3c5010bcbe80a94f4283:692323617,1885bf64af7a3c50b6b6d7cfff8782e5:-1920995021,450002c73ce2f450243fa997df358256:-1225269416,7777934effa2b050ef5c0e8991b167dd:-326308571,6c77934e36a2b050ff2e3b3a4bece5fb:892611647</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="FAQs">5fed5e541b437490f639da09dc4bcbe8</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>mark.galulu</sys_created_by>
+        <sys_created_on>2021-10-03 08:48:45</sys_created_on>
+        <sys_db_object display_value="" name="sp_instance">sp_instance</sys_db_object>
+        <sys_id>52971f2807cb45009f5e3f0909cca840</sys_id>
+        <sys_metadata>ec77934e1ba2b050f639da09dc4bcbf9</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>FAQs</sys_name>
+        <sys_package display_value="Employee Center Core" source="sn_hr_sp">3d1da2705b021200a4656ede91f91ab6</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</sys_scope>
+        <sys_scope_delete display_value="">0583d6de2a2743609422ef5f67d2a400</sys_scope_delete>
+        <sys_update_name>sp_instance_ec77934e1ba2b050f639da09dc4bcbf9</sys_update_name>
+        <sys_update_version display_value="sp_instance_ec77934e1ba2b050f639da09dc4bcbf9">deed5e541b437490f639da09dc4bcb97</sys_update_version>
+        <sys_updated_by>mark.galulu</sys_updated_by>
+        <sys_updated_on>2021-10-03 08:48:45</sys_updated_on>
+    </sys_metadata_delete>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</claim_owner_scope>
+        <claim_timestamp>185c6dabd130000001</claim_timestamp>
+        <metadata_update_name>sp_instance_ec77934e1ba2b050f639da09dc4bcbf9</metadata_update_name>
+        <previous_claim_app_version>26.0.4</previous_claim_app_version>
+        <previous_claim_name>Employee Center Core</previous_claim_name>
+        <previous_claim_scope>3d1da2705b021200a4656ede91f91ab6</previous_claim_scope>
+        <sys_created_by>sam.herring</sys_created_by>
+        <sys_created_on>2023-01-18 21:48:22</sys_created_on>
+        <sys_id>99ceb79c1b68e110f639da09dc4bcbb2</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>sam.herring</sys_updated_by>
+        <sys_updated_on>2023-01-18 21:48:22</sys_updated_on>
+    </sys_claim>
+</record_update>

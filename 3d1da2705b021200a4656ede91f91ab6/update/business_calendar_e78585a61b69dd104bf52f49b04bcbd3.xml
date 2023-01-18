@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="business_calendar">
+    <business_calendar action="INSERT_OR_UPDATE">
+        <calendar_name>Thrive</calendar_name>
+        <description/>
+        <is_legacy_schedule>false</is_legacy_schedule>
+        <label>Thrive</label>
+        <parent/>
+        <plural_label>Thrive</plural_label>
+        <sys_class_name>business_calendar</sys_class_name>
+        <sys_created_by>james.taylor</sys_created_by>
+        <sys_created_on>2022-08-29 04:57:17</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>e78585a61b69dd104bf52f49b04bcbd3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Thrive</sys_name>
+        <sys_package display_value="Employee Center Core" source="sn_hr_sp">3d1da2705b021200a4656ede91f91ab6</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</sys_scope>
+        <sys_update_name>business_calendar_e78585a61b69dd104bf52f49b04bcbd3</sys_update_name>
+        <sys_updated_by>james.taylor</sys_updated_by>
+        <sys_updated_on>2022-08-29 04:57:17</sys_updated_on>
+        <time_zone>Australia/Melbourne</time_zone>
+    </business_calendar>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</claim_owner_scope>
+        <claim_timestamp>185c6dac9750000001</claim_timestamp>
+        <metadata_update_name>business_calendar_e78585a61b69dd104bf52f49b04bcbd3</metadata_update_name>
+        <previous_claim_app_version>26.0.4</previous_claim_app_version>
+        <previous_claim_name>Employee Center Core</previous_claim_name>
+        <previous_claim_scope>3d1da2705b021200a4656ede91f91ab6</previous_claim_scope>
+        <sys_created_by>sam.herring</sys_created_by>
+        <sys_created_on>2023-01-18 21:48:25</sys_created_on>
+        <sys_id>5acef79c1b68e110f639da09dc4bcbde</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>sam.herring</sys_updated_by>
+        <sys_updated_on>2023-01-18 21:48:25</sys_updated_on>
+    </sys_claim>
+</record_update>

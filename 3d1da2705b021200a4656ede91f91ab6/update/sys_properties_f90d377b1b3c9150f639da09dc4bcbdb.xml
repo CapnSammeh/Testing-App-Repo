@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_properties">
+    <sys_properties action="INSERT_OR_UPDATE">
+        <choices/>
+        <description>If true, portal css would be in rem units</description>
+        <ignore_cache>true</ignore_cache>
+        <is_private>false</is_private>
+        <name>glide.service_portal.resize_text.sk.enable_rem_conversion</name>
+        <read_roles/>
+        <suffix/>
+        <sys_class_name>sys_properties</sys_class_name>
+        <sys_created_by>ailyn.agoy</sys_created_by>
+        <sys_created_on>2022-07-27 08:44:02</sys_created_on>
+        <sys_id>f90d377b1b3c9150f639da09dc4bcbdb</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>glide.service_portal.resize_text.sk.enable_rem_conversion</sys_name>
+        <sys_package display_value="Employee Center Core" source="sn_hr_sp">3d1da2705b021200a4656ede91f91ab6</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</sys_scope>
+        <sys_update_name>sys_properties_f90d377b1b3c9150f639da09dc4bcbdb</sys_update_name>
+        <sys_updated_by>ailyn.agoy</sys_updated_by>
+        <sys_updated_on>2022-07-27 08:44:02</sys_updated_on>
+        <type>boolean</type>
+        <value>true</value>
+        <write_roles/>
+    </sys_properties>
+    <sys_translated_text action="delete_multiple" query="documentkey=f90d377b1b3c9150f639da09dc4bcbdb"/>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</claim_owner_scope>
+        <claim_timestamp>185c6dabbce0000001</claim_timestamp>
+        <metadata_update_name>sys_properties_f90d377b1b3c9150f639da09dc4bcbdb</metadata_update_name>
+        <previous_claim_app_version>26.0.4</previous_claim_app_version>
+        <previous_claim_name>Employee Center Core</previous_claim_name>
+        <previous_claim_scope>3d1da2705b021200a4656ede91f91ab6</previous_claim_scope>
+        <sys_created_by>sam.herring</sys_created_by>
+        <sys_created_on>2023-01-18 21:48:21</sys_created_on>
+        <sys_id>ddceb79c1b68e110f639da09dc4bcb8e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>sam.herring</sys_updated_by>
+        <sys_updated_on>2023-01-18 21:48:21</sys_updated_on>
+    </sys_claim>
+</record_update>

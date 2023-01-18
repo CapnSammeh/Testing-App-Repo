@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="announcement">
+    <announcement action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <click_target/>
+        <details/>
+        <details_link_text/>
+        <details_page/>
+        <details_url/>
+        <dismiss_options>dismissible</dismiss_options>
+        <display_first>false</display_first>
+        <display_style display_value="Normal">704dedd6e7d4030075c2a117c2f6a91b</display_style>
+        <from>2021-12-12 01:25:43</from>
+        <glyph/>
+        <glyph_alt_text/>
+        <name>HR Get Excited</name>
+        <public>false</public>
+        <roles/>
+        <show_for_unauthenticated_users_only>false</show_for_unauthenticated_users_only>
+        <summary>We are building a new HR portal to address all your HR and Finance queries. Keep an eye out on University newsletters and comms for future updates!</summary>
+        <sys_class_name>announcement</sys_class_name>
+        <sys_created_by>james.taylor</sys_created_by>
+        <sys_created_on>2021-12-13 01:26:36</sys_created_on>
+        <sys_id>1241620f1b980910f639da09dc4bcb4e</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>HR Get Excited</sys_name>
+        <sys_package display_value="Employee Center Core" source="sn_hr_sp">3d1da2705b021200a4656ede91f91ab6</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</sys_scope>
+        <sys_update_name>announcement_1241620f1b980910f639da09dc4bcb4e</sys_update_name>
+        <sys_updated_by>james.taylor</sys_updated_by>
+        <sys_updated_on>2021-12-13 01:26:52</sys_updated_on>
+        <title>New HR Portal coming soon, get excited!</title>
+        <to/>
+        <type>67eaf134e7a3320075c2a117c2f6a9d2,52fa79f8e763320075c2a117c2f6a991</type>
+    </announcement>
+    <sys_translated_text action="delete_multiple" query="documentkey=1241620f1b980910f639da09dc4bcb4e"/>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</claim_owner_scope>
+        <claim_timestamp>185c6dac6540000001</claim_timestamp>
+        <metadata_update_name>announcement_1241620f1b980910f639da09dc4bcb4e</metadata_update_name>
+        <previous_claim_app_version>26.0.4</previous_claim_app_version>
+        <previous_claim_name>Employee Center Core</previous_claim_name>
+        <previous_claim_scope>3d1da2705b021200a4656ede91f91ab6</previous_claim_scope>
+        <sys_created_by>sam.herring</sys_created_by>
+        <sys_created_on>2023-01-18 21:48:24</sys_created_on>
+        <sys_id>c2cef79c1b68e110f639da09dc4bcb92</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>sam.herring</sys_updated_by>
+        <sys_updated_on>2023-01-18 21:48:24</sys_updated_on>
+    </sys_claim>
+</record_update>

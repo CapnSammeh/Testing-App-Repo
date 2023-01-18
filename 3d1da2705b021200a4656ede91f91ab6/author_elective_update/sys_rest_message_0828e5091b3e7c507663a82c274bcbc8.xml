@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_rest_message">
+    <sys_rest_message action="DELETE">
+        <access>public</access>
+        <authentication_type>no_authentication</authentication_type>
+        <basic_auth_password/>
+        <basic_auth_profile/>
+        <basic_auth_user/>
+        <description/>
+        <name>OpenWeatherAPI</name>
+        <oauth2_profile/>
+        <protocol_name/>
+        <rest_endpoint>https://api.openweathermap.org/data/2.5/</rest_endpoint>
+        <sys_class_name>sys_rest_message</sys_class_name>
+        <sys_created_by>james.taylor</sys_created_by>
+        <sys_created_on>2021-09-23 02:34:21</sys_created_on>
+        <sys_id>0828e5091b3e7c507663a82c274bcbc8</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>OpenWeatherAPI</sys_name>
+        <sys_package display_value="Employee Center Core" source="sn_hr_sp">3d1da2705b021200a4656ede91f91ab6</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</sys_scope>
+        <sys_update_name>sys_rest_message_0828e5091b3e7c507663a82c274bcbc8</sys_update_name>
+        <sys_updated_by>james.taylor</sys_updated_by>
+        <sys_updated_on>2021-09-23 02:34:21</sys_updated_on>
+        <use_basic_auth>false</use_basic_auth>
+        <use_mutual_auth>false</use_mutual_auth>
+    </sys_rest_message>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</application>
+        <file_path/>
+        <instance_id>5705a594dbb018d8413450b6f496194f</instance_id>
+        <instance_name>deloitteaus7</instance_name>
+        <name>sys_rest_message_0828e5091b3e7c507663a82c274bcbc8</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_rest_message"><sys_rest_message action="INSERT_OR_UPDATE"><access>public</access><authentication_type>no_authentication</authentication_type><basic_auth_password/><basic_auth_profile/><basic_auth_user/><description/><name>OpenWeatherAPI</name><oauth2_profile/><protocol_name/><rest_endpoint>https://api.openweathermap.org/data/2.5/</rest_endpoint><sys_class_name>sys_rest_message</sys_class_name><sys_created_by>james.taylor</sys_created_by><sys_created_on>2021-09-23 02:34:21</sys_created_on><sys_id>0828e5091b3e7c507663a82c274bcbc8</sys_id><sys_mod_count>0</sys_mod_count><sys_name>OpenWeatherAPI</sys_name><sys_package display_value="Employee Center Core" source="sn_hr_sp">3d1da2705b021200a4656ede91f91ab6</sys_package><sys_policy/><sys_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</sys_scope><sys_update_name>sys_rest_message_0828e5091b3e7c507663a82c274bcbc8</sys_update_name><sys_updated_by>james.taylor</sys_updated_by><sys_updated_on>2021-09-23 02:34:21</sys_updated_on><use_basic_auth>false</use_basic_auth><use_mutual_auth>false</use_mutual_auth></sys_rest_message></record_update>]]></payload>
+        <payload_hash>-482116626</payload_hash>
+        <record_name>OpenWeatherAPI</record_name>
+        <reverted_from/>
+        <source>09e7e1091b3e7c507663a82c274bcbc1</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>james.taylor</sys_created_by>
+        <sys_created_on>2021-09-23 02:34:22</sys_created_on>
+        <sys_id>e958a9091b3e7c507663a82c274bcb61</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>17c1080ffeb0000001</sys_recorded_at>
+        <sys_updated_by>james.taylor</sys_updated_by>
+        <sys_updated_on>2021-09-23 02:34:22</sys_updated_on>
+        <type>REST Message</type>
+        <update_guid>2558a9092e3e7c505b865a215eff0561</update_guid>
+        <update_guid_history>2558a9092e3e7c505b865a215eff0561:-482116626</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>james.taylor</sys_created_by>
+        <sys_created_on>2021-09-23 03:38:00</sys_created_on>
+        <sys_db_object display_value="" name="sys_rest_message">sys_rest_message</sys_db_object>
+        <sys_id>35802636b949433190999142574906a9</sys_id>
+        <sys_metadata>0828e5091b3e7c507663a82c274bcbc8</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>OpenWeatherAPI</sys_name>
+        <sys_package display_value="Employee Center Core" source="sn_hr_sp">3d1da2705b021200a4656ede91f91ab6</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</sys_scope>
+        <sys_scope_delete display_value="">0583d6de2a2743609422ef5f67d2a400</sys_scope_delete>
+        <sys_update_name>sys_rest_message_0828e5091b3e7c507663a82c274bcbc8</sys_update_name>
+        <sys_update_version display_value="sys_rest_message_0828e5091b3e7c507663a82c274bcbc8">e958a9091b3e7c507663a82c274bcb61</sys_update_version>
+        <sys_updated_by>james.taylor</sys_updated_by>
+        <sys_updated_on>2021-09-23 03:38:00</sys_updated_on>
+    </sys_metadata_delete>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</claim_owner_scope>
+        <claim_timestamp>185c6dabbc70000001</claim_timestamp>
+        <metadata_update_name>sys_rest_message_0828e5091b3e7c507663a82c274bcbc8</metadata_update_name>
+        <previous_claim_app_version>26.0.4</previous_claim_app_version>
+        <previous_claim_name>Employee Center Core</previous_claim_name>
+        <previous_claim_scope>3d1da2705b021200a4656ede91f91ab6</previous_claim_scope>
+        <sys_created_by>sam.herring</sys_created_by>
+        <sys_created_on>2023-01-18 21:48:21</sys_created_on>
+        <sys_id>15ceb79c1b68e110f639da09dc4bcb8e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>sam.herring</sys_updated_by>
+        <sys_updated_on>2023-01-18 21:48:21</sys_updated_on>
+    </sys_claim>
+</record_update>

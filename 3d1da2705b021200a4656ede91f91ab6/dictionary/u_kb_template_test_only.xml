@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element attributes="document_viewer_audit=all,global_search_config_handler=KnowledgeArticle,all_tables.text_index_translations=true,attachment_index=true,text_index_attachment_displayed=true,text_index_enable_idf=true,synch_attachments=true,use_document_viewer=true,text_index_filter_junk=false" audit="true" db_object_id="4a68f2b51bc69910f639da09dc4bcba3" extends="kb_knowledge" label="TEST ONLY" max_length="40" name="u_kb_template_test_only" text_index="true" type="collection">
+        <element label="Title" mandatory="true" max_length="500" name="u_kb_title" text_index="true" type="string"/>
+        <element choice="1" label="Test type" max_length="40" name="u_test_type" type="string">
+            <choice>
+                <element inactive_on_update="false" label="Wiki" value="Wiki"/>
+            </choice>
+        </element>
+        <element attributes="editor.height=400,editor.style_formats=[{name:'testFormat',format:'strong'}],editor.plugins=table colorpicker textcolor link image imagetools media codemirror lists advlist fullscreen charmap directionality emoticons hr insertdatetime nonbreaking pagebreak print searchreplace wordcount anchor toc codesample visualblocks visualchars compat3x autolink align_listitems,editor.toolbar=fontselect fontsizeselect | bold italic underline strikethrough forecolor backcolor pastetext removeformat | formatselect searchreplace undo redo |  bullist numlist outdent indent alignleft aligncenter alignright | table  link unlink  image media codesample | code fullscreen" label="Content" mandatory="true" max_length="8000" name="u_kb_content" text_index="true" type="html"/>
+    </element>
+</database>

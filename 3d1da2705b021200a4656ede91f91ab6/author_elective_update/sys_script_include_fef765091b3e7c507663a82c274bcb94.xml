@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="DELETE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>sn_hr_sp.ihr_todayWidgetUtils</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>ihr_todayWidgetUtils</name>
+        <script><![CDATA[var ihr_todayWidgetUtils = Class.create();
+ihr_todayWidgetUtils.prototype = {
+    initialize: function() {
+        this.SCOPE = 'sn_hr_sp';
+        this.CATASTROPHIC_ERROR_TEXT = new global.ihr_errorUtils().CATASTROPHIC_ERROR_TEXT || 'CATASTROPHIC_FAILURE';
+        this.APIKEY = gs.getProperty('sn_hr_sp.ihr.widget.today.weather.apikey');
+    },
+
+
+    _debug : function(msg){
+        try{
+            new global.integrateHR_errorUtils().debug('', this.SCOPE, this.type, msg);
+        } catch(err) {
+            this._logError('UNABLE TO CALL IHR DEBUG, ERROR: ' + err, msg);
+        }
+    },
+
+
+
+    _logError : function(errorMessage, debugLog){
+        if(typeof errorMessage === 'undefined')
+            errorMessage = 'UNKNOWN ERROR THROWN WITHOUT MESSAGE';
+        if(typeof debugLog === 'undefined')
+            debugLog = 'NO DEBUG LOG PASSED';
+
+        try{
+            new global.integrateHR_errorUtils().logError(this.SCOPE, this.type, errorMessage, debugLog);
+        } catch(err) {
+            gs.error('[SI:{0}.{1}]: ' + this.CATASTROPHIC_ERROR_TEXT + ' UNABLE TO CALL MSP ERROR LOGGING: {2}', this.SCOPE, this.type, err);
+        }
+    },
+
+
+
+    /**
+     * @description Return values of the weather based on the city location of the caller.
+     * 
+     * @param {sysid} cityId - A single cityId value acceptable to OpenWeatherMap API
+     * @returns {object} Object of response values for the widget
+     * @property {number} temperature       - Temperature in degrees Celsius
+     * @property {number} weather_id        - openweathermap ID value of the weather
+     * @property {string} weather_desc      - brief description of the type of weather
+     * @property {string} weather_icon_id   - ID value of the Icon of the weather description
+     * @returns {string} nocityfound - city search did not complete accurately.
+     * 
+     * @exception {APIKEY_UNDEFINED} apikey must be setup in the system
+     * @exception {APICALL_UNSUCCESSFUL} the api did not return a 200 response code
+     * @exception error - unknown error
+     * 
+     * @todo setup validations to make sure the response contains values
+     */
+    getWeather_byCityId : function(cityId){
+        try{
+            var scriptLocation = '[getWeather_byCityId]: ';
+            var debugLog = scriptLocation + 'START cityId: ' + cityId + '\n- ';
+
+            // apikey = 5b33749e8184612139fae45f122eabfd
+            if(typeof this.APIKEY === 'undefined' || this.APIKEY == ''){
+                throw 'APIKEY_UNDEFINED';
+            }
+            if(typeof cityId === 'undefined' || cityId == ''){
+                cityId = gs.getProperty('ihr.widget.today.weather.cityid.default');
+            }
+            debugLog += 'cityId : ' + cityId + '\n-  ';
+
+            var weather = new sn_ws.RESTMessageV2('OpenWeatherAPI', 'GET_weather_byCityID');
+            weather.setStringParameter('city_id', cityId);
+            weather.setStringParameter('apikey', this.APIKEY);
+
+            var response = weather.execute();
+            var responseBody = JSON.parse(response.getBody());
+            var httpStatus = response.getStatusCode();
+            debugLog += 'status code: ' + httpStatus + ' | response body: ' + JSON.stringify(responseBody) + '\n-  ';
+
+            if(httpStatus != 200){
+                throw 'APICALL_UNSUCCESSFUL';
+            }
+
+            var weatherDesc = this._convert_to_titleCase(responseBody.weather[0].description);
+            debugLog += 'weather desc: ' + responseBody.weather[0].description + ' | converted to: ' + weatherDesc + '\n-  ';
+
+            // Kelvin to Celsius formula = 0K - 273.15 = -273.15C
+            // icon: https://openweathermap.org/img/wn/<responseBody.weather[0].icon>@2x.png
+            // https://openweathermap.org/weather-conditions
+            responseObject = {
+                "temperature": parseFloat(responseBody.main.temp).toFixed(2) - 273.15,
+                "weather_id": responseBody.weather[0].id,
+                "weather_desc": weatherDesc,
+                "weather_icon_id": responseBody.weather[0].icon
+            };
+            debugLog += 'responseObject: ' + JSON.stringify(responseObject) + '\n-  ';
+
+            this._debug(debugLog);
+            return responseObject;
+        } catch(err) {
+            this._logError(err, debugLog);
+            return 'error';
+        }
+    },
+
+
+
+    _convert_to_titleCase : function(string) {
+        var sentence = string.toLowerCase().split(" ");
+        for(var i = 0; i< sentence.length; i++){
+           sentence[i] = sentence[i][0].toUpperCase() + sentence[i].slice(1);
+        }
+        sentence = sentence.join(" ");
+        return sentence;
+    },
+
+
+
+    type: 'ihr_todayWidgetUtils'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>james.taylor</sys_created_by>
+        <sys_created_on>2021-09-23 02:33:04</sys_created_on>
+        <sys_id>fef765091b3e7c507663a82c274bcb94</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>ihr_todayWidgetUtils</sys_name>
+        <sys_package display_value="Employee Center Core" source="sn_hr_sp">3d1da2705b021200a4656ede91f91ab6</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</sys_scope>
+        <sys_update_name>sys_script_include_fef765091b3e7c507663a82c274bcb94</sys_update_name>
+        <sys_updated_by>james.taylor</sys_updated_by>
+        <sys_updated_on>2021-09-23 03:35:49</sys_updated_on>
+    </sys_script_include>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</application>
+        <file_path/>
+        <instance_id>5705a594dbb018d8413450b6f496194f</instance_id>
+        <instance_name>deloitteaus7</instance_name>
+        <name>sys_script_include_fef765091b3e7c507663a82c274bcb94</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_script_include"&gt;&lt;sys_script_include action="INSERT_OR_UPDATE"&gt;&lt;access&gt;package_private&lt;/access&gt;&lt;active&gt;true&lt;/active&gt;&lt;api_name&gt;sn_hr_sp.ihr_todayWidgetUtils&lt;/api_name&gt;&lt;caller_access/&gt;&lt;client_callable&gt;false&lt;/client_callable&gt;&lt;description/&gt;&lt;name&gt;ihr_todayWidgetUtils&lt;/name&gt;&lt;script&gt;&lt;![CDATA[var ihr_todayWidgetUtils = Class.create();
+ihr_todayWidgetUtils.prototype = {
+    initialize: function() {
+        this.SCOPE = 'sn_hr_sp';
+        this.CATASTROPHIC_ERROR_TEXT = new global.ihr_errorUtils().CATASTROPHIC_ERROR_TEXT || 'CATASTROPHIC_FAILURE';
+        this.APIKEY = gs.getProperty('sn_hr_sp.ihr.widget.today.weather.apikey');
+    },
+
+
+    _debug : function(msg){
+        try{
+            new global.integrateHR_errorUtils().debug('', this.SCOPE, this.type, msg);
+        } catch(err) {
+            this._logError('UNABLE TO CALL IHR DEBUG, ERROR: ' + err, msg);
+        }
+    },
+
+
+
+    _logError : function(errorMessage, debugLog){
+        if(typeof errorMessage === 'undefined')
+            errorMessage = 'UNKNOWN ERROR THROWN WITHOUT MESSAGE';
+        if(typeof debugLog === 'undefined')
+            debugLog = 'NO DEBUG LOG PASSED';
+
+        try{
+            new global.integrateHR_errorUtils().logError(this.SCOPE, this.type, errorMessage, debugLog);
+        } catch(err) {
+            gs.error('[SI:{0}.{1}]: ' + this.CATASTROPHIC_ERROR_TEXT + ' UNABLE TO CALL MSP ERROR LOGGING: {2}', this.SCOPE, this.type, err);
+        }
+    },
+
+
+
+    /**
+     * @description Return values of the weather based on the city location of the caller.
+     * 
+     * @param {sysid} cityId - A single cityId value acceptable to OpenWeatherMap API
+     * @returns {object} Object of response values for the widget
+     * @property {number} temperature       - Temperature in degrees Celsius
+     * @property {number} weather_id        - openweathermap ID value of the weather
+     * @property {string} weather_desc      - brief description of the type of weather
+     * @property {string} weather_icon_id   - ID value of the Icon of the weather description
+     * @returns {string} nocityfound - city search did not complete accurately.
+     * 
+     * @exception {APIKEY_UNDEFINED} apikey must be setup in the system
+     * @exception {APICALL_UNSUCCESSFUL} the api did not return a 200 response code
+     * @exception error - unknown error
+     * 
+     * @todo setup validations to make sure the response contains values
+     */
+    getWeather_byCityId : function(cityId){
+        try{
+            var scriptLocation = '[getWeather_byCityId]: ';
+            var debugLog = scriptLocation + 'START cityId: ' + cityId + '\n- ';
+
+            // apikey = 5b33749e8184612139fae45f122eabfd
+            if(typeof this.APIKEY === 'undefined' || this.APIKEY == ''){
+                throw 'APIKEY_UNDEFINED';
+            }
+            if(typeof cityId === 'undefined' || cityId == ''){
+                cityId = gs.getProperty('ihr.widget.today.weather.cityid.default');
+            }
+            debugLog += 'cityId : ' + cityId + '\n-  ';
+
+            var weather = new sn_ws.RESTMessageV2('OpenWeatherAPI', 'GET_weather_byCityID');
+            weather.setStringParameter('city_id', cityId);
+            weather.setStringParameter('apikey', this.APIKEY);
+
+            var response = weather.execute();
+            var responseBody = JSON.parse(response.getBody());
+            var httpStatus = response.getStatusCode();
+            debugLog += 'status code: ' + httpStatus + ' | response body: ' + JSON.stringify(responseBody) + '\n-  ';
+
+            if(httpStatus != 200){
+                throw 'APICALL_UNSUCCESSFUL';
+            }
+
+            var weatherDesc = this._convert_to_titleCase(responseBody.weather[0].description);
+            debugLog += 'weather desc: ' + responseBody.weather[0].description + ' | converted to: ' + weatherDesc + '\n-  ';
+
+            // Kelvin to Celsius formula = 0K - 273.15 = -273.15C
+            // icon: https://openweathermap.org/img/wn/&lt;responseBody.weather[0].icon&gt;@2x.png
+            // https://openweathermap.org/weather-conditions
+            responseObject = {
+                "temperature": parseFloat(responseBody.main.temp).toFixed(2) - 273.15,
+                "weather_id": responseBody.weather[0].id,
+                "weather_desc": weatherDesc,
+                "weather_icon_id": responseBody.weather[0].icon
+            };
+            debugLog += 'responseObject: ' + JSON.stringify(responseObject) + '\n-  ';
+
+            this._debug(debugLog);
+            return responseObject;
+        } catch(err) {
+            this._logError(err, debugLog);
+            return 'error';
+        }
+    },
+
+
+
+    _convert_to_titleCase : function(string) {
+        var sentence = string.toLowerCase().split(" ");
+        for(var i = 0; i&lt; sentence.length; i++){
+           sentence[i] = sentence[i][0].toUpperCase() + sentence[i].slice(1);
+        }
+        sentence = sentence.join(" ");
+        return sentence;
+    },
+
+
+
+    type: 'ihr_todayWidgetUtils'
+};]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_include&lt;/sys_class_name&gt;&lt;sys_created_by&gt;james.taylor&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2021-09-23 02:33:04&lt;/sys_created_on&gt;&lt;sys_id&gt;fef765091b3e7c507663a82c274bcb94&lt;/sys_id&gt;&lt;sys_mod_count&gt;2&lt;/sys_mod_count&gt;&lt;sys_name&gt;ihr_todayWidgetUtils&lt;/sys_name&gt;&lt;sys_package display_value="Employee Center Core" source="sn_hr_sp"&gt;3d1da2705b021200a4656ede91f91ab6&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Employee Center Core"&gt;3d1da2705b021200a4656ede91f91ab6&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_include_fef765091b3e7c507663a82c274bcb94&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;james.taylor&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2021-09-23 03:35:49&lt;/sys_updated_on&gt;&lt;/sys_script_include&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-2079684650</payload_hash>
+        <record_name>ihr_todayWidgetUtils</record_name>
+        <reverted_from/>
+        <source>09e7e1091b3e7c507663a82c274bcbc1</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>james.taylor</sys_created_by>
+        <sys_created_on>2021-09-23 03:35:49</sys_created_on>
+        <sys_id>7166f9051b7e7c507663a82c274bcbb7</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>17c10b945560000001</sys_recorded_at>
+        <sys_updated_by>james.taylor</sys_updated_by>
+        <sys_updated_on>2021-09-23 03:35:49</sys_updated_on>
+        <type>Script Include</type>
+        <update_guid>f966f905a77e7c5048c5137500db2fb6</update_guid>
+        <update_guid_history>f966f905a77e7c5048c5137500db2fb6:-2079684650,bbc96189ae3e7c50d11e320bfd3b0f2a:1321541646,7a08a5097d3e7c508c11f3b7075af62a:675022632</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>james.taylor</sys_created_by>
+        <sys_created_on>2021-09-23 03:37:06</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_include">sys_script_include</sys_db_object>
+        <sys_id>3f4eab0f84a94e8aa43d315f3f32d5d9</sys_id>
+        <sys_metadata>fef765091b3e7c507663a82c274bcb94</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>ihr_todayWidgetUtils</sys_name>
+        <sys_package display_value="Employee Center Core" source="sn_hr_sp">3d1da2705b021200a4656ede91f91ab6</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</sys_scope>
+        <sys_scope_delete display_value="">0583d6de2a2743609422ef5f67d2a400</sys_scope_delete>
+        <sys_update_name>sys_script_include_fef765091b3e7c507663a82c274bcb94</sys_update_name>
+        <sys_update_version display_value="sys_script_include_fef765091b3e7c507663a82c274bcb94">7166f9051b7e7c507663a82c274bcbb7</sys_update_version>
+        <sys_updated_by>james.taylor</sys_updated_by>
+        <sys_updated_on>2021-09-23 03:37:06</sys_updated_on>
+    </sys_metadata_delete>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</claim_owner_scope>
+        <claim_timestamp>185c6dac5710000001</claim_timestamp>
+        <metadata_update_name>sys_script_include_fef765091b3e7c507663a82c274bcb94</metadata_update_name>
+        <previous_claim_app_version>26.0.4</previous_claim_app_version>
+        <previous_claim_name>Employee Center Core</previous_claim_name>
+        <previous_claim_scope>3d1da2705b021200a4656ede91f91ab6</previous_claim_scope>
+        <sys_created_by>sam.herring</sys_created_by>
+        <sys_created_on>2023-01-18 21:48:24</sys_created_on>
+        <sys_id>4acef79c1b68e110f639da09dc4bcb7d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>sam.herring</sys_updated_by>
+        <sys_updated_on>2023-01-18 21:48:24</sys_updated_on>
+    </sys_claim>
+</record_update>

@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function($rootScope, snAnalytics) {
+    /* widget controller */
+    var c = this;
+
+
+    if (!(c.data.response) || c.data.response.length == 0) {
+        $rootScope.$emit("NO_ARTICLE");
+    }
+
+    c.articleOpened = function(title) {
+        var payload = {};
+        payload.name = "Relevant For You";
+        payload.data = {};
+        payload.data["Article Title"] = title;
+        snAnalytics.addEvent(payload);
+    }
+
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.common-trending-pages-body-block {&#13;
+    max-width: 1200px;&#13;
+    margin: 0 auto;&#13;
+}&#13;
+.trending-page-card:hover {&#13;
+  box-shadow: 0 10px 10px 2px rgba(35, 31, 32, 0.16);&#13;
+}&#13;
+.trending-page-card {&#13;
+    border-radius: 3px;&#13;
+    background-color: #fff;&#13;
+    box-shadow: 0 1px 8px 0 rgba(35, 31, 32, 0.08), 0 3px 3px 0 rgba(35, 31, 32, 0.16);&#13;
+    cursor: pointer;&#13;
+    float: left;&#13;
+    height: 106px;&#13;
+    margin-right: 20px;&#13;
+    margin-bottom: 20px;&#13;
+    width: 280px;&#13;
+    transition: all .3s ease-out;&#13;
+}&#13;
+a {&#13;
+    display: inline-block;&#13;
+    height: 106px;&#13;
+    padding: 15px 20px;&#13;
+    width: 280px;&#13;
+    border-bottom: 0 solid transparent!important;&#13;
+    text-decoration: none!important;&#13;
+}&#13;
+.img-block {&#13;
+    float: left;&#13;
+}&#13;
+img {&#13;
+    border: none;&#13;
+    -webkit-tap-highlight-color: transparent;&#13;
+}&#13;
+.description-block {&#13;
+    float: left;&#13;
+    margin: 0 0 0 10px;&#13;
+    overflow: hidden;&#13;
+    max-height: 75px;&#13;
+    width: calc(100% - 75px);&#13;
+}&#13;
+p {&#13;
+    font-family: "CBABeaconSans-Regular",arial,sans-serif,serif!important;&#13;
+    color: #231f20;&#13;
+    margin: 0!important;&#13;
+    font-size: 16px!important;&#13;
+    font-weight: 700!important;&#13;
+    line-height: 1.5rem;&#13;
+    text-align: left;&#13;
+    --textstyle: "Text16Left";&#13;
+    --color: "textDark";&#13;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description>* Cloned from "Trending Articles"&#13;
+* Fixes made:&#13;
+1. Added missing options schema"users", "ariaLabelId", "recentActivityCutoffDate", "display_count"&#13;
+2. Rectified parameter passed in "getMostViewedArticles", "UserRecommendationUtil" methods&#13;
+* Added data needed for Sidekick view&#13;
+* Updated HTML structure and styling&#13;
+* </description>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>sk-trending-articles</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]></link>
+        <name>Sidekick Trending Articles</name>
+        <option_schema>[{"displayValue":"User","name":"users","display_value_list":[],"section":"Behavior","label":"Users","type":"glide_list","value":"sys_user","ed":{"reference":"sys_user"}},{"name":"display_count","section":"Behavior","label":"Display Count","type":"integer"},{"hint":"yyyy-mm-ddhh:mm:ss","name":"recentactivitycutoffdate","section":"Behavior","label":"Recent activity cut off date (yyyy-mm-ddhh:mm:ss)","type":"string"}]</option_schema>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+    /* populate the 'data' object */
+    /* e.g., data.table = $sp.getValue('table'); */
+    var knowledgeBases = String($sp.getKnowledgeBases());
+    var UserRecommendationUtil = new sn_hr_sp.UserRecommendationUtil();
+    data.users = options.users || [];
+    data.title = gs.getMessage("Knowledge Articles");
+    var displayCount = options.display_count || 3;
+    data.sysId = $sp.getParameter('sys_id') || options.ariaLabelId;
+	
+    if (GlidePluginManager.isActive('com.glide.platform_ml') && GlidePluginManager.isActive('com.sn_hr_core') && data.users && data.users.length > 0) {
+        var payload = {};
+		payload.users = data.users;
+		payload.knowledgeBases = knowledgeBases;
+		payload.articleCount = displayCount;
+		payload.recentActivityCutoffDate = options.recentActivityCutoffDate;
+		
+		
+		var results = UserRecommendationUtil.getArticlesforSimilarUsers(payload);
+        if (results.length < displayCount) {
+            var mostViewedArticleCount = displayCount - results.length;
+            var articlesToIgnore = [];
+            for (var i = 0; i < results.length; i++) {
+                articlesToIgnore.push(results[i].sys_id);
+            }
+            var mostViewedArticles = getMostViewedArticles(mostViewedArticleCount, articlesToIgnore);
+            results = results.concat(mostViewedArticles);
+        }
+        data.response = results;
+    } else {
+        data.response = getMostViewedArticles(displayCount);
+    }
+
+    // add sidekick related data in the response
+    var responseLength = data.response.length;
+    for (var ctr = 0; ctr < responseLength; ctr++) {
+        // add defaults
+        data.response[ctr].url = "";
+        data.response[ctr].icon_url = "";
+        data.response[ctr].icon_alt = "";
+
+        // get KBA data related to Sidekick and add it to data.response
+        var grKba = new GlideRecord("kb_knowledge");
+        if (grKba.get(data.response[ctr].sys_id)) {
+            data.response[ctr].url = buildTileURL(grKba);
+            data.response[ctr].icon_url = "/10Things02a_v2.png";
+            data.response[ctr].icon_alt = "####";
+        }
+    }
+
+    function buildTileURL() {
+        return "#";
+    }
+
+    function getMostViewedArticles(articleCount, ignoreArticles) {
+        var kbRecords = $sp.getAllKBRecords(knowledgeBases);
+
+        var payload = {};
+        payload.knowledgeBases = knowledgeBases;
+        payload.kbRecords = kbRecords;
+        payload.articleCount = articleCount;
+        payload.ignoreArticles = ignoreArticles;
+
+        var mostViewedArticles = UserRecommendationUtil.getMostViewedArticles(payload);
+        return mostViewedArticles;
+    }
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>alvin.bustamante</sys_created_by>
+        <sys_created_on>2022-09-20 03:46:01</sys_created_on>
+        <sys_id>43e7c66d1b8e19104bf52f49b04bcba6</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Sidekick Trending Articles</sys_name>
+        <sys_package display_value="Employee Center Core" source="sn_hr_sp">3d1da2705b021200a4656ede91f91ab6</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</sys_scope>
+        <sys_update_name>sp_widget_43e7c66d1b8e19104bf52f49b04bcba6</sys_update_name>
+        <sys_updated_by>alvin.bustamante</sys_updated_by>
+        <sys_updated_on>2022-09-20 03:48:15</sys_updated_on>
+        <template><![CDATA[<div class="common-trending-pages-body-block" ng-if = "data.response && data.response.length > 0">
+  
+  <h3>{{data.title}}</h3>
+
+  <div class="trending-page-card" ng-repeat="a in ::data.response">
+    <a aria-label="{{options.title}},{{data.title}},{{a.short_description}}" href="{{::a.url}}" target="_self" ng-click="c.articleOpened(a.short_description)">
+      <div class="img-block">
+        <img src="{{::a.icon_url}}" alt="{{::a.icon_alt}}" width="40" height="40">
+      </div>
+      <div class="description-block">
+        <p>{{::a.short_description}}</p>
+      </div>
+    </a>
+  </div>
+
+</div>]]></template>
+    </sp_widget>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</claim_owner_scope>
+        <claim_timestamp>185c6dac7a00000001</claim_timestamp>
+        <metadata_update_name>sp_widget_43e7c66d1b8e19104bf52f49b04bcba6</metadata_update_name>
+        <previous_claim_app_version>26.0.4</previous_claim_app_version>
+        <previous_claim_name>Employee Center Core</previous_claim_name>
+        <previous_claim_scope>3d1da2705b021200a4656ede91f91ab6</previous_claim_scope>
+        <sys_created_by>sam.herring</sys_created_by>
+        <sys_created_on>2023-01-18 21:48:24</sys_created_on>
+        <sys_id>0acef79c1b68e110f639da09dc4bcbbb</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>sam.herring</sys_updated_by>
+        <sys_updated_on>2023-01-18 21:48:24</sys_updated_on>
+    </sys_claim>
+</record_update>

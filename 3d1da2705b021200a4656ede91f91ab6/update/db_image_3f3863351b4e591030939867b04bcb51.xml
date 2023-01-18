@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="db_image">
+    <db_image action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <category>Service Portal</category>
+        <format/>
+        <height/>
+        <image>234863351b4e591030939867b04bcba7</image>
+        <name>sk_default_dp.svg</name>
+        <size_bytes>2118</size_bytes>
+        <sys_class_name>db_image</sys_class_name>
+        <sys_created_by>bustamal_adm</sys_created_by>
+        <sys_created_on>2022-09-21 05:24:00</sys_created_on>
+        <sys_id>3f3863351b4e591030939867b04bcb51</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>sk_default_dp.svg</sys_name>
+        <sys_package display_value="Employee Center Core" source="sn_hr_sp">3d1da2705b021200a4656ede91f91ab6</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</sys_scope>
+        <sys_update_name>db_image_3f3863351b4e591030939867b04bcb51</sys_update_name>
+        <sys_updated_by>bustamal_adm</sys_updated_by>
+        <sys_updated_on>2022-09-21 05:24:07</sys_updated_on>
+        <thumbnail/>
+        <width/>
+    </db_image>
+    <sys_attachment action="INSERT_OR_UPDATE">
+        <average_image_color/>
+        <chunk_size_bytes>700000</chunk_size_bytes>
+        <compressed>true</compressed>
+        <content_type>image/svg+xml</content_type>
+        <encryption_context/>
+        <file_name>image</file_name>
+        <hash>2a165115595ea064a3e1b9607c64e17752b220e8770d0e8090b35c1e30aa1eca</hash>
+        <image_height/>
+        <image_width/>
+        <size_bytes>2118</size_bytes>
+        <size_compressed>1058</size_compressed>
+        <state>available</state>
+        <sys_created_by>bustamal_adm</sys_created_by>
+        <sys_created_on>2022-09-21 05:24:07</sys_created_on>
+        <sys_id>234863351b4e591030939867b04bcba7</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_updated_by>guest</sys_updated_by>
+        <sys_updated_on>2022-09-21 05:24:08</sys_updated_on>
+        <table_name>ZZ_YYdb_image</table_name>
+        <table_sys_id>3f3863351b4e591030939867b04bcb51</table_sys_id>
+    </sys_attachment>
+    <sys_attachment_doc action="INSERT_OR_UPDATE">
+        <data>H4sIAAAAAAAAAA==</data>
+        <length>16</length>
+        <position>0</position>
+        <sys_attachment display_value="image" sys_id="234863351b4e591030939867b04bcba7">234863351b4e591030939867b04bcba7</sys_attachment>
+        <sys_created_by>bustamal_adm</sys_created_by>
+        <sys_created_on>2022-09-21 05:24:07</sys_created_on>
+        <sys_id>634863351b4e591030939867b04bcba7</sys_id>
+    </sys_attachment_doc>
+    <sys_attachment_doc action="INSERT_OR_UPDATE">
+        <data>jVVtb9pIEP7eX7FydFIrmWVmX2crSHWlSb9w0unafrlvXHAAlWBknED//T1roECaU24tzM54dl6eecYefNg9LNVT1WwW9WpYsKZCVau7erpYzYbFt6+3PSk+XL8ZbJ5maruYtnPYOFrvCjWvFrN5+1N8WlTbj/VuWJAiBV3+FeeOuVAItdoMi3nbrt/3+9vtVm+trptZ3xBRHyEOJu93y8Xq+0uGnFLqd0+L6zcKa9Au2mV1/enm9vdv46+D/l7cP5pW95v9thNxqpo0n5vJdFGtWrXjYeHpt0L9wCb/78xRgU102keybDwUi+mwuDzd4+LkufO+aeu1yrfeXb2sm2FxddOtQtX395uq7WJcD/rZ5NWjt906HWV66fCgf5nUoez+qe7BrMv9gE6BIE39vRoWq3pVHaXesa2Ful8sl8eHed9rHpewrp6qVT2dnlU8aKq7tnP9FzaT1WxZHU8/Nsu3V8/Begd0AQCg7e4nIl3QKFeYHZ/F2ef/uakf14Vqm8lqc183D8Oi2y4nbfW2FzR1q1QcD9t3z5uznrRzBUd/UMnG6MQm+KjGkIi1iyZQUGMOWqLhFG2Z4CmIiUnUyIgOliyZMjlNxrlkrbJRG3IUmcvEOMY+Oquc0T5ZTw4eSAdK3hhRY2d1guCCz2qTTIyJ1cg7HUW8D6VELewdHigftbPREUkpXhtjhSllradI7EohnciJOKfGnVZgbsqAapBedCk5cc9FHEKNjqPs1YiZBAEw7QLcg1UjqAWwsIQcl2OEkSjg4IJI8DbnGCkY41gxQW28EOd6SEQibMfMpCVIV6QAhiRGjZhFCxFn+IzOhRMHxTYjFTLSQVvyuWTF3mh4tUjhoi1n6svenaS/9zP6J9p8IvnVp4/5OhLz6obzlUmW6fBfDHkBRU8IFUq8Eti5SLks1MIxETlTxqQTmOBhLUFzsCmElEG0kY0NScWQCRQkohGoB6KF4H2WRsHDv3VoftfvlAKwVz6hs+RignvQz/ngmQ8sMOhSGRE/mEQ2vEKDAzKj+uEfzOS092U+Wf+c1avRTb5egwQZ+wQEgi1JjVAkOMke/kmjcOfYIg2E9SYxVmlB4dw971VKORk2eSIy2TLdHVgBBpGN1voSUwfA4MeAV5hlH2yUEvxI3proBFqrbbLGpNKJBg7WoONwAVJ7vJ/LgPFyPrLCJMaUB9BmxoNyAhcZfnQCgIRM+BhBYXgdR6/xLSEhe64ehTwqSUKeP/hgSQnU9JxJbA0GMDhtQuxKdijJJ1Da5cxg5z1mddztBTywFwk75JGHnM15dQ48QfstiHSGBCiPUQO07gI2dFqciT7Gc4xBIQ/WMF02BAVi3AIBIepYd+rh/xuXmK9fuTHoz44fGmwG+bN9/S9nTm05RggAAA==</data>
+        <length>1400</length>
+        <position>1</position>
+        <sys_attachment display_value="image" sys_id="234863351b4e591030939867b04bcba7">234863351b4e591030939867b04bcba7</sys_attachment>
+        <sys_created_by>bustamal_adm</sys_created_by>
+        <sys_created_on>2022-09-21 05:24:07</sys_created_on>
+        <sys_id>e34863351b4e591030939867b04bcba7</sys_id>
+    </sys_attachment_doc>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</claim_owner_scope>
+        <claim_timestamp>185c6dabae70000001</claim_timestamp>
+        <metadata_update_name>db_image_3f3863351b4e591030939867b04bcb51</metadata_update_name>
+        <previous_claim_app_version>26.0.4</previous_claim_app_version>
+        <previous_claim_name>Employee Center Core</previous_claim_name>
+        <previous_claim_scope>3d1da2705b021200a4656ede91f91ab6</previous_claim_scope>
+        <sys_created_by>sam.herring</sys_created_by>
+        <sys_created_on>2023-01-18 21:48:21</sys_created_on>
+        <sys_id>99ceb79c1b68e110f639da09dc4bcb79</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>sam.herring</sys_updated_by>
+        <sys_updated_on>2023-01-18 21:48:21</sys_updated_on>
+    </sys_claim>
+</record_update>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_instance_link">
+    <sp_instance_link action="DELETE">
+        <active>true</active>
+        <class_name/>
+        <color>default</color>
+        <css/>
+        <glyph>user</glyph>
+        <id/>
+        <kb_article/>
+        <kb_category/>
+        <kb_topic/>
+        <order>1</order>
+        <roles/>
+        <sc_cat_item/>
+        <sc_category display_value="Managing Our Talent">4ce1977f1b92f810f639da09dc4bcbe2</sc_category>
+        <short_description/>
+        <size>md</size>
+        <sp_column display_value="3">7a87b36f1bdef8107663a82c274bcbb4</sp_column>
+        <sp_page display_value="ihr_sc_category_2">ce27df331bd2f810f639da09dc4bcb9c</sp_page>
+        <sp_widget display_value="Image with Link">6c3d27631b1ab810f639da09dc4bcbd2</sp_widget>
+        <sys_class_name>sp_instance_link</sys_class_name>
+        <sys_created_by>james.taylor</sys_created_by>
+        <sys_created_on>2021-09-06 10:50:56</sys_created_on>
+        <sys_id>f1f63b2f1bdef8107663a82c274bcb81</sys_id>
+        <sys_mod_count>15</sys_mod_count>
+        <sys_name>Wellbeing and Time Off</sys_name>
+        <sys_package display_value="Employee Center Core" source="sn_hr_sp">3d1da2705b021200a4656ede91f91ab6</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</sys_scope>
+        <sys_update_name>sp_instance_link_f1f63b2f1bdef8107663a82c274bcb81</sys_update_name>
+        <sys_updated_by>mark.galulu</sys_updated_by>
+        <sys_updated_on>2021-09-14 02:45:31</sys_updated_on>
+        <title>Wellbeing and Time Off</title>
+        <type>sc_category</type>
+        <url/>
+        <widget_parameters><![CDATA[{
+	"link_template": {
+		"value": "Top Icon",
+		"displayValue": "Top Icon"
+	},
+	"image": {
+		"value": "",
+		"displayValue": ""
+	}
+}]]></widget_parameters>
+    </sp_instance_link>
+    <sys_translated_text action="DELETE" query="documentkey=f1f63b2f1bdef8107663a82c274bcb81"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</application>
+        <file_path/>
+        <instance_id>5705a594dbb018d8413450b6f496194f</instance_id>
+        <instance_name>deloitteaus7</instance_name>
+        <name>sp_instance_link_f1f63b2f1bdef8107663a82c274bcb81</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sp_instance_link"&gt;&lt;sp_instance_link action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;class_name/&gt;&lt;color&gt;default&lt;/color&gt;&lt;css/&gt;&lt;glyph&gt;user&lt;/glyph&gt;&lt;id/&gt;&lt;kb_article/&gt;&lt;kb_category/&gt;&lt;kb_topic/&gt;&lt;order&gt;1&lt;/order&gt;&lt;roles/&gt;&lt;sc_cat_item/&gt;&lt;sc_category display_value="Managing Our Talent"&gt;4ce1977f1b92f810f639da09dc4bcbe2&lt;/sc_category&gt;&lt;short_description/&gt;&lt;size&gt;md&lt;/size&gt;&lt;sp_column display_value="3"&gt;7a87b36f1bdef8107663a82c274bcbb4&lt;/sp_column&gt;&lt;sp_page display_value="ihr_sc_category_2"&gt;ce27df331bd2f810f639da09dc4bcb9c&lt;/sp_page&gt;&lt;sp_widget display_value="Image with Link"&gt;6c3d27631b1ab810f639da09dc4bcbd2&lt;/sp_widget&gt;&lt;sys_class_name&gt;sp_instance_link&lt;/sys_class_name&gt;&lt;sys_created_by&gt;james.taylor&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2021-09-06 10:50:56&lt;/sys_created_on&gt;&lt;sys_id&gt;f1f63b2f1bdef8107663a82c274bcb81&lt;/sys_id&gt;&lt;sys_mod_count&gt;15&lt;/sys_mod_count&gt;&lt;sys_name&gt;Wellbeing and Time Off&lt;/sys_name&gt;&lt;sys_package display_value="Employee Center Core" source="sn_hr_sp"&gt;3d1da2705b021200a4656ede91f91ab6&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Employee Center Core"&gt;3d1da2705b021200a4656ede91f91ab6&lt;/sys_scope&gt;&lt;sys_update_name&gt;sp_instance_link_f1f63b2f1bdef8107663a82c274bcb81&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;mark.galulu&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2021-09-14 02:45:31&lt;/sys_updated_on&gt;&lt;title&gt;Wellbeing and Time Off&lt;/title&gt;&lt;type&gt;sc_category&lt;/type&gt;&lt;url/&gt;&lt;widget_parameters&gt;&lt;![CDATA[{
+	"link_template": {
+		"value": "Top Icon",
+		"displayValue": "Top Icon"
+	},
+	"image": {
+		"value": "",
+		"displayValue": ""
+	}
+}]]&gt;&lt;/widget_parameters&gt;&lt;/sp_instance_link&gt;&lt;sys_translated_text action="delete_multiple" query="documentkey=f1f63b2f1bdef8107663a82c274bcb81"/&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-1182470424</payload_hash>
+        <record_name>Wellbeing and Time Off</record_name>
+        <reverted_from/>
+        <source>69a7ba2a1bd638107663a82c274bcbca</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>mark.galulu</sys_created_by>
+        <sys_created_on>2021-09-14 02:45:31</sys_created_on>
+        <sys_id>5d945bca1ba234507663a82c274bcb2d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>17be231f9ef0000001</sys_recorded_at>
+        <sys_updated_by>mark.galulu</sys_updated_by>
+        <sys_updated_on>2021-09-14 02:45:31</sys_updated_on>
+        <type>Instance with Link</type>
+        <update_guid>d5945bcac1a23450974180c430a7632d</update_guid>
+        <update_guid_history>d5945bcac1a23450974180c430a7632d:-1182470424,a61453ca9da23450ca292fa61958077b:925889234,c1049f8ae0a234500a6c00837ad68b85:1848589364,f2ecb6c6df623450f4bd893522195513:-1182470424,4ea6a7bf57d2f810f4edd28b50a65ce2:-315183845,9e76e3bfd8d2f810fc62cb0055862115:1337579284,4716ef7faad2f810e0356830a122effb:459048308,c5e56f7f58d2f810bba9920e54edf747:-1393857176,c297376fd0def810aaa8283327234209:598382444,3597f36f7edef8105ae357f965eeeefb:733893309,6597f36fc7def810382f2179f5820ac4:598382444,e597f36f10def8102a79248bb196f8ba:733893309,9597f36fa6def810891c0c6fc28f5294:598382444,8d373f2f38def810cfe6ea045c4bac81:733893309,b4073b2f19def810d8f927b8ac13a891:-1612581515,31f63b2fdedef810380d93f117302083:-834274031</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Wellbeing and Time Off">b4091bce1ba234507663a82c274bcb0a</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>mark.galulu</sys_created_by>
+        <sys_created_on>2021-09-14 03:04:53</sys_created_on>
+        <sys_db_object display_value="" name="sp_instance_link">sp_instance_link</sys_db_object>
+        <sys_id>036308b613264fc8924c0e2f35a5f440</sys_id>
+        <sys_metadata>f1f63b2f1bdef8107663a82c274bcb81</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Wellbeing and Time Off</sys_name>
+        <sys_package display_value="Employee Center Core" source="sn_hr_sp">3d1da2705b021200a4656ede91f91ab6</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</sys_scope>
+        <sys_scope_delete display_value="">0583d6de2a2743609422ef5f67d2a400</sys_scope_delete>
+        <sys_update_name>sp_instance_link_f1f63b2f1bdef8107663a82c274bcb81</sys_update_name>
+        <sys_update_version display_value="sp_instance_link_f1f63b2f1bdef8107663a82c274bcb81">5d945bca1ba234507663a82c274bcb2d</sys_update_version>
+        <sys_updated_by>mark.galulu</sys_updated_by>
+        <sys_updated_on>2021-09-14 03:04:53</sys_updated_on>
+    </sys_metadata_delete>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</claim_owner_scope>
+        <claim_timestamp>185c6dac53c0000001</claim_timestamp>
+        <metadata_update_name>sp_instance_link_f1f63b2f1bdef8107663a82c274bcb81</metadata_update_name>
+        <previous_claim_app_version>26.0.4</previous_claim_app_version>
+        <previous_claim_name>Employee Center Core</previous_claim_name>
+        <previous_claim_scope>3d1da2705b021200a4656ede91f91ab6</previous_claim_scope>
+        <sys_created_by>sam.herring</sys_created_by>
+        <sys_created_on>2023-01-18 21:48:24</sys_created_on>
+        <sys_id>0ecef79c1b68e110f639da09dc4bcb78</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>sam.herring</sys_updated_by>
+        <sys_updated_on>2023-01-18 21:48:24</sys_updated_on>
+    </sys_claim>
+</record_update>

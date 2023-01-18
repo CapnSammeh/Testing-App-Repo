@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function() {
+  /* widget controller */
+  var c = this;
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.iconlink a label,h2 {&#13;
+  display: block;&#13;
+  font-size: 52px;&#13;
+  font-weight: 800;&#13;
+  line-height: 1.0;&#13;
+  margin-top: 10%;&#13;
+  text-align: left;&#13;
+  color: white;&#13;
+}&#13;
+&#13;
+.iconlink h3 {&#13;
+  display: block;&#13;
+  font-size: 40px;&#13;
+  font-weight: 600;&#13;
+  line-height: 1.0;&#13;
+  margin: 0 0 0 0;&#13;
+  text-align: left;&#13;
+  color: white;&#13;
+}&#13;
+&#13;
+/* TOP ICON ---------- */&#13;
+&#13;
+div.top_icon {&#13;
+  display: block;&#13;
+  padding: 5px;&#13;
+  text-align: center;&#13;
+}&#13;
+&#13;
+div.top_icon .fa {&#13;
+  display: block;&#13;
+  text-align: center;&#13;
+}&#13;
+&#13;
+&#13;
+.icon-link-background-primary {&#13;
+  background-color: $brand-primary;&#13;
+}&#13;
+&#13;
+.icon-link-background-info {&#13;
+  background-color: $brand-info;&#13;
+}&#13;
+&#13;
+.icon-link-background-success {&#13;
+  background-color: $brand-success;&#13;
+}&#13;
+&#13;
+.icon-link-background-warning {&#13;
+  background-color: $brand-warning;&#13;
+}&#13;
+&#13;
+.icon-link-background-danger {&#13;
+  background-color: $brand-danger;&#13;
+}&#13;
+&#13;
+.icon-link-background-default {&#13;
+  background-color: $brand-primary;&#13;
+}&#13;
+&#13;
+.text-primary {&#13;
+  color: $brand-primary;&#13;
+  &#13;
+  &amp;:hover {&#13;
+    color: darken($brand-primary, 20%);&#13;
+  }&#13;
+}&#13;
+&#13;
+.text-info {&#13;
+  color: $brand-info;&#13;
+  &#13;
+  &amp;:hover {&#13;
+    color: darken($brand-info, 20%);&#13;
+  }&#13;
+}&#13;
+&#13;
+.text-success {&#13;
+  color: $brand-success;&#13;
+  &#13;
+  &amp;:hover {&#13;
+    color: darken($brand-success, 20%);&#13;
+  }&#13;
+}&#13;
+&#13;
+.text-warning {&#13;
+  color: $brand-warning;&#13;
+  &#13;
+  &amp;:hover {&#13;
+    color: darken($brand-warning, 20%);&#13;
+  }&#13;
+}&#13;
+&#13;
+.text-danger {&#13;
+  color: $brand-danger;&#13;
+  &#13;
+  &amp;:hover {&#13;
+    color: darken($brand-danger, 20%);&#13;
+  }&#13;
+}&#13;
+&#13;
+.text-default {&#13;
+  color: $brand-primary;&#13;
+  &#13;
+  &amp;:hover {&#13;
+    color: darken($brand-primary, 20%);&#13;
+  }&#13;
+}&#13;
+&#13;
+.high-contrast {&#13;
+  .text-primary {&#13;
+    color: darken($brand-primary, 10%);&#13;
+  }&#13;
+&#13;
+  .text-info {&#13;
+    color: darken($brand-info, 10%);&#13;
+  }&#13;
+&#13;
+  .text-success {&#13;
+    color: darken($brand-success, 10%);&#13;
+  }&#13;
+&#13;
+  .text-warning {&#13;
+    color: darken($brand-warning, 10%);&#13;
+  }&#13;
+&#13;
+  .text-danger {&#13;
+    color: darken($brand-danger, 10%);&#13;
+  }&#13;
+&#13;
+  .text-default {&#13;
+    color: darken($brand-primary, 10%);&#13;
+  }&#13;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id/>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]></link>
+        <name>Support Details</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function(){
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>james.taylor</sys_created_by>
+        <sys_created_on>2021-10-04 11:49:27</sys_created_on>
+        <sys_id>00e018781b07b490f639da09dc4bcbfe</sys_id>
+        <sys_mod_count>19</sys_mod_count>
+        <sys_name>Support Details</sys_name>
+        <sys_package display_value="Employee Center Core" source="sn_hr_sp">3d1da2705b021200a4656ede91f91ab6</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</sys_scope>
+        <sys_update_name>sp_widget_00e018781b07b490f639da09dc4bcbfe</sys_update_name>
+        <sys_updated_by>james.taylor</sys_updated_by>
+        <sys_updated_on>2021-10-21 01:16:08</sys_updated_on>
+        <template><![CDATA[<div class="panel panel-default b">
+  <div class="panel-heading">
+    <h3 class="h4 panel-title">
+      <fa class="m-r-sm"></fa>
+      Support
+    </h3>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <span class="fa fa-phone"> </span><label>Phone (1800 DELOITTE)</label>
+    </div>
+    <div class="row">
+      <span class="fa fa-envelope-o"> </span><label>Email</label>
+    </div>
+  </div>
+</div>
+<div class="panel-footer clearfix">
+</div>]]></template>
+    </sp_widget>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</claim_owner_scope>
+        <claim_timestamp>185c6dacabb0000001</claim_timestamp>
+        <metadata_update_name>sp_widget_00e018781b07b490f639da09dc4bcbfe</metadata_update_name>
+        <previous_claim_app_version>26.0.4</previous_claim_app_version>
+        <previous_claim_name>Employee Center Core</previous_claim_name>
+        <previous_claim_scope>3d1da2705b021200a4656ede91f91ab6</previous_claim_scope>
+        <sys_created_by>sam.herring</sys_created_by>
+        <sys_created_on>2023-01-18 21:48:25</sys_created_on>
+        <sys_id>5acef79c1b68e110f639da09dc4bcbf4</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>sam.herring</sys_updated_by>
+        <sys_updated_on>2023-01-18 21:48:25</sys_updated_on>
+    </sys_claim>
+</record_update>

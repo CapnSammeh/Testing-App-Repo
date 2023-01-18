@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_instance">
+    <sp_instance action="DELETE">
+        <active>true</active>
+        <class_name/>
+        <color>default</color>
+        <css/>
+        <glyph/>
+        <id/>
+        <order>2</order>
+        <roles/>
+        <short_description/>
+        <size>md</size>
+        <sp_column display_value="1">36b7b76f1bdef8107663a82c274bcbb1</sp_column>
+        <sp_widget display_value="Cool Clock">3a36b30b6f3631005be8583e6b3ee490</sp_widget>
+        <sys_class_name>sp_instance</sys_class_name>
+        <sys_created_by>james.taylor</sys_created_by>
+        <sys_created_on>2021-09-14 02:47:05</sys_created_on>
+        <sys_id>50f453ca1ba2b050f639da09dc4bcba1</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Employee Center Core" source="sn_hr_sp">3d1da2705b021200a4656ede91f91ab6</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</sys_scope>
+        <sys_update_name>sp_instance_50f453ca1ba2b050f639da09dc4bcba1</sys_update_name>
+        <sys_updated_by>james.taylor</sys_updated_by>
+        <sys_updated_on>2021-09-14 02:47:05</sys_updated_on>
+        <title/>
+        <url/>
+        <widget_parameters/>
+    </sp_instance>
+    <sys_translated_text action="DELETE" query="documentkey=50f453ca1ba2b050f639da09dc4bcba1"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</application>
+        <file_path/>
+        <instance_id>5705a594dbb018d8413450b6f496194f</instance_id>
+        <instance_name>deloitteaus7</instance_name>
+        <name>sp_instance_50f453ca1ba2b050f639da09dc4bcba1</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_instance"><sp_instance action="INSERT_OR_UPDATE"><active>true</active><class_name/><color>default</color><css/><glyph/><id/><order>2</order><roles/><short_description/><size>md</size><sp_column display_value="1">36b7b76f1bdef8107663a82c274bcbb1</sp_column><sp_widget display_value="Cool Clock">3a36b30b6f3631005be8583e6b3ee490</sp_widget><sys_class_name>sp_instance</sys_class_name><sys_created_by>james.taylor</sys_created_by><sys_created_on>2021-09-14 02:47:05</sys_created_on><sys_id>50f453ca1ba2b050f639da09dc4bcba1</sys_id><sys_mod_count>0</sys_mod_count><sys_name/><sys_package display_value="Employee Center Core" source="sn_hr_sp">3d1da2705b021200a4656ede91f91ab6</sys_package><sys_policy/><sys_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</sys_scope><sys_update_name>sp_instance_50f453ca1ba2b050f639da09dc4bcba1</sys_update_name><sys_updated_by>james.taylor</sys_updated_by><sys_updated_on>2021-09-14 02:47:05</sys_updated_on><title/><url/><widget_parameters/></sp_instance><sys_translated_text action="delete_multiple" query="documentkey=50f453ca1ba2b050f639da09dc4bcba1"/></record_update>]]></payload>
+        <payload_hash>791012577</payload_hash>
+        <record_name/>
+        <reverted_from/>
+        <source>69a7ba2a1bd638107663a82c274bcbca</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>james.taylor</sys_created_by>
+        <sys_created_on>2021-09-14 02:47:05</sys_created_on>
+        <sys_id>94f453ca1ba2b050f639da09dc4bcba3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>17be2336a070000001</sys_recorded_at>
+        <sys_updated_by>james.taylor</sys_updated_by>
+        <sys_updated_on>2021-09-14 02:47:05</sys_updated_on>
+        <type>Instance</type>
+        <update_guid>dcf453ca1fa2b05077b063176caed9a2</update_guid>
+        <update_guid_history>dcf453ca1fa2b05077b063176caed9a2:791012577</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="">e5f41f8a1ba2b050f639da09dc4bcbae</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>james.taylor</sys_created_by>
+        <sys_created_on>2021-09-14 02:47:10</sys_created_on>
+        <sys_db_object display_value="" name="sp_instance">sp_instance</sys_db_object>
+        <sys_id>1ac1675f752f4da4834e402314771509</sys_id>
+        <sys_metadata>50f453ca1ba2b050f639da09dc4bcba1</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Employee Center Core" source="sn_hr_sp">3d1da2705b021200a4656ede91f91ab6</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</sys_scope>
+        <sys_scope_delete display_value="">0583d6de2a2743609422ef5f67d2a400</sys_scope_delete>
+        <sys_update_name>sp_instance_50f453ca1ba2b050f639da09dc4bcba1</sys_update_name>
+        <sys_update_version display_value="sp_instance_50f453ca1ba2b050f639da09dc4bcba1">94f453ca1ba2b050f639da09dc4bcba3</sys_update_version>
+        <sys_updated_by>james.taylor</sys_updated_by>
+        <sys_updated_on>2021-09-14 02:47:10</sys_updated_on>
+    </sys_metadata_delete>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</claim_owner_scope>
+        <claim_timestamp>185c6dab9a70000001</claim_timestamp>
+        <metadata_update_name>sp_instance_50f453ca1ba2b050f639da09dc4bcba1</metadata_update_name>
+        <previous_claim_app_version>26.0.4</previous_claim_app_version>
+        <previous_claim_name>Employee Center Core</previous_claim_name>
+        <previous_claim_scope>3d1da2705b021200a4656ede91f91ab6</previous_claim_scope>
+        <sys_created_by>sam.herring</sys_created_by>
+        <sys_created_on>2023-01-18 21:48:21</sys_created_on>
+        <sys_id>15ceb79c1b68e110f639da09dc4bcb60</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>sam.herring</sys_updated_by>
+        <sys_updated_on>2023-01-18 21:48:21</sys_updated_on>
+    </sys_claim>
+</record_update>

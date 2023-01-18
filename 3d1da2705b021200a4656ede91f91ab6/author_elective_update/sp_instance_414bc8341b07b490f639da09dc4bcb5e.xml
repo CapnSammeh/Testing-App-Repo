@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_instance">
+    <sp_instance action="DELETE">
+        <active>true</active>
+        <class_name/>
+        <color>default</color>
+        <css/>
+        <glyph/>
+        <id/>
+        <order>2</order>
+        <roles/>
+        <short_description/>
+        <size>md</size>
+        <sp_column display_value="2">86dd1e541b437490f639da09dc4bcbc2</sp_column>
+        <sp_widget display_value="HRM Task AHC Widgets">ca5ff01e7328230030f331d7caf6a792</sp_widget>
+        <sys_class_name>sp_instance</sys_class_name>
+        <sys_created_by>james.taylor</sys_created_by>
+        <sys_created_on>2021-10-04 11:24:57</sys_created_on>
+        <sys_id>414bc8341b07b490f639da09dc4bcb5e</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Employee Center Core" source="sn_hr_sp">3d1da2705b021200a4656ede91f91ab6</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</sys_scope>
+        <sys_update_name>sp_instance_414bc8341b07b490f639da09dc4bcb5e</sys_update_name>
+        <sys_updated_by>james.taylor</sys_updated_by>
+        <sys_updated_on>2021-10-04 11:27:32</sys_updated_on>
+        <title/>
+        <url/>
+        <widget_parameters/>
+    </sp_instance>
+    <sys_translated_text action="DELETE" query="documentkey=414bc8341b07b490f639da09dc4bcb5e"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</application>
+        <file_path/>
+        <instance_id>5705a594dbb018d8413450b6f496194f</instance_id>
+        <instance_name>deloitteaus7</instance_name>
+        <name>sp_instance_414bc8341b07b490f639da09dc4bcb5e</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_instance"><sp_instance action="INSERT_OR_UPDATE"><active>true</active><class_name/><color>default</color><css/><glyph/><id/><order>2</order><roles/><short_description/><size>md</size><sp_column display_value="2">86dd1e541b437490f639da09dc4bcbc2</sp_column><sp_widget display_value="HRM Task AHC Widgets">ca5ff01e7328230030f331d7caf6a792</sp_widget><sys_class_name>sp_instance</sys_class_name><sys_created_by>james.taylor</sys_created_by><sys_created_on>2021-10-04 11:24:57</sys_created_on><sys_id>414bc8341b07b490f639da09dc4bcb5e</sys_id><sys_mod_count>5</sys_mod_count><sys_name/><sys_package display_value="Employee Center Core" source="sn_hr_sp">3d1da2705b021200a4656ede91f91ab6</sys_package><sys_policy/><sys_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</sys_scope><sys_update_name>sp_instance_414bc8341b07b490f639da09dc4bcb5e</sys_update_name><sys_updated_by>james.taylor</sys_updated_by><sys_updated_on>2021-10-04 11:27:32</sys_updated_on><title/><url/><widget_parameters/></sp_instance><sys_translated_text action="delete_multiple" query="documentkey=414bc8341b07b490f639da09dc4bcb5e"/></record_update>]]></payload>
+        <payload_hash>1056746057</payload_hash>
+        <record_name/>
+        <reverted_from/>
+        <source>69a7ba2a1bd638107663a82c274bcbca</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>james.taylor</sys_created_by>
+        <sys_created_on>2021-10-04 11:27:32</sys_created_on>
+        <sys_id>83db04741b07b490f639da09dc4bcbe9</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>17c4b0f17f00000001</sys_recorded_at>
+        <sys_updated_by>james.taylor</sys_updated_by>
+        <sys_updated_on>2021-10-04 11:27:32</sys_updated_on>
+        <type>Instance</type>
+        <update_guid>0fdb04740607b490cc327c51fba6f4e8</update_guid>
+        <update_guid_history>0fdb04740607b490cc327c51fba6f4e8:1056746057,a2cbc0749d07b49032a4a9580a5a181f:-702708918,accb80748007b4909a85d7a149287b4e:1832803403,13bb8074fe07b490680c8acb4ee2f910:73348428,f35b4c34d607b490bd5e0b2db33c97ba:-1686106547,c94bc8349107b490571a1cea90550f5f:849405774</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="">51eb44741b07b490f639da09dc4bcb4e</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>james.taylor</sys_created_by>
+        <sys_created_on>2021-10-04 11:27:42</sys_created_on>
+        <sys_db_object display_value="" name="sp_instance">sp_instance</sys_db_object>
+        <sys_id>041da862cdc042e7a911e1f05594b971</sys_id>
+        <sys_metadata>414bc8341b07b490f639da09dc4bcb5e</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Employee Center Core" source="sn_hr_sp">3d1da2705b021200a4656ede91f91ab6</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</sys_scope>
+        <sys_scope_delete display_value="">0583d6de2a2743609422ef5f67d2a400</sys_scope_delete>
+        <sys_update_name>sp_instance_414bc8341b07b490f639da09dc4bcb5e</sys_update_name>
+        <sys_update_version display_value="sp_instance_414bc8341b07b490f639da09dc4bcb5e">83db04741b07b490f639da09dc4bcbe9</sys_update_version>
+        <sys_updated_by>james.taylor</sys_updated_by>
+        <sys_updated_on>2021-10-04 11:27:42</sys_updated_on>
+    </sys_metadata_delete>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</claim_owner_scope>
+        <claim_timestamp>185c6dac5d00000001</claim_timestamp>
+        <metadata_update_name>sp_instance_414bc8341b07b490f639da09dc4bcb5e</metadata_update_name>
+        <previous_claim_app_version>26.0.4</previous_claim_app_version>
+        <previous_claim_name>Employee Center Core</previous_claim_name>
+        <previous_claim_scope>3d1da2705b021200a4656ede91f91ab6</previous_claim_scope>
+        <sys_created_by>sam.herring</sys_created_by>
+        <sys_created_on>2023-01-18 21:48:24</sys_created_on>
+        <sys_id>4ecef79c1b68e110f639da09dc4bcb85</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>sam.herring</sys_updated_by>
+        <sys_updated_on>2023-01-18 21:48:24</sys_updated_on>
+    </sys_claim>
+</record_update>

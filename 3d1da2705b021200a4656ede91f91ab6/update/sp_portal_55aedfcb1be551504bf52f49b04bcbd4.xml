@@ -63,6 +63,7 @@ $text-muted:#656E81;
         <chunk_size_bytes>700000</chunk_size_bytes>
         <compressed>true</compressed>
         <content_type>image/x-icon</content_type>
+        <encryption_context/>
         <file_name>icon</file_name>
         <hash>eb082bc8ee8250c219849649d0787ab2653a6704c7add551a7126452540e7557</hash>
         <image_height/>
@@ -102,6 +103,7 @@ $text-muted:#656E81;
         <chunk_size_bytes>700000</chunk_size_bytes>
         <compressed>true</compressed>
         <content_type>image/svg+xml</content_type>
+        <encryption_context/>
         <file_name>logo</file_name>
         <hash>db28be7b04457eec2d58d7d61463bd85d5b7a887e318d5ee5e29afb4ea464154</hash>
         <image_height/>
@@ -136,4 +138,18 @@ $text-muted:#656E81;
         <sys_created_on>2022-08-31 07:33:38</sys_created_on>
         <sys_id>489c73c71b6951504bf52f49b04bcb8a</sys_id>
     </sys_attachment_doc>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</claim_owner_scope>
+        <claim_timestamp>185c6dabff80000001</claim_timestamp>
+        <metadata_update_name>sp_portal_55aedfcb1be551504bf52f49b04bcbd4</metadata_update_name>
+        <previous_claim_app_version>26.0.4</previous_claim_app_version>
+        <previous_claim_name>Employee Center Core</previous_claim_name>
+        <previous_claim_scope>3d1da2705b021200a4656ede91f91ab6</previous_claim_scope>
+        <sys_created_by>sam.herring</sys_created_by>
+        <sys_created_on>2023-01-18 21:48:22</sys_created_on>
+        <sys_id>61cef79c1b68e110f639da09dc4bcb01</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>sam.herring</sys_updated_by>
+        <sys_updated_on>2023-01-18 21:48:22</sys_updated_on>
+    </sys_claim>
 </record_update>

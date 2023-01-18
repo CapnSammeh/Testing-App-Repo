@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller = function($timeout) {
+    /* widget controller */
+    var c = this;
+    c.currentTitles = [];
+    c.selectedTitles = [];
+    c.selectedCategory = "";
+    c.showTitlesDiv = "";
+
+	// Category pill events
+    c.categoryUpdate = function(filterObj) {
+        c.currentTitles = [];
+		c.selectedTitles = [];
+        //c.showTitlesDiv = "";
+        //c.selectedCategory = "";
+        
+        c.updateChevron(filterObj.id); // update selected category
+        $timeout(function() {
+            if (filterObj.isSelected) {
+                c.currentTitles = angular.copy(filterObj.titles);
+                c.showTitlesDiv = "submenu-block-active";
+                c.selectedCategory = filterObj.id;
+            }else{
+				c.selectedCategory = "";
+			}
+			
+			c.broadcastSelected();
+        }, 500);
+    }
+
+	// Remove all selected titles
+    c.clearAll = function() {
+        var len = c.currentTitles.length;
+        for (var ctr = 0; ctr < len; ctr++) {
+            c.currentTitles[ctr].isSelected = false;
+        }
+        c.selectedTitles = [];
+		
+		c.broadcastSelected();
+    }
+
+	// Title pill event
+    c.titleUpdate = function(titleObj) {
+        titleObj.isSelected = titleObj.isSelected ? false : true; // update selected attribute
+
+			// add/remove from the selectedTitles
+        var index = c.selectedTitles.indexOf(titleObj.id);
+        if (index !== -1) {
+            c.selectedTitles.splice(index, 1);
+        } else {
+            c.selectedTitles.push(titleObj.id);
+        }
+		c.broadcastSelected();
+    }
+
+    // Update selected category
+    c.updateChevron = function(id) {
+        var len = c.data.filterObject.length;
+        for (var ctr = 0; ctr < len; ctr++) {
+            if (c.data.filterObject[ctr].id == id) {
+                c.data.filterObject[ctr].isSelected = c.data.filterObject[ctr].isSelected ? false : true;
+            } else {
+                c.data.filterObject[ctr].isSelected = false;
+            }
+        }
+    };
+	
+	c.broadcastSelected = function(){
+		console.log("Selected titles: " + JSON.stringify(c.selectedTitles));
+		console.log("Selected categories: " + c.selectedCategory);
+	}
+
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.wellbeing-list {&#13;
+    font-size: 16px;&#13;
+    line-height: 20px;&#13;
+    padding: 10px 15px;&#13;
+    border: 1px solid #cfcfcf;&#13;
+    border-radius: 20px;&#13;
+    cursor: pointer;&#13;
+    transition: all .3s ease-in-out;&#13;
+}&#13;
+.wellbeing-menu-container {&#13;
+    display: inline-block;&#13;
+    margin-bottom: 10px;&#13;
+    margin-right: 10px;&#13;
+}&#13;
+.wellbeing-topics-block {&#13;
+    float: left;&#13;
+}&#13;
+.wellbeing-menu-wrapper {&#13;
+    opacity: 1;&#13;
+    -webkit-transform: translateY(0);&#13;
+    transform: translateY(0);&#13;
+}&#13;
+.up {&#13;
+  border-color: rgb(35, 31, 32);&#13;
+}&#13;
+.fa-chevron-down {&#13;
+  transform: rotate(180deg);&#13;
+  color: rgb(62, 181, 229);&#13;
+}&#13;
+.fa-chevron-up {&#13;
+  transform: rotate(180deg);&#13;
+  color: rgb(35, 31, 32);&#13;
+}&#13;
+/*clear*/&#13;
+.wellbeing-menu-container.clear-all-list {&#13;
+    float: right;&#13;
+    text-align: center;&#13;
+    margin-right: 30px;&#13;
+}&#13;
+.clear {&#13;
+    float: none;&#13;
+    clear: both;&#13;
+}&#13;
+.category-border-block {&#13;
+    height: 1px;&#13;
+    width: 100%;&#13;
+    background: rgb(224, 224, 224);&#13;
+}&#13;
+&#13;
+/*title*/&#13;
+.wellbeing-sub-block {&#13;
+    left: 0;&#13;
+    max-height: 0; &#13;
+    overflow: hidden;&#13;
+    transition: all .3s ease-in-out;&#13;
+}&#13;
+.submenu-block-active {&#13;
+    max-height: 60px;&#13;
+}&#13;
+.wellbeing-sub-list {&#13;
+    font-size: 14px;&#13;
+    line-height: 16px;&#13;
+    cursor: pointer;&#13;
+}&#13;
+.wellbeing-sub-menu-item-container {&#13;
+    border: 1px solid #d1d1d1;&#13;
+    color: #231f20;&#13;
+    display: inline-block;&#13;
+    margin: 10px 10px 10px 0;&#13;
+    padding: 7px 10px;&#13;
+    border-radius: 20px;&#13;
+    transition: all .3s ease-in-out;&#13;
+}&#13;
+.submenu-active {&#13;
+    background-color: rgb(54, 59, 73);&#13;
+    color: rgb(255, 255, 255);&#13;
+    border-width: 1px;&#13;
+    border-style: solid;&#13;
+    border-color: rgb(54, 59, 73);&#13;
+    border-image: initial;&#13;
+}&#13;
+.wellbeing-sub-menu-wrapper {&#13;
+  left: 0;&#13;
+    &#13;
+    overflow: hidden;&#13;
+    transition: all .3s ease-in-out;&#13;
+  height: 0px;&#13;
+}&#13;
+.openTitles {&#13;
+  height: 60px;&#13;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id/>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]></link>
+        <name>Thrive Article Filter</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+    /* populate the 'data' object */
+    /* e.g., data.table = $sp.getValue('table'); */
+
+	data.filterObject = [];
+	for(var ctr=0; ctr<5; ctr++){
+		var objCat = {};
+		objCat.isSelected = false;
+		objCat.type = "category";
+		objCat.label = "Level 2." + ctr;
+		objCat.id = "2." + ctr;
+		objCat.titles = [];
+		
+		for(var ctrTitles=0; ctrTitles<3; ctrTitles++){
+			var objTitle = {};
+			objTitle.isSelected = false;
+			objTitle.type = "title";
+			objTitle.label = "Level 3." + ctr + "." + ctrTitles;
+			objTitle.id = "3." + ctr + "." + ctrTitles;
+			
+			objCat.titles.push(objTitle);
+		}
+		data.filterObject.push(objCat);
+	}
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>alvin.bustamante</sys_created_by>
+        <sys_created_on>2022-11-08 08:03:38</sys_created_on>
+        <sys_id>1019db151b4bd1104bf52f49b04bcbf2</sys_id>
+        <sys_mod_count>63</sys_mod_count>
+        <sys_name>Thrive Article Filter</sys_name>
+        <sys_package display_value="Employee Center Core" source="sn_hr_sp">3d1da2705b021200a4656ede91f91ab6</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</sys_scope>
+        <sys_update_name>sp_widget_1019db151b4bd1104bf52f49b04bcbf2</sys_update_name>
+        <sys_updated_by>alvin.bustamante</sys_updated_by>
+        <sys_updated_on>2022-11-09 07:43:35</sys_updated_on>
+        <template><![CDATA[<div class="wellbeing-menu-wrapper">
+    <!---->
+    <div class="wellbeing-topics-block" ng-repeat="category in data.filterObject" ng-click="c.categoryUpdate(category)">
+        <div class="wellbeing-menu-container">
+            <div class="wellbeing-list" ng-class="(!category.isSelected) ? 'down' : 'up'">
+                <span>{{category.label}}</span>
+                <i class="fa fa-sm"
+                    ng-class="(!category.isSelected) ? 'fa-chevron-down' : 'fa-chevron-up'"></i>
+            </div>
+        </div>
+    </div>
+    <!---->
+    <div class="wellbeing-menu-container clear-all-list" ng-click="c.clearAll()" ng-if="c.selectedTitles.length > 0">
+        <div class="wellbeing-list">Clear all</div>
+    </div>
+    <div class="clear"></div>
+    <!---->
+    <div class="category-border-block"></div>
+    <div class="wellbeing-sub-block" ng-class="c.showTitlesDiv">
+        <div class="wellbeing-sub-menu-wrapper" ng-class="(c.selectedCategory != '') ? 'openTitles' : 'closeTitles'">
+            <!---->
+            <div class="wellbeing-sub-menu-item-container" ng-class="(!title.isSelected) ? 'submenu-inactive' : 'submenu-active'" ng-repeat="title in c.currentTitles" ng-click="c.titleUpdate(title)">
+                <div class="wellbeing-sub-list">{{title.label}}</div>
+            </div>
+            <!---->
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+]]></template>
+    </sp_widget>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</claim_owner_scope>
+        <claim_timestamp>185c6dabcd90000001</claim_timestamp>
+        <metadata_update_name>sp_widget_1019db151b4bd1104bf52f49b04bcbf2</metadata_update_name>
+        <previous_claim_app_version>26.0.4</previous_claim_app_version>
+        <previous_claim_name>Employee Center Core</previous_claim_name>
+        <previous_claim_scope>3d1da2705b021200a4656ede91f91ab6</previous_claim_scope>
+        <sys_created_by>sam.herring</sys_created_by>
+        <sys_created_on>2023-01-18 21:48:22</sys_created_on>
+        <sys_id>d1ceb79c1b68e110f639da09dc4bcbaf</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>sam.herring</sys_updated_by>
+        <sys_updated_on>2023-01-18 21:48:22</sys_updated_on>
+    </sys_claim>
+</record_update>

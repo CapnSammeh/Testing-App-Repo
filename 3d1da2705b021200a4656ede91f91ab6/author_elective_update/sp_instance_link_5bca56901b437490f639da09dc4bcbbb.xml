@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_instance_link">
+    <sp_instance_link action="DELETE">
+        <active>true</active>
+        <class_name/>
+        <color>primary</color>
+        <css/>
+        <glyph>calendar</glyph>
+        <id/>
+        <kb_article/>
+        <kb_category/>
+        <kb_topic/>
+        <order>1</order>
+        <roles/>
+        <sc_cat_item/>
+        <sc_category/>
+        <short_description/>
+        <size>md</size>
+        <sp_column display_value="1">0c2d9e141b437490f639da09dc4bcb7e</sp_column>
+        <sp_page/>
+        <sp_widget display_value="Icon Link">3caa67afcb13020000f8d856634c9c2e</sp_widget>
+        <sys_class_name>sp_instance_link</sys_class_name>
+        <sys_created_by>mark.galulu</sys_created_by>
+        <sys_created_on>2021-10-03 08:35:06</sys_created_on>
+        <sys_id>5bca56901b437490f639da09dc4bcbbb</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>My Work and Life Events</sys_name>
+        <sys_package display_value="Employee Center Core" source="sn_hr_sp">3d1da2705b021200a4656ede91f91ab6</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</sys_scope>
+        <sys_update_name>sp_instance_link_5bca56901b437490f639da09dc4bcbbb</sys_update_name>
+        <sys_updated_by>mark.galulu</sys_updated_by>
+        <sys_updated_on>2021-10-03 08:45:21</sys_updated_on>
+        <title>My Work and Life Events</title>
+        <type>page</type>
+        <url/>
+        <widget_parameters><![CDATA[{
+	"link_template": {
+		"value": "Color Box",
+		"displayValue": "Color Box"
+	}
+}]]></widget_parameters>
+    </sp_instance_link>
+    <sys_translated_text action="DELETE" query="documentkey=5bca56901b437490f639da09dc4bcbbb"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</application>
+        <file_path/>
+        <instance_id>5705a594dbb018d8413450b6f496194f</instance_id>
+        <instance_name>deloitteaus7</instance_name>
+        <name>sp_instance_link_5bca56901b437490f639da09dc4bcbbb</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sp_instance_link"&gt;&lt;sp_instance_link action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;class_name/&gt;&lt;color&gt;primary&lt;/color&gt;&lt;css/&gt;&lt;glyph&gt;calendar&lt;/glyph&gt;&lt;id/&gt;&lt;kb_article/&gt;&lt;kb_category/&gt;&lt;kb_topic/&gt;&lt;order&gt;1&lt;/order&gt;&lt;roles/&gt;&lt;sc_cat_item/&gt;&lt;sc_category/&gt;&lt;short_description/&gt;&lt;size&gt;md&lt;/size&gt;&lt;sp_column display_value="1"&gt;0c2d9e141b437490f639da09dc4bcb7e&lt;/sp_column&gt;&lt;sp_page/&gt;&lt;sp_widget display_value="Icon Link"&gt;3caa67afcb13020000f8d856634c9c2e&lt;/sp_widget&gt;&lt;sys_class_name&gt;sp_instance_link&lt;/sys_class_name&gt;&lt;sys_created_by&gt;mark.galulu&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2021-10-03 08:35:06&lt;/sys_created_on&gt;&lt;sys_id&gt;5bca56901b437490f639da09dc4bcbbb&lt;/sys_id&gt;&lt;sys_mod_count&gt;4&lt;/sys_mod_count&gt;&lt;sys_name&gt;My Work and Life Events&lt;/sys_name&gt;&lt;sys_package display_value="Employee Center Core" source="sn_hr_sp"&gt;3d1da2705b021200a4656ede91f91ab6&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Employee Center Core"&gt;3d1da2705b021200a4656ede91f91ab6&lt;/sys_scope&gt;&lt;sys_update_name&gt;sp_instance_link_5bca56901b437490f639da09dc4bcbbb&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;mark.galulu&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2021-10-03 08:45:21&lt;/sys_updated_on&gt;&lt;title&gt;My Work and Life Events&lt;/title&gt;&lt;type&gt;page&lt;/type&gt;&lt;url/&gt;&lt;widget_parameters&gt;&lt;![CDATA[{
+	"link_template": {
+		"value": "Color Box",
+		"displayValue": "Color Box"
+	}
+}]]&gt;&lt;/widget_parameters&gt;&lt;/sp_instance_link&gt;&lt;sys_translated_text action="delete_multiple" query="documentkey=5bca56901b437490f639da09dc4bcbbb"/&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>201766904</payload_hash>
+        <record_name>My Work and Life Events</record_name>
+        <reverted_from/>
+        <source>69a7ba2a1bd638107663a82c274bcbca</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>mark.galulu</sys_created_by>
+        <sys_created_on>2021-10-03 08:45:21</sys_created_on>
+        <sys_id>e52dde141b437490f639da09dc4bcb1c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>17c45543f660000001</sys_recorded_at>
+        <sys_updated_by>mark.galulu</sys_updated_by>
+        <sys_updated_on>2021-10-03 08:45:21</sys_updated_on>
+        <type>Instance with Link</type>
+        <update_guid>612dde149d437490d532a0e51586ac1c</update_guid>
+        <update_guid_history>612dde149d437490d532a0e51586ac1c:201766904,aafc9a14a643749077b374753eb23ff3:1877541872,b7bc5614d9437490967948a483f3755d:-1748603025,0c9b9e908c4374906ee5fea6d18d4954:1802950950,93ca5690434374901c91fd072dd4e5bd:-2039194696</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="My Work and Life Events">641593901b077490f639da09dc4bcb12</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>mark.galulu</sys_created_by>
+        <sys_created_on>2021-10-03 12:49:41</sys_created_on>
+        <sys_db_object display_value="" name="sp_instance_link">sp_instance_link</sys_db_object>
+        <sys_id>0d179f1d986d4b1ab702d1b18bdd4364</sys_id>
+        <sys_metadata>5bca56901b437490f639da09dc4bcbbb</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>My Work and Life Events</sys_name>
+        <sys_package display_value="Employee Center Core" source="sn_hr_sp">3d1da2705b021200a4656ede91f91ab6</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</sys_scope>
+        <sys_scope_delete display_value="">0583d6de2a2743609422ef5f67d2a400</sys_scope_delete>
+        <sys_update_name>sp_instance_link_5bca56901b437490f639da09dc4bcbbb</sys_update_name>
+        <sys_update_version display_value="sp_instance_link_5bca56901b437490f639da09dc4bcbbb">e52dde141b437490f639da09dc4bcb1c</sys_update_version>
+        <sys_updated_by>mark.galulu</sys_updated_by>
+        <sys_updated_on>2021-10-03 12:49:41</sys_updated_on>
+    </sys_metadata_delete>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</claim_owner_scope>
+        <claim_timestamp>185c6dabcf20000001</claim_timestamp>
+        <metadata_update_name>sp_instance_link_5bca56901b437490f639da09dc4bcbbb</metadata_update_name>
+        <previous_claim_app_version>26.0.4</previous_claim_app_version>
+        <previous_claim_name>Employee Center Core</previous_claim_name>
+        <previous_claim_scope>3d1da2705b021200a4656ede91f91ab6</previous_claim_scope>
+        <sys_created_by>sam.herring</sys_created_by>
+        <sys_created_on>2023-01-18 21:48:22</sys_created_on>
+        <sys_id>59ceb79c1b68e110f639da09dc4bcbb0</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>sam.herring</sys_updated_by>
+        <sys_updated_on>2023-01-18 21:48:22</sys_updated_on>
+    </sys_claim>
+</record_update>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_instance_vlist">
+    <sp_instance_vlist action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <class_name/>
+        <color>default</color>
+        <css/>
+        <display_field>short_description</display_field>
+        <field_list/>
+        <filter table="sn_hr_core_case">opened_forDYNAMIC90d1921e5f510100a9ad2572f2b477fe^ORsubject_personDYNAMIC90d1921e5f510100a9ad2572f2b477fe^active=true<item endquery="false" field="opened_for" goto="false" newquery="false" operator="DYNAMIC" or="false" value="90d1921e5f510100a9ad2572f2b477fe"/>
+            <item endquery="false" field="subject_person" goto="false" newquery="false" operator="DYNAMIC" or="true" value="90d1921e5f510100a9ad2572f2b477fe"/>
+            <item endquery="false" field="active" goto="false" newquery="false" operator="=" or="false" value="true"/>
+        </filter>
+        <glyph/>
+        <id/>
+        <maximum_entries>5</maximum_entries>
+        <order>3</order>
+        <order_by/>
+        <order_direction>asc</order_direction>
+        <roles/>
+        <short_description/>
+        <size>md</size>
+        <sp_column display_value="2">d8d12a0f1b980910f639da09dc4bcbb0</sp_column>
+        <sp_page display_value="hrm_ticket_page">9889422f5b5313003bbcefe5f0f91a17</sp_page>
+        <sp_widget display_value="Simple List">5b255672cb03020000f8d856634c9c28</sp_widget>
+        <sys_class_name>sp_instance_vlist</sys_class_name>
+        <sys_created_by>james.taylor</sys_created_by>
+        <sys_created_on>2021-12-13 01:27:31</sys_created_on>
+        <sys_id>58d12a0f1b980910f639da09dc4bcbe9</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Employee Center Core" source="sn_hr_sp">3d1da2705b021200a4656ede91f91ab6</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</sys_scope>
+        <sys_update_name>sp_instance_vlist_58d12a0f1b980910f639da09dc4bcbe9</sys_update_name>
+        <sys_updated_by>james.taylor</sys_updated_by>
+        <sys_updated_on>2021-12-13 01:27:31</sys_updated_on>
+        <table>sn_hr_core_case</table>
+        <title/>
+        <url/>
+        <widget_parameters><![CDATA[{
+	"always_show": {
+		"value": "",
+		"displayValue": ""
+	},
+	"panel_body_height": {
+		"value": "",
+		"displayValue": ""
+	},
+	"image_field": {
+		"value": "",
+		"displayValue": ""
+	},
+	"secondary_fields": {
+		"value": "number,opened_at",
+		"displayValue": "number,opened_at"
+	},
+	"rounded_images": {
+		"value": "",
+		"displayValue": ""
+	},
+	"list_page": {
+		"value": "4ab7a3a5875023000f220cf888cb0bec",
+		"displayValue": "my_requests"
+	},
+	"hide_footer": {
+		"value": "",
+		"displayValue": ""
+	},
+	"view": {
+		"value": "",
+		"displayValue": ""
+	},
+	"disable_record_watcher": {
+		"value": "",
+		"displayValue": ""
+	},
+	"filter_acls": {
+		"value": "false",
+		"displayValue": "false"
+	}
+}]]></widget_parameters>
+    </sp_instance_vlist>
+    <sys_translated_text action="delete_multiple" query="documentkey=58d12a0f1b980910f639da09dc4bcbe9"/>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</claim_owner_scope>
+        <claim_timestamp>185c6dabb7c0000001</claim_timestamp>
+        <metadata_update_name>sp_instance_vlist_58d12a0f1b980910f639da09dc4bcbe9</metadata_update_name>
+        <previous_claim_app_version>26.0.4</previous_claim_app_version>
+        <previous_claim_name>Employee Center Core</previous_claim_name>
+        <previous_claim_scope>3d1da2705b021200a4656ede91f91ab6</previous_claim_scope>
+        <sys_created_by>sam.herring</sys_created_by>
+        <sys_created_on>2023-01-18 21:48:21</sys_created_on>
+        <sys_id>95ceb79c1b68e110f639da09dc4bcb87</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>sam.herring</sys_updated_by>
+        <sys_updated_on>2023-01-18 21:48:21</sys_updated_on>
+    </sys_claim>
+</record_update>

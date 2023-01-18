@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="announcement">
+    <announcement action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <click_target/>
+        <details/>
+        <details_link_text/>
+        <details_page/>
+        <details_url/>
+        <dismiss_options>dismissible</dismiss_options>
+        <display_first>false</display_first>
+        <display_style display_value="Normal">704dedd6e7d4030075c2a117c2f6a91b</display_style>
+        <from>2022-08-26 06:19:02</from>
+        <glyph/>
+        <glyph_alt_text/>
+        <name>AppSec - Notification Banner</name>
+        <public>false</public>
+        <roles>admin</roles>
+        <show_for_unauthenticated_users_only>false</show_for_unauthenticated_users_only>
+        <summary>Starting in Paris, ISC users can now subscribe to security email notifications. Begin updating by selecting Notification Preferences under your profile menu.</summary>
+        <sys_class_name>announcement</sys_class_name>
+        <sys_created_by>james.taylor</sys_created_by>
+        <sys_created_on>2022-08-26 06:19:02</sys_created_on>
+        <sys_id>ea8b35ad1b6d1d104bf52f49b04bcb6c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>AppSec - Notification Banner</sys_name>
+        <sys_package display_value="Employee Center Core" source="sn_hr_sp">3d1da2705b021200a4656ede91f91ab6</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</sys_scope>
+        <sys_update_name>announcement_ea8b35ad1b6d1d104bf52f49b04bcb6c</sys_update_name>
+        <sys_updated_by>james.taylor</sys_updated_by>
+        <sys_updated_on>2022-08-26 06:19:02</sys_updated_on>
+        <title>Configure Security Notifications</title>
+        <to/>
+        <type>67eaf134e7a3320075c2a117c2f6a9d2,52fa79f8e763320075c2a117c2f6a991</type>
+    </announcement>
+    <sys_translated_text action="delete_multiple" query="documentkey=ea8b35ad1b6d1d104bf52f49b04bcb6c"/>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</claim_owner_scope>
+        <claim_timestamp>185c6dac2260000001</claim_timestamp>
+        <metadata_update_name>announcement_ea8b35ad1b6d1d104bf52f49b04bcb6c</metadata_update_name>
+        <previous_claim_app_version>26.0.4</previous_claim_app_version>
+        <previous_claim_name>Employee Center Core</previous_claim_name>
+        <previous_claim_scope>3d1da2705b021200a4656ede91f91ab6</previous_claim_scope>
+        <sys_created_by>sam.herring</sys_created_by>
+        <sys_created_on>2023-01-18 21:48:23</sys_created_on>
+        <sys_id>3dcef79c1b68e110f639da09dc4bcb36</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>sam.herring</sys_updated_by>
+        <sys_updated_on>2023-01-18 21:48:23</sys_updated_on>
+    </sys_claim>
+</record_update>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_choice action="INSERT_OR_UPDATE" field="u_test_type" table="u_kb_template_test_only" version="3">
+        <sys_choice_set action="INSERT_OR_UPDATE">
+            <element>u_test_type</element>
+            <name>u_kb_template_test_only</name>
+            <sys_class_name>sys_choice_set</sys_class_name>
+            <sys_created_by>james.taylor</sys_created_by>
+            <sys_created_on>2022-10-14 00:43:16</sys_created_on>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>u_test_type</sys_name>
+            <sys_package display_value="Employee Center Core" source="sn_hr_sp">3d1da2705b021200a4656ede91f91ab6</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</sys_scope>
+            <sys_update_name>sys_choice_u_kb_template_test_only_u_test_type</sys_update_name>
+            <sys_updated_by>james.taylor</sys_updated_by>
+            <sys_updated_on>2022-10-14 00:43:16</sys_updated_on>
+        </sys_choice_set>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>u_test_type</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Wiki</label>
+            <language>en</language>
+            <name>u_kb_template_test_only</name>
+            <sequence/>
+            <synonyms/>
+            <sys_created_by>james.taylor</sys_created_by>
+            <sys_created_on>2022-10-14 00:43:16</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>james.taylor</sys_updated_by>
+            <sys_updated_on>2022-10-14 00:43:20</sys_updated_on>
+            <value>Wiki</value>
+        </sys_choice>
+    </sys_choice>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</claim_owner_scope>
+        <claim_timestamp>185c6dac15e0000001</claim_timestamp>
+        <metadata_update_name>sys_choice_u_kb_template_test_only_u_test_type</metadata_update_name>
+        <previous_claim_app_version>26.0.4</previous_claim_app_version>
+        <previous_claim_name>Employee Center Core</previous_claim_name>
+        <previous_claim_scope>3d1da2705b021200a4656ede91f91ab6</previous_claim_scope>
+        <sys_created_by>sam.herring</sys_created_by>
+        <sys_created_on>2023-01-18 21:48:23</sys_created_on>
+        <sys_id>79cef79c1b68e110f639da09dc4bcb25</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>sam.herring</sys_updated_by>
+        <sys_updated_on>2023-01-18 21:48:23</sys_updated_on>
+    </sys_claim>
+</record_update>

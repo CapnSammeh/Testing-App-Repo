@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="m2m_sp_instance_uc_cannot_view">
+    <m2m_sp_instance_uc_cannot_view action="DELETE">
+        <sp_instance display_value="">af182c2c1bc51550f639da09dc4bcb06</sp_instance>
+        <sys_class_name>m2m_sp_instance_uc_cannot_view</sys_class_name>
+        <sys_created_by>ailyn.agoy</sys_created_by>
+        <sys_created_on>2022-08-04 07:12:15</sys_created_on>
+        <sys_id>42743ce21b0d9950f639da09dc4bcb3d</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>.All Users (HR Criteria)</sys_name>
+        <sys_package display_value="Employee Center Core" source="sn_hr_sp">3d1da2705b021200a4656ede91f91ab6</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</sys_scope>
+        <sys_update_name>m2m_sp_instance_uc_cannot_view_42743ce21b0d9950f639da09dc4bcb3d</sys_update_name>
+        <sys_updated_by>ailyn.agoy</sys_updated_by>
+        <sys_updated_on>2022-08-04 07:17:32</sys_updated_on>
+        <user_criteria display_value="All Users (HR Criteria)">4cca6ce8877003001f55c679e7cb0b0c</user_criteria>
+    </m2m_sp_instance_uc_cannot_view>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</application>
+        <file_path/>
+        <instance_id>5705a594dbb018d8413450b6f496194f</instance_id>
+        <instance_name>deloitteaus7</instance_name>
+        <name>m2m_sp_instance_uc_cannot_view_42743ce21b0d9950f639da09dc4bcb3d</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="m2m_sp_instance_uc_cannot_view"><m2m_sp_instance_uc_cannot_view action="INSERT_OR_UPDATE"><sp_instance display_value="">af182c2c1bc51550f639da09dc4bcb06</sp_instance><sys_class_name>m2m_sp_instance_uc_cannot_view</sys_class_name><sys_created_by>ailyn.agoy</sys_created_by><sys_created_on>2022-08-04 07:12:15</sys_created_on><sys_id>42743ce21b0d9950f639da09dc4bcb3d</sys_id><sys_mod_count>1</sys_mod_count><sys_name>.All Users (HR Criteria)</sys_name><sys_package display_value="Employee Center Core" source="sn_hr_sp">3d1da2705b021200a4656ede91f91ab6</sys_package><sys_policy/><sys_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</sys_scope><sys_update_name>m2m_sp_instance_uc_cannot_view_42743ce21b0d9950f639da09dc4bcb3d</sys_update_name><sys_updated_by>ailyn.agoy</sys_updated_by><sys_updated_on>2022-08-04 07:17:32</sys_updated_on><user_criteria display_value="All Users (HR Criteria)">4cca6ce8877003001f55c679e7cb0b0c</user_criteria></m2m_sp_instance_uc_cannot_view></record_update>]]></payload>
+        <payload_hash>-1379976076</payload_hash>
+        <record_name>.All Users (HR Criteria)</record_name>
+        <reverted_from/>
+        <source>4c0a46621b5638107663a82c274bcbcc</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>ailyn.agoy</sys_created_by>
+        <sys_created_on>2022-08-04 07:17:32</sys_created_on>
+        <sys_id>b0f5f0661b0d9950f639da09dc4bcbc8</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18267b774ed0000001</sys_recorded_at>
+        <sys_updated_by>ailyn.agoy</sys_updated_by>
+        <sys_updated_on>2022-08-04 07:17:32</sys_updated_on>
+        <type>Who Cannot View Instance</type>
+        <update_guid>f8f5f0665d0d9950e4da0dc1cdeac0c7</update_guid>
+        <update_guid_history>f8f5f0665d0d9950e4da0dc1cdeac0c7:-1379976076,a7b430268a0d99505638bf7e4fb4afcb:-2135098873</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value=".All Users (HR Criteria)">25e401221b4d9950f639da09dc4bcb6f</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>ailyn.agoy</sys_created_by>
+        <sys_created_on>2022-08-04 08:22:50</sys_created_on>
+        <sys_db_object display_value="" name="m2m_sp_instance_uc_cannot_view">m2m_sp_instance_uc_cannot_view</sys_db_object>
+        <sys_id>c93d033af85c429295d40cae99ab6be9</sys_id>
+        <sys_metadata>42743ce21b0d9950f639da09dc4bcb3d</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>.All Users (HR Criteria)</sys_name>
+        <sys_package display_value="Employee Center Core" source="sn_hr_sp">3d1da2705b021200a4656ede91f91ab6</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</sys_scope>
+        <sys_scope_delete display_value="">0583d6de2a2743609422ef5f67d2a400</sys_scope_delete>
+        <sys_update_name>m2m_sp_instance_uc_cannot_view_42743ce21b0d9950f639da09dc4bcb3d</sys_update_name>
+        <sys_update_version display_value="m2m_sp_instance_uc_cannot_view_42743ce21b0d9950f639da09dc4bcb3d">b0f5f0661b0d9950f639da09dc4bcbc8</sys_update_version>
+        <sys_updated_by>ailyn.agoy</sys_updated_by>
+        <sys_updated_on>2022-08-04 08:22:50</sys_updated_on>
+    </sys_metadata_delete>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</claim_owner_scope>
+        <claim_timestamp>185c6dabf010000001</claim_timestamp>
+        <metadata_update_name>m2m_sp_instance_uc_cannot_view_42743ce21b0d9950f639da09dc4bcb3d</metadata_update_name>
+        <previous_claim_app_version>26.0.4</previous_claim_app_version>
+        <previous_claim_name>Employee Center Core</previous_claim_name>
+        <previous_claim_scope>3d1da2705b021200a4656ede91f91ab6</previous_claim_scope>
+        <sys_created_by>sam.herring</sys_created_by>
+        <sys_created_on>2023-01-18 21:48:22</sys_created_on>
+        <sys_id>61ceb79c1b68e110f639da09dc4bcbeb</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>sam.herring</sys_updated_by>
+        <sys_updated_on>2023-01-18 21:48:22</sys_updated_on>
+    </sys_claim>
+</record_update>

@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="DELETE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function() {
+  /* widget controller */
+  var c = this;
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css/>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id/>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]></link>
+        <name>Sidekick Home Secondary Nav</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+    // array of secondary navigation
+	data.nav_list = [];
+	
+	/*
+	INSERT LOGIC OF FETCHING DATA IN THE BACKEND
+	*/
+	
+	// TEST DATA ONLY
+	data.nav_list.push({
+		label: "Recognising our people",
+		target: "_blank",
+		url: "https://recognise.achievers.com/"
+	});
+	data.nav_list.push({
+		label: "HR Policies",
+		target: "_self",
+		url: "#"
+	});
+	data.nav_list.push({
+		label: "Workday",
+		target: "_blank",
+		url: "https://wd3.myworkday.com/cba/d/home.htmld"
+	});
+	data.nav_list.push({
+		label: "Employee files",
+		target: "_self",
+		url: "#"
+	});
+	data.nav_list.push({
+		label: "Learner Home",
+		target: "_blank",
+		url: "https://mywebsso.myappsanywhere.org/sps/MySaaSProviderP1SAMLTL1/saml20/logininitial?PartnerId=https://cba.csod.com&HTTP-POST&NameIdFormat=email&Target=https://cba.csod.com/ui/lms-learner-home/home?tab_page_id=-200300006"
+	});
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>alvin.bustamante</sys_created_by>
+        <sys_created_on>2022-09-01 08:08:56</sys_created_on>
+        <sys_id>a6bbc9231badd150f639da09dc4bcbf2</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Sidekick Home Secondary Nav</sys_name>
+        <sys_package display_value="Employee Center Core" source="sn_hr_sp">3d1da2705b021200a4656ede91f91ab6</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</sys_scope>
+        <sys_update_name>sp_widget_a6bbc9231badd150f639da09dc4bcbf2</sys_update_name>
+        <sys_updated_by>alvin.bustamante</sys_updated_by>
+        <sys_updated_on>2022-09-01 08:08:56</sys_updated_on>
+        <template><![CDATA[<header id="topHeader" class="sr-app-header">
+    <div class="refresh-secondary-header-module sko-1200-block">
+        <nav class="refresh-secondary-nav">
+            <ul class="refresh-secondary-list">
+                <li ng-repeat="nav in data.nav_list">
+                    <a class="secondary-list-link" href="{{nav.url}}" target="{{nav.target}}">{{nav.label}}</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>]]></template>
+    </sp_widget>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</application>
+        <file_path/>
+        <instance_id>5705a594dbb018d8413450b6f496194f</instance_id>
+        <instance_name>deloitteaus7</instance_name>
+        <name>sp_widget_a6bbc9231badd150f639da09dc4bcbf2</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sp_widget"&gt;&lt;sp_widget action="INSERT_OR_UPDATE"&gt;&lt;category&gt;custom&lt;/category&gt;&lt;client_script&gt;&lt;![CDATA[api.controller=function() {
+  /* widget controller */
+  var c = this;
+};]]&gt;&lt;/client_script&gt;&lt;controller_as&gt;c&lt;/controller_as&gt;&lt;css/&gt;&lt;data_table&gt;sp_instance&lt;/data_table&gt;&lt;demo_data/&gt;&lt;description/&gt;&lt;docs/&gt;&lt;field_list/&gt;&lt;has_preview&gt;false&lt;/has_preview&gt;&lt;id/&gt;&lt;internal&gt;false&lt;/internal&gt;&lt;link&gt;&lt;![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]&gt;&lt;/link&gt;&lt;name&gt;Sidekick Home Secondary Nav&lt;/name&gt;&lt;option_schema/&gt;&lt;public&gt;false&lt;/public&gt;&lt;roles/&gt;&lt;script&gt;&lt;![CDATA[(function() {
+    // array of secondary navigation
+	data.nav_list = [];
+	
+	/*
+	INSERT LOGIC OF FETCHING DATA IN THE BACKEND
+	*/
+	
+	// TEST DATA ONLY
+	data.nav_list.push({
+		label: "Recognising our people",
+		target: "_blank",
+		url: "https://recognise.achievers.com/"
+	});
+	data.nav_list.push({
+		label: "HR Policies",
+		target: "_self",
+		url: "#"
+	});
+	data.nav_list.push({
+		label: "Workday",
+		target: "_blank",
+		url: "https://wd3.myworkday.com/cba/d/home.htmld"
+	});
+	data.nav_list.push({
+		label: "Employee files",
+		target: "_self",
+		url: "#"
+	});
+	data.nav_list.push({
+		label: "Learner Home",
+		target: "_blank",
+		url: "https://mywebsso.myappsanywhere.org/sps/MySaaSProviderP1SAMLTL1/saml20/logininitial?PartnerId=https://cba.csod.com&amp;HTTP-POST&amp;NameIdFormat=email&amp;Target=https://cba.csod.com/ui/lms-learner-home/home?tab_page_id=-200300006"
+	});
+})();]]&gt;&lt;/script&gt;&lt;servicenow&gt;false&lt;/servicenow&gt;&lt;sys_class_name&gt;sp_widget&lt;/sys_class_name&gt;&lt;sys_created_by&gt;alvin.bustamante&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2022-09-01 08:08:56&lt;/sys_created_on&gt;&lt;sys_id&gt;a6bbc9231badd150f639da09dc4bcbf2&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_name&gt;Sidekick Home Secondary Nav&lt;/sys_name&gt;&lt;sys_package display_value="Employee Center Core" source="sn_hr_sp"&gt;3d1da2705b021200a4656ede91f91ab6&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Employee Center Core"&gt;3d1da2705b021200a4656ede91f91ab6&lt;/sys_scope&gt;&lt;sys_update_name&gt;sp_widget_a6bbc9231badd150f639da09dc4bcbf2&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;alvin.bustamante&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2022-09-01 08:08:56&lt;/sys_updated_on&gt;&lt;template&gt;&lt;![CDATA[&lt;header id="topHeader" class="sr-app-header"&gt;
+    &lt;div class="refresh-secondary-header-module sko-1200-block"&gt;
+        &lt;nav class="refresh-secondary-nav"&gt;
+            &lt;ul class="refresh-secondary-list"&gt;
+                &lt;li ng-repeat="nav in data.nav_list"&gt;
+                    &lt;a class="secondary-list-link" href="{{nav.url}}" target="{{nav.target}}"&gt;{{nav.label}}&lt;/a&gt;
+                &lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/nav&gt;
+    &lt;/div&gt;
+&lt;/header&gt;]]&gt;&lt;/template&gt;&lt;/sp_widget&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>996216088</payload_hash>
+        <record_name>Sidekick Home Secondary Nav</record_name>
+        <reverted_from/>
+        <source>4c0a46621b5638107663a82c274bcbcc</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>alvin.bustamante</sys_created_by>
+        <sys_created_on>2022-09-01 08:08:56</sys_created_on>
+        <sys_id>fa3e81e31badd150f639da09dc4bcb85</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>182f81893a20000001</sys_recorded_at>
+        <sys_updated_by>alvin.bustamante</sys_updated_by>
+        <sys_updated_on>2022-09-01 08:08:56</sys_updated_on>
+        <type>Widget</type>
+        <update_guid>363e81e322add150b4a3f5cc0eeb9885</update_guid>
+        <update_guid_history>363e81e322add150b4a3f5cc0eeb9885:996216088</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Sidekick Home Secondary Nav">eb7e8de31badd150f639da09dc4bcb75</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>alvin.bustamante</sys_created_by>
+        <sys_created_on>2022-09-01 08:10:05</sys_created_on>
+        <sys_db_object display_value="" name="sp_widget">sp_widget</sys_db_object>
+        <sys_id>06e31b4e485a44a18d1af108b2b95d39</sys_id>
+        <sys_metadata>a6bbc9231badd150f639da09dc4bcbf2</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Sidekick Home Secondary Nav</sys_name>
+        <sys_package display_value="Employee Center Core" source="sn_hr_sp">3d1da2705b021200a4656ede91f91ab6</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</sys_scope>
+        <sys_scope_delete display_value="">0583d6de2a2743609422ef5f67d2a400</sys_scope_delete>
+        <sys_update_name>sp_widget_a6bbc9231badd150f639da09dc4bcbf2</sys_update_name>
+        <sys_update_version display_value="sp_widget_a6bbc9231badd150f639da09dc4bcbf2">fa3e81e31badd150f639da09dc4bcb85</sys_update_version>
+        <sys_updated_by>alvin.bustamante</sys_updated_by>
+        <sys_updated_on>2022-09-01 08:10:05</sys_updated_on>
+    </sys_metadata_delete>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</claim_owner_scope>
+        <claim_timestamp>185c6dac2920000001</claim_timestamp>
+        <metadata_update_name>sp_widget_a6bbc9231badd150f639da09dc4bcbf2</metadata_update_name>
+        <previous_claim_app_version>26.0.4</previous_claim_app_version>
+        <previous_claim_name>Employee Center Core</previous_claim_name>
+        <previous_claim_scope>3d1da2705b021200a4656ede91f91ab6</previous_claim_scope>
+        <sys_created_by>sam.herring</sys_created_by>
+        <sys_created_on>2023-01-18 21:48:23</sys_created_on>
+        <sys_id>b5cef79c1b68e110f639da09dc4bcb40</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>sam.herring</sys_updated_by>
+        <sys_updated_on>2023-01-18 21:48:23</sys_updated_on>
+    </sys_claim>
+</record_update>

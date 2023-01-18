@@ -1,0 +1,1202 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_rel_widget_clone">
+    <sp_rel_widget_clone action="DELETE">
+        <child display_value="Copy of Hub">79b5730c1b09d150f639da09dc4bcb62</child>
+        <cloned>2022-07-28 02:50:34</cloned>
+        <last_validated>2022-07-28 02:50:34</last_validated>
+        <parent display_value="Hub">2898f41e2fb0111057ab7f572799b678</parent>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;sp_widget&gt;&lt;category&gt;custom&lt;/category&gt;&lt;client_script&gt;&lt;![CDATA[api.controller = function($location) {
+    /* widget controller */
+    var c = this;
+	c.gobackhub = function(hubid){
+		$location.url("/esc?id=hub&amp;sys_hubid=" + hubid);
+	};
+	
+	c.onTabClick = function(kbid) {
+		//alert(kbid);
+		//$location.url("/esc?id=hub&amp;sys_hubid=" + c.data.hubid + "&amp;sys_id=" + kbid);
+	};
+};]]&gt;&lt;/client_script&gt;&lt;controller_as&gt;c&lt;/controller_as&gt;&lt;css&gt;.back-to-hub {
+  cursor: pointer;
+}
+.app-launcher-body-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: $sp-space--lg;
+  padding: $sp-space--xl;
+  grid-auto-rows: auto;
+}
+
+.hub-header-content{
+  position: relative;
+    top: 10%;
+    height: 55%;
+    left: 3%;
+    width: 67%;
+  padding: 1em 1em 1em 1.5em;
+}
+.hub-header-main{
+  background-position: 50% 50%;
+    background-size: cover;
+    height: 25em;
+}
+.hub-content{
+  position: relative;
+    top: -5em;
+    background: #fff;
+    width: 95%;
+}
+/**/
+input { display: none; }
+input + label { display: inline-block }
+
+input ~ .tab { display: none }
+#tab1:checked ~ .tab.content1,
+#tab2:checked ~ .tab.content2,
+#tab3:checked ~ .tab.content3,
+#tab4:checked ~ .tab.content4,
+#tab5:checked ~ .tab.content5 { display: block; }
+/*
+input + label {
+  border: 1px solid #999;
+  background: #EEE;
+  padding: 4px 12px;
+  border-radius: 4px 4px 0 0;
+  position: relative;
+  top: 1px;
+}
+*/
+input + label {
+  padding: 1rem 1.5rem;
+  position: relative;
+  cursor: pointer;
+}
+
+/*
+input:checked + label {
+  background: #FFF;
+  border-bottom: 1px solid transparent;
+}
+*/
+input:checked + label {
+  border-bottom: 0.5rem solid #fff702;
+}
+/**/
+
+input ~ .tab {
+  border-top: 1px solid #999;
+  padding: 12px;
+}
+
+/**/
+.kb-language, .kb-language-block{
+  display: inline-block;
+}
+.kb-subscribe{
+  min-width : 100px;
+  margin-left : 5px;
+}
+.kb-panel-heading{
+  padding-top : 6px;
+  padding-bottom : 6px;
+}
+summary{
+  display : list-item;
+}
+.kb-dropdown-button{
+  margin-left : 5px;
+  display: inline-block;
+  height:34px
+}
+.kb-permalink-separator{
+  margin : 0px;
+}
+.kb-number-info{
+  display : inline-block;
+}
+
+.kb-article-content{
+  overflow-x:auto;
+  img{
+    cursor:pointer;
+  }
+  img:focus{
+    outline: 5px auto -webkit-focus-ring-color;
+    outline-offset: -2px;
+  }
+}
+
+.kb-article-field{
+   clear: both;
+}
+
+/*To fix contents are not shown when we created article in word add-in*/
+.word-addin-mobile{
+  overflow-x:auto;
+  min-width:650pt;
+}
+
+.collapsible-title {
+  border-bottom: 1px solid $gray-dark;
+  margin-bottom: 10px;
+  vertical-align: middle;
+  cursor: pointer;
+  display: block;
+  color: inherit;
+
+  .fa {
+    float: right;
+    color: $gray-dark;
+  }
+}
+
+.collapsible-title:focus {
+  outline: none;
+  border: 1px solid #1f8476;
+  -webkit-box-shadow: 0px 0px 5px #1f8476;
+  box-shadow: 0px 0px 5px #1f8476;
+}
+
+header h3 {
+  outline: none;
+  margin: 0px;
+  padding-top: 18px;
+  padding-bottom: 9px;
+}
+
+header h3:focus{
+  border: none;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+}
+
+header i {
+  outline: none;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+
+.rotate {
+  -ms-transition: all 0.25s linear;
+  -moz-transition: all 0.25s linear;
+  -webkit-transition: all 0.25s linear;
+  transition: all 0.25s linear;
+}
+
+.rotate.down{
+  -ms-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.kb-sub-icon{
+  //color: $brand-primary;//#428bca;
+}
+.kb-language-choice{
+  display : inline-block;
+  width : auto;
+}
+.kb-title-header{
+  margin-top : 0px;
+  line-height : 1;
+  overflow-wrap: break-word;
+}
+.kb-action-menu-padding{
+  margin-top : 2px;
+}
+.kb-panel-title-header{
+  margin-top : 6px;
+  vertical-align : middle;
+}
+.kb-version-info{
+  margin-top : -5px;
+  padding-bottom : 15px;
+}
+
+.modal-title{
+  text-align: start;
+}
+.modal-content{
+  text-align : start;
+}
+.kb-end-buttons{
+  float:right;
+}
+
+.kb-header-row{
+  margin-left : 0px;
+  margin-right : 0px;
+}
+
+.kb-version{
+  //margin-left : 15px;
+  //margin-right : 15px;
+}
+
+.kb-header-line,.kb-permalink-separator{
+  margin-top: 10px;
+  margin-left: -5px;
+  margin-right: -5px;
+  margin-bottom : 10px;
+}
+
+.kb-menu-entry{
+}
+.kb-star-on {
+  text-shadow: $fav-star-outline;
+}
+.kb-star-off {
+  color: $fav-star-color-off !important;
+  text-shadow: $fav-star-outline;
+}
+.rating-stars [role="button"] {
+  cursor: text;
+}
+
+.disabled{
+  text-decoration:none;
+  cursor:default;
+  color:$text-color;
+}
+
+.community-attribution{
+  .contributor{
+    padding-top: 10px;
+    .pre-bullet-icon::before{
+      content: '\2022';
+      padding-right: 4px;
+    }
+  }
+  .discussion-info{
+    padding: 0px 18px;
+  }
+  .pad-lr{
+    margin: 0px 2px;
+  }
+  margin-bottom: 20px;
+  margin-left: 0px;
+}
+.title-secondary-data{
+  .author .fa{
+    position:relative;
+    bottom:0.8px;
+    font-size:14px;
+  }
+   .published-date{
+    display:inline;
+  }
+
+  .published .fa{
+    position: relative;
+    bottom: 1.5px;
+    font-size: 12px;
+  }
+  .views .fa{
+    font-size:14px;
+  }
+  .str-rating i{
+    position:relative;
+    top:1px;
+    font-size:14px;
+  }
+}
+.kb-desktop{
+  &amp;amp;.kb-wrapper{
+    padding : 25px 25px 0px 25px ;
+  }
+  &amp;amp;.panel{
+    border:1px solid $panel-default-border !important;
+  }
+}
+.kb-mobile{
+  color: $text-muted;
+  .author{
+    display: block;
+    margin-top: 7px;
+  }
+  .title-secondary-data{
+    font-size: 17px !important;
+    font-weight: 400;
+    line-height: 1;
+    .str-rating{
+      font-size: 15px !important;
+    }
+  }
+  .kb-number-info{
+    font-size: 17px;
+    font-weight: 400;
+  }
+  .kb-title-header{
+    line-height: 1.2;
+    font-size: 32px !important;
+  }
+  .kb-header-line{
+    border-color: #ccc;
+    margin: 25px -25px !important;
+  }
+  &amp;amp;.mesp-ui{
+    .kb-header-line{
+       margin: 25px -25px 25px -26px !important;
+    }
+  }
+  .kb-article-content{
+    font-size: 15px;
+  }
+  .kb-lang-dropdown-btn{
+    font-size: 17px;
+    font-weight: 400;
+    padding:11px 0px;
+    color:$primary;
+  }
+  .kb-language-block{
+    word-spacing: 3px;
+    a{
+      font-size: 17px !important;
+      font-weight: 400 !important;
+    }
+    .dropdown-menu{
+      top: 0 !important;
+      bottom: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      position: fixed !important;
+      padding: 0px !important;
+      margin: 0px !important;
+      overflow-y: auto;
+
+      li{
+        width: 100% !important;
+        height: 50px !important;
+        font-size: 15px !important;
+        border-bottom: 1px solid $gray-lighter !important;
+
+        a{
+          padding: 12px 20px !important;
+          font-size: 18px !important;
+        }
+      }
+    }
+  }
+  .kb-favorite {
+     position: relative;
+     top: -10px;
+     float: right;
+	}
+}
+}
+.kb-font-color-black{
+	color:$close-color;
+}
+.transparent-button {
+    background-color: transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    color: $brand-primary-darker;
+ }
+.apply-brand-color{
+  color: $brand-primary-darker;
+}
+.moreActionsMenuList{
+  z-index: 1000 !important;
+}
+.trim-padding-right{
+  padding-right: 0px !important;
+}
+.moreActionsMenuList li a:focus,.version-menu-list li a:focus{
+     background-color:$brand-primary-dark;
+     color:$body-bg;
+}
+ .kb-version{
+     padding:0px !important;
+     margin-top:-2px !important;
+     font-size:16px !important;
+}
+ .kb-version:focus{
+     padding:0px !important;
+     margin:0px !important;
+     font-size:16px !important;
+}
+.kb-version i,.more-actions-menu i{
+  padding-left:3px;
+}
+/*used in Flag modal: to avoid horizontal resize*/
+.resize-vertical{
+    resize: vertical;
+  }
+.accordion-trigger {
+  position: relative;
+  text-align: left;
+  width: 100%;
+  color:$text-color;
+}
+.accordion-trigger:focus{
+  box-shadow: 0px 0px 5px $brand-primary-dark;
+  outline-color: $brand-primary-dark;
+  outline-offset: -2px;
+  border: 1px solid $brand-primary-dark;
+}
+.accordion-trigger:hover{
+  background-color:$breadcrumb-bg;
+}
+}
+
+/**/
+span .header-img-span {
+    float: right;
+    margin: 3px;
+    padding: 10px;
+    border: 1px solid;
+    border-radius: 50%;
+}
+
+img.header-img {
+    width: 25px;
+}
+
+.panel {
+  border-radius: 0px !important;
+}
+
+.panel-heading {
+  border-radius: 0px !important;
+}
+
+.kb-panel-title-header-icons {
+	text-align: right;
+}
+
+.kb-panel-title-header-icons-div div {
+  	float: right;
+    margin: 3px;
+    padding: 10px;
+    border: 1px solid;
+    border-radius: 50%;
+}
+
+.favorite {
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+    height: 27px;
+}
+
+.inline.ng-scope.favorite {
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+    height: 27px;
+}
+/**/&lt;/css&gt;&lt;data_table&gt;sp_instance&lt;/data_table&gt;&lt;demo_data/&gt;&lt;description/&gt;&lt;docs/&gt;&lt;field_list/&gt;&lt;has_preview&gt;false&lt;/has_preview&gt;&lt;id/&gt;&lt;internal&gt;false&lt;/internal&gt;&lt;link&gt;&lt;![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]&gt;&lt;/link&gt;&lt;name&gt;Hub&lt;/name&gt;&lt;option_schema/&gt;&lt;public&gt;false&lt;/public&gt;&lt;roles/&gt;&lt;script&gt;&lt;![CDATA[(function() {
+  /* populate the 'data' object */
+  /* e.g., data.table = $sp.getValue('table'); */
+	data.hub = {};
+	data.tabs = [];
+	
+	var hubid = $sp.getParameter("sys_hubid");
+	data.hubid = hubid;
+	
+	var hubgr = new GlideRecord("topic");
+	if(hubgr.get(hubid)){
+		// get hub details
+		data.hub.name = hubgr.getValue("name");
+		data.hub.desc = hubgr.getValue("description");
+		data.hub.banner = hubgr.getValue("banner_image");
+		data.hub.parenthub = String(hubgr.parent_topic.name);
+		data.hub.parenthubid = hubgr.getValue("parent_topic");
+		
+		// get contents
+		var grcon = new GlideRecord("m2m_connected_content");
+		grcon.addQuery("topic", hubid);
+		grcon.addEncodedQuery("knowledge.latest=true^knowledge.workflow_state=published");
+		grcon.orderBy("order");
+		
+		grcon.setLimit(1);
+		
+		grcon.query();
+		
+		var kbwoptions = {};
+		kbwoptions.hide_article_header = true;
+		
+		while(grcon.next()){
+			var contobj = {};
+			contobj.id = grcon.getUniqueValue();
+			contobj.name = String(grcon.knowledge.short_description);
+			contobj.kb = String(grcon.knowledge.number);
+			contobj.content = String(grcon.knowledge.text);
+			contobj.kbid = String(grcon.knowledge.sys_id);
+			
+			kbwoptions.sys_kb_id = contobj.kbid;
+			
+			contobj.article = $sp.getWidget('sk_kba_content_hub2', kbwoptions);
+			
+			data.tabs.push(contobj);
+		}
+	}
+
+})();]]&gt;&lt;/script&gt;&lt;servicenow&gt;false&lt;/servicenow&gt;&lt;sys_class_name&gt;sp_widget&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2022-07-22 02:55:18&lt;/sys_created_on&gt;&lt;sys_id&gt;2898f41e2fb0111057ab7f572799b678&lt;/sys_id&gt;&lt;sys_mod_count&gt;50&lt;/sys_mod_count&gt;&lt;sys_name&gt;Hub&lt;/sys_name&gt;&lt;sys_package display_value="Employee Center Core" source="sn_hr_sp"&gt;3d1da2705b021200a4656ede91f91ab6&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Employee Center Core"&gt;3d1da2705b021200a4656ede91f91ab6&lt;/sys_scope&gt;&lt;sys_update_name&gt;sp_widget_2898f41e2fb0111057ab7f572799b678&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2022-07-27 04:32:08&lt;/sys_updated_on&gt;&lt;template&gt;&lt;![CDATA[&lt;div class="hub-main"&gt;
+  &lt;div class="hub-header-main" style="background-image: url('{{c.data.hub.banner}}.iix');"&gt;
+    &lt;div class="hub-header-content" style="background-color: #FFFFFF;"&gt;
+      &lt;div ng-click="c.gobackhub(c.data.hub.parenthubid)" class="back-to-hub"&gt;
+        &lt;span class="pull-right"&gt;&lt;span class="glyphicon glyphicon-chevron-left"&gt;&lt;/span&gt; {{c.data.hub.parenthub}}&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div&gt;
+        &lt;h2&gt;{{c.data.hub.name}}&lt;/h2&gt;
+      &lt;/div&gt;
+      &lt;div&gt;
+        &lt;p&gt;{{c.data.hub.desc}}&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="hub-content"&gt;
+
+    &lt;uib-tabset  active="active" id="std-uib-tabset"&gt;
+        &lt;uib-tab class="uib-vis-tab" ng-repeat="tab in c.data.tabs" ng-click="c.onTabClick(tab.kbid)" index="$index" aria-label="{{tab.name}} Application" heading="{{tab.name}}" add-uib-tab-accessibility&gt;
+            &lt;div id="{{tab.id}}" class="tabs-container"&gt;
+                &lt;div class="app-launcher-body-container"&gt;
+                      &lt;sp-widget widget="tab.article"&gt;&lt;/sp-widget&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/uib-tab&gt;
+    &lt;/uib-tabset&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;]]&gt;&lt;/template&gt;&lt;/sp_widget&gt;</payload>
+        <sys_class_name>sp_rel_widget_clone</sys_class_name>
+        <sys_created_by>ailyn.agoy</sys_created_by>
+        <sys_created_on>2022-07-28 02:50:34</sys_created_on>
+        <sys_id>0eb5370c1b09d150f639da09dc4bcb11</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>79b5730c1b09d150f639da09dc4bcb62</sys_name>
+        <sys_package display_value="Employee Center Core" source="sn_hr_sp">3d1da2705b021200a4656ede91f91ab6</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</sys_scope>
+        <sys_update_name>sp_rel_widget_clone_0eb5370c1b09d150f639da09dc4bcb11</sys_update_name>
+        <sys_updated_by>ailyn.agoy</sys_updated_by>
+        <sys_updated_on>2022-07-28 02:50:34</sys_updated_on>
+    </sp_rel_widget_clone>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</application>
+        <file_path/>
+        <instance_id>5705a594dbb018d8413450b6f496194f</instance_id>
+        <instance_name>deloitteaus7</instance_name>
+        <name>sp_rel_widget_clone_0eb5370c1b09d150f639da09dc4bcb11</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_rel_widget_clone"><sp_rel_widget_clone action="INSERT_OR_UPDATE"><child display_value="Copy of Hub">79b5730c1b09d150f639da09dc4bcb62</child><cloned>2022-07-28 02:50:34</cloned><last_validated>2022-07-28 02:50:34</last_validated><parent display_value="Hub">2898f41e2fb0111057ab7f572799b678</parent><payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;sp_widget&gt;&lt;category&gt;custom&lt;/category&gt;&lt;client_script&gt;&lt;![CDATA[api.controller = function($location) {
+    /* widget controller */
+    var c = this;
+	c.gobackhub = function(hubid){
+		$location.url("/esc?id=hub&amp;sys_hubid=" + hubid);
+	};
+	
+	c.onTabClick = function(kbid) {
+		//alert(kbid);
+		//$location.url("/esc?id=hub&amp;sys_hubid=" + c.data.hubid + "&amp;sys_id=" + kbid);
+	};
+};]]&gt;&lt;/client_script&gt;&lt;controller_as&gt;c&lt;/controller_as&gt;&lt;css&gt;.back-to-hub {
+  cursor: pointer;
+}
+.app-launcher-body-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: $sp-space--lg;
+  padding: $sp-space--xl;
+  grid-auto-rows: auto;
+}
+
+.hub-header-content{
+  position: relative;
+    top: 10%;
+    height: 55%;
+    left: 3%;
+    width: 67%;
+  padding: 1em 1em 1em 1.5em;
+}
+.hub-header-main{
+  background-position: 50% 50%;
+    background-size: cover;
+    height: 25em;
+}
+.hub-content{
+  position: relative;
+    top: -5em;
+    background: #fff;
+    width: 95%;
+}
+/**/
+input { display: none; }
+input + label { display: inline-block }
+
+input ~ .tab { display: none }
+#tab1:checked ~ .tab.content1,
+#tab2:checked ~ .tab.content2,
+#tab3:checked ~ .tab.content3,
+#tab4:checked ~ .tab.content4,
+#tab5:checked ~ .tab.content5 { display: block; }
+/*
+input + label {
+  border: 1px solid #999;
+  background: #EEE;
+  padding: 4px 12px;
+  border-radius: 4px 4px 0 0;
+  position: relative;
+  top: 1px;
+}
+*/
+input + label {
+  padding: 1rem 1.5rem;
+  position: relative;
+  cursor: pointer;
+}
+
+/*
+input:checked + label {
+  background: #FFF;
+  border-bottom: 1px solid transparent;
+}
+*/
+input:checked + label {
+  border-bottom: 0.5rem solid #fff702;
+}
+/**/
+
+input ~ .tab {
+  border-top: 1px solid #999;
+  padding: 12px;
+}
+
+/**/
+.kb-language, .kb-language-block{
+  display: inline-block;
+}
+.kb-subscribe{
+  min-width : 100px;
+  margin-left : 5px;
+}
+.kb-panel-heading{
+  padding-top : 6px;
+  padding-bottom : 6px;
+}
+summary{
+  display : list-item;
+}
+.kb-dropdown-button{
+  margin-left : 5px;
+  display: inline-block;
+  height:34px
+}
+.kb-permalink-separator{
+  margin : 0px;
+}
+.kb-number-info{
+  display : inline-block;
+}
+
+.kb-article-content{
+  overflow-x:auto;
+  img{
+    cursor:pointer;
+  }
+  img:focus{
+    outline: 5px auto -webkit-focus-ring-color;
+    outline-offset: -2px;
+  }
+}
+
+.kb-article-field{
+   clear: both;
+}
+
+/*To fix contents are not shown when we created article in word add-in*/
+.word-addin-mobile{
+  overflow-x:auto;
+  min-width:650pt;
+}
+
+.collapsible-title {
+  border-bottom: 1px solid $gray-dark;
+  margin-bottom: 10px;
+  vertical-align: middle;
+  cursor: pointer;
+  display: block;
+  color: inherit;
+
+  .fa {
+    float: right;
+    color: $gray-dark;
+  }
+}
+
+.collapsible-title:focus {
+  outline: none;
+  border: 1px solid #1f8476;
+  -webkit-box-shadow: 0px 0px 5px #1f8476;
+  box-shadow: 0px 0px 5px #1f8476;
+}
+
+header h3 {
+  outline: none;
+  margin: 0px;
+  padding-top: 18px;
+  padding-bottom: 9px;
+}
+
+header h3:focus{
+  border: none;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+}
+
+header i {
+  outline: none;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+
+.rotate {
+  -ms-transition: all 0.25s linear;
+  -moz-transition: all 0.25s linear;
+  -webkit-transition: all 0.25s linear;
+  transition: all 0.25s linear;
+}
+
+.rotate.down{
+  -ms-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.kb-sub-icon{
+  //color: $brand-primary;//#428bca;
+}
+.kb-language-choice{
+  display : inline-block;
+  width : auto;
+}
+.kb-title-header{
+  margin-top : 0px;
+  line-height : 1;
+  overflow-wrap: break-word;
+}
+.kb-action-menu-padding{
+  margin-top : 2px;
+}
+.kb-panel-title-header{
+  margin-top : 6px;
+  vertical-align : middle;
+}
+.kb-version-info{
+  margin-top : -5px;
+  padding-bottom : 15px;
+}
+
+.modal-title{
+  text-align: start;
+}
+.modal-content{
+  text-align : start;
+}
+.kb-end-buttons{
+  float:right;
+}
+
+.kb-header-row{
+  margin-left : 0px;
+  margin-right : 0px;
+}
+
+.kb-version{
+  //margin-left : 15px;
+  //margin-right : 15px;
+}
+
+.kb-header-line,.kb-permalink-separator{
+  margin-top: 10px;
+  margin-left: -5px;
+  margin-right: -5px;
+  margin-bottom : 10px;
+}
+
+.kb-menu-entry{
+}
+.kb-star-on {
+  text-shadow: $fav-star-outline;
+}
+.kb-star-off {
+  color: $fav-star-color-off !important;
+  text-shadow: $fav-star-outline;
+}
+.rating-stars [role="button"] {
+  cursor: text;
+}
+
+.disabled{
+  text-decoration:none;
+  cursor:default;
+  color:$text-color;
+}
+
+.community-attribution{
+  .contributor{
+    padding-top: 10px;
+    .pre-bullet-icon::before{
+      content: '\2022';
+      padding-right: 4px;
+    }
+  }
+  .discussion-info{
+    padding: 0px 18px;
+  }
+  .pad-lr{
+    margin: 0px 2px;
+  }
+  margin-bottom: 20px;
+  margin-left: 0px;
+}
+.title-secondary-data{
+  .author .fa{
+    position:relative;
+    bottom:0.8px;
+    font-size:14px;
+  }
+   .published-date{
+    display:inline;
+  }
+
+  .published .fa{
+    position: relative;
+    bottom: 1.5px;
+    font-size: 12px;
+  }
+  .views .fa{
+    font-size:14px;
+  }
+  .str-rating i{
+    position:relative;
+    top:1px;
+    font-size:14px;
+  }
+}
+.kb-desktop{
+  &amp;amp;.kb-wrapper{
+    padding : 25px 25px 0px 25px ;
+  }
+  &amp;amp;.panel{
+    border:1px solid $panel-default-border !important;
+  }
+}
+.kb-mobile{
+  color: $text-muted;
+  .author{
+    display: block;
+    margin-top: 7px;
+  }
+  .title-secondary-data{
+    font-size: 17px !important;
+    font-weight: 400;
+    line-height: 1;
+    .str-rating{
+      font-size: 15px !important;
+    }
+  }
+  .kb-number-info{
+    font-size: 17px;
+    font-weight: 400;
+  }
+  .kb-title-header{
+    line-height: 1.2;
+    font-size: 32px !important;
+  }
+  .kb-header-line{
+    border-color: #ccc;
+    margin: 25px -25px !important;
+  }
+  &amp;amp;.mesp-ui{
+    .kb-header-line{
+       margin: 25px -25px 25px -26px !important;
+    }
+  }
+  .kb-article-content{
+    font-size: 15px;
+  }
+  .kb-lang-dropdown-btn{
+    font-size: 17px;
+    font-weight: 400;
+    padding:11px 0px;
+    color:$primary;
+  }
+  .kb-language-block{
+    word-spacing: 3px;
+    a{
+      font-size: 17px !important;
+      font-weight: 400 !important;
+    }
+    .dropdown-menu{
+      top: 0 !important;
+      bottom: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      position: fixed !important;
+      padding: 0px !important;
+      margin: 0px !important;
+      overflow-y: auto;
+
+      li{
+        width: 100% !important;
+        height: 50px !important;
+        font-size: 15px !important;
+        border-bottom: 1px solid $gray-lighter !important;
+
+        a{
+          padding: 12px 20px !important;
+          font-size: 18px !important;
+        }
+      }
+    }
+  }
+  .kb-favorite {
+     position: relative;
+     top: -10px;
+     float: right;
+	}
+}
+}
+.kb-font-color-black{
+	color:$close-color;
+}
+.transparent-button {
+    background-color: transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    color: $brand-primary-darker;
+ }
+.apply-brand-color{
+  color: $brand-primary-darker;
+}
+.moreActionsMenuList{
+  z-index: 1000 !important;
+}
+.trim-padding-right{
+  padding-right: 0px !important;
+}
+.moreActionsMenuList li a:focus,.version-menu-list li a:focus{
+     background-color:$brand-primary-dark;
+     color:$body-bg;
+}
+ .kb-version{
+     padding:0px !important;
+     margin-top:-2px !important;
+     font-size:16px !important;
+}
+ .kb-version:focus{
+     padding:0px !important;
+     margin:0px !important;
+     font-size:16px !important;
+}
+.kb-version i,.more-actions-menu i{
+  padding-left:3px;
+}
+/*used in Flag modal: to avoid horizontal resize*/
+.resize-vertical{
+    resize: vertical;
+  }
+.accordion-trigger {
+  position: relative;
+  text-align: left;
+  width: 100%;
+  color:$text-color;
+}
+.accordion-trigger:focus{
+  box-shadow: 0px 0px 5px $brand-primary-dark;
+  outline-color: $brand-primary-dark;
+  outline-offset: -2px;
+  border: 1px solid $brand-primary-dark;
+}
+.accordion-trigger:hover{
+  background-color:$breadcrumb-bg;
+}
+}
+
+/**/
+span .header-img-span {
+    float: right;
+    margin: 3px;
+    padding: 10px;
+    border: 1px solid;
+    border-radius: 50%;
+}
+
+img.header-img {
+    width: 25px;
+}
+
+.panel {
+  border-radius: 0px !important;
+}
+
+.panel-heading {
+  border-radius: 0px !important;
+}
+
+.kb-panel-title-header-icons {
+	text-align: right;
+}
+
+.kb-panel-title-header-icons-div div {
+  	float: right;
+    margin: 3px;
+    padding: 10px;
+    border: 1px solid;
+    border-radius: 50%;
+}
+
+.favorite {
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+    height: 27px;
+}
+
+.inline.ng-scope.favorite {
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+    height: 27px;
+}
+/**/&lt;/css&gt;&lt;data_table&gt;sp_instance&lt;/data_table&gt;&lt;demo_data/&gt;&lt;description/&gt;&lt;docs/&gt;&lt;field_list/&gt;&lt;has_preview&gt;false&lt;/has_preview&gt;&lt;id/&gt;&lt;internal&gt;false&lt;/internal&gt;&lt;link&gt;&lt;![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]&gt;&lt;/link&gt;&lt;name&gt;Hub&lt;/name&gt;&lt;option_schema/&gt;&lt;public&gt;false&lt;/public&gt;&lt;roles/&gt;&lt;script&gt;&lt;![CDATA[(function() {
+  /* populate the 'data' object */
+  /* e.g., data.table = $sp.getValue('table'); */
+	data.hub = {};
+	data.tabs = [];
+	
+	var hubid = $sp.getParameter("sys_hubid");
+	data.hubid = hubid;
+	
+	var hubgr = new GlideRecord("topic");
+	if(hubgr.get(hubid)){
+		// get hub details
+		data.hub.name = hubgr.getValue("name");
+		data.hub.desc = hubgr.getValue("description");
+		data.hub.banner = hubgr.getValue("banner_image");
+		data.hub.parenthub = String(hubgr.parent_topic.name);
+		data.hub.parenthubid = hubgr.getValue("parent_topic");
+		
+		// get contents
+		var grcon = new GlideRecord("m2m_connected_content");
+		grcon.addQuery("topic", hubid);
+		grcon.addEncodedQuery("knowledge.latest=true^knowledge.workflow_state=published");
+		grcon.orderBy("order");
+		
+		grcon.setLimit(1);
+		
+		grcon.query();
+		
+		var kbwoptions = {};
+		kbwoptions.hide_article_header = true;
+		
+		while(grcon.next()){
+			var contobj = {};
+			contobj.id = grcon.getUniqueValue();
+			contobj.name = String(grcon.knowledge.short_description);
+			contobj.kb = String(grcon.knowledge.number);
+			contobj.content = String(grcon.knowledge.text);
+			contobj.kbid = String(grcon.knowledge.sys_id);
+			
+			kbwoptions.sys_kb_id = contobj.kbid;
+			
+			contobj.article = $sp.getWidget('sk_kba_content_hub2', kbwoptions);
+			
+			data.tabs.push(contobj);
+		}
+	}
+
+})();]]&gt;&lt;/script&gt;&lt;servicenow&gt;false&lt;/servicenow&gt;&lt;sys_class_name&gt;sp_widget&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2022-07-22 02:55:18&lt;/sys_created_on&gt;&lt;sys_id&gt;2898f41e2fb0111057ab7f572799b678&lt;/sys_id&gt;&lt;sys_mod_count&gt;50&lt;/sys_mod_count&gt;&lt;sys_name&gt;Hub&lt;/sys_name&gt;&lt;sys_package display_value="Employee Center Core" source="sn_hr_sp"&gt;3d1da2705b021200a4656ede91f91ab6&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Employee Center Core"&gt;3d1da2705b021200a4656ede91f91ab6&lt;/sys_scope&gt;&lt;sys_update_name&gt;sp_widget_2898f41e2fb0111057ab7f572799b678&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2022-07-27 04:32:08&lt;/sys_updated_on&gt;&lt;template&gt;&lt;![CDATA[&lt;div class="hub-main"&gt;
+  &lt;div class="hub-header-main" style="background-image: url('{{c.data.hub.banner}}.iix');"&gt;
+    &lt;div class="hub-header-content" style="background-color: #FFFFFF;"&gt;
+      &lt;div ng-click="c.gobackhub(c.data.hub.parenthubid)" class="back-to-hub"&gt;
+        &lt;span class="pull-right"&gt;&lt;span class="glyphicon glyphicon-chevron-left"&gt;&lt;/span&gt; {{c.data.hub.parenthub}}&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div&gt;
+        &lt;h2&gt;{{c.data.hub.name}}&lt;/h2&gt;
+      &lt;/div&gt;
+      &lt;div&gt;
+        &lt;p&gt;{{c.data.hub.desc}}&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="hub-content"&gt;
+
+    &lt;uib-tabset  active="active" id="std-uib-tabset"&gt;
+        &lt;uib-tab class="uib-vis-tab" ng-repeat="tab in c.data.tabs" ng-click="c.onTabClick(tab.kbid)" index="$index" aria-label="{{tab.name}} Application" heading="{{tab.name}}" add-uib-tab-accessibility&gt;
+            &lt;div id="{{tab.id}}" class="tabs-container"&gt;
+                &lt;div class="app-launcher-body-container"&gt;
+                      &lt;sp-widget widget="tab.article"&gt;&lt;/sp-widget&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/uib-tab&gt;
+    &lt;/uib-tabset&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;]]&gt;&lt;/template&gt;&lt;/sp_widget&gt;</payload><sys_class_name>sp_rel_widget_clone</sys_class_name><sys_created_by>ailyn.agoy</sys_created_by><sys_created_on>2022-07-28 02:50:34</sys_created_on><sys_id>0eb5370c1b09d150f639da09dc4bcb11</sys_id><sys_mod_count>0</sys_mod_count><sys_name>79b5730c1b09d150f639da09dc4bcb62</sys_name><sys_package display_value="Employee Center Core" source="sn_hr_sp">3d1da2705b021200a4656ede91f91ab6</sys_package><sys_policy/><sys_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</sys_scope><sys_update_name>sp_rel_widget_clone_0eb5370c1b09d150f639da09dc4bcb11</sys_update_name><sys_updated_by>ailyn.agoy</sys_updated_by><sys_updated_on>2022-07-28 02:50:34</sys_updated_on></sp_rel_widget_clone></record_update>]]></payload>
+        <payload_hash>-1260717066</payload_hash>
+        <record_name>79b5730c1b09d150f639da09dc4bcb62</record_name>
+        <reverted_from/>
+        <source>4c0a46621b5638107663a82c274bcbcc</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>ailyn.agoy</sys_created_by>
+        <sys_created_on>2022-07-28 02:50:34</sys_created_on>
+        <sys_id>42b5370c1b09d150f639da09dc4bcb14</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18242b6862b0000001</sys_recorded_at>
+        <sys_updated_by>ailyn.agoy</sys_updated_by>
+        <sys_updated_on>2022-07-28 02:50:34</sys_updated_on>
+        <type>Widget Clone</type>
+        <update_guid>8ab5370c4209d1500133df35f5e34e13</update_guid>
+        <update_guid_history>8ab5370c4209d1500133df35f5e34e13:-1260717066</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="">fefaf3801b49d150f639da09dc4bcb1f</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>ailyn.agoy</sys_created_by>
+        <sys_created_on>2022-07-28 03:13:33</sys_created_on>
+        <sys_db_object display_value="" name="sp_rel_widget_clone">sp_rel_widget_clone</sys_db_object>
+        <sys_id>5db3d4905a454fb0bb5f78407f980661</sys_id>
+        <sys_metadata>0eb5370c1b09d150f639da09dc4bcb11</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>79b5730c1b09d150f639da09dc4bcb62</sys_name>
+        <sys_package display_value="Employee Center Core" source="sn_hr_sp">3d1da2705b021200a4656ede91f91ab6</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</sys_scope>
+        <sys_scope_delete display_value="">0583d6de2a2743609422ef5f67d2a400</sys_scope_delete>
+        <sys_update_name>sp_rel_widget_clone_0eb5370c1b09d150f639da09dc4bcb11</sys_update_name>
+        <sys_update_version display_value="sp_rel_widget_clone_0eb5370c1b09d150f639da09dc4bcb11">42b5370c1b09d150f639da09dc4bcb14</sys_update_version>
+        <sys_updated_by>ailyn.agoy</sys_updated_by>
+        <sys_updated_on>2022-07-28 03:13:33</sys_updated_on>
+    </sys_metadata_delete>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</claim_owner_scope>
+        <claim_timestamp>185c6dabe800000001</claim_timestamp>
+        <metadata_update_name>sp_rel_widget_clone_0eb5370c1b09d150f639da09dc4bcb11</metadata_update_name>
+        <previous_claim_app_version>26.0.4</previous_claim_app_version>
+        <previous_claim_name>Employee Center Core</previous_claim_name>
+        <previous_claim_scope>3d1da2705b021200a4656ede91f91ab6</previous_claim_scope>
+        <sys_created_by>sam.herring</sys_created_by>
+        <sys_created_on>2023-01-18 21:48:22</sys_created_on>
+        <sys_id>61ceb79c1b68e110f639da09dc4bcbe0</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>sam.herring</sys_updated_by>
+        <sys_updated_on>2023-01-18 21:48:22</sys_updated_on>
+    </sys_claim>
+</record_update>

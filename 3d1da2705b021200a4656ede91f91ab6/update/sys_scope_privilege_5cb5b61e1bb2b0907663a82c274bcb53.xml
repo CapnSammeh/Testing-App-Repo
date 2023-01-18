@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_scope_privilege">
+    <sys_scope_privilege action="INSERT_OR_UPDATE">
+        <operation>read</operation>
+        <source_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</source_scope>
+        <status>allowed</status>
+        <sys_class_name>sys_scope_privilege</sys_class_name>
+        <sys_created_by>james.taylor</sys_created_by>
+        <sys_created_on>2021-09-27 05:25:14</sys_created_on>
+        <sys_id>5cb5b61e1bb2b0907663a82c274bcb53</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>sn_cd_content_visibility</sys_name>
+        <sys_package display_value="Employee Center Core" source="sn_hr_sp">3d1da2705b021200a4656ede91f91ab6</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</sys_scope>
+        <sys_update_name>sys_scope_privilege_5cb5b61e1bb2b0907663a82c274bcb53</sys_update_name>
+        <sys_updated_by>james.taylor</sys_updated_by>
+        <sys_updated_on>2021-09-27 05:25:14</sys_updated_on>
+        <target_name>sn_cd_content_visibility</target_name>
+        <target_scope display_value="Content Publishing">b26210490b7203008cd6e7ae37673a6a</target_scope>
+        <target_type>sys_db_object</target_type>
+    </sys_scope_privilege>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</claim_owner_scope>
+        <claim_timestamp>185c6dac7a60000001</claim_timestamp>
+        <metadata_update_name>sys_scope_privilege_5cb5b61e1bb2b0907663a82c274bcb53</metadata_update_name>
+        <previous_claim_app_version>26.0.4</previous_claim_app_version>
+        <previous_claim_name>Employee Center Core</previous_claim_name>
+        <previous_claim_scope>3d1da2705b021200a4656ede91f91ab6</previous_claim_scope>
+        <sys_created_by>sam.herring</sys_created_by>
+        <sys_created_on>2023-01-18 21:48:24</sys_created_on>
+        <sys_id>c2cef79c1b68e110f639da09dc4bcbbc</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>sam.herring</sys_updated_by>
+        <sys_updated_on>2023-01-18 21:48:24</sys_updated_on>
+    </sys_claim>
+</record_update>

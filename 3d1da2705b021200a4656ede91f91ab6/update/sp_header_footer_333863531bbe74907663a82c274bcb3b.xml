@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_header_footer">
+    <sp_header_footer action="INSERT_OR_UPDATE">
+        <category>sample</category>
+        <client_script><![CDATA[function() {
+  // widget controller
+  var c = this;
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.sample-footer {
+  background-color: black; 
+  color: white; 
+  padding: 5px;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id/>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>IHR Footer</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+ data.time = new GlideDateTime().getDisplayValue();
+})();]]></script>
+        <servicenow>false</servicenow>
+        <static>false</static>
+        <sys_class_name>sp_header_footer</sys_class_name>
+        <sys_created_by>james.taylor</sys_created_by>
+        <sys_created_on>2021-09-30 11:39:32</sys_created_on>
+        <sys_id>333863531bbe74907663a82c274bcb3b</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>IHR Footer</sys_name>
+        <sys_package display_value="Employee Center Core" source="sn_hr_sp">3d1da2705b021200a4656ede91f91ab6</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</sys_scope>
+        <sys_update_name>sp_header_footer_333863531bbe74907663a82c274bcb3b</sys_update_name>
+        <sys_updated_by>james.taylor</sys_updated_by>
+        <sys_updated_on>2021-10-05 04:37:17</sys_updated_on>
+        <template><![CDATA[ <!--<div class="sample-footer">	
+  ${Page generated at {{::c.data.time}}}
+ </div>-->
+<div>
+  <widget id="sn-va-sp-widget"></widget>
+</div>]]></template>
+    </sp_header_footer>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</claim_owner_scope>
+        <claim_timestamp>185c6daca190000001</claim_timestamp>
+        <metadata_update_name>sp_header_footer_333863531bbe74907663a82c274bcb3b</metadata_update_name>
+        <previous_claim_app_version>26.0.4</previous_claim_app_version>
+        <previous_claim_name>Employee Center Core</previous_claim_name>
+        <previous_claim_scope>3d1da2705b021200a4656ede91f91ab6</previous_claim_scope>
+        <sys_created_by>sam.herring</sys_created_by>
+        <sys_created_on>2023-01-18 21:48:25</sys_created_on>
+        <sys_id>5acef79c1b68e110f639da09dc4bcbe9</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>sam.herring</sys_updated_by>
+        <sys_updated_on>2023-01-18 21:48:25</sys_updated_on>
+    </sys_claim>
+</record_update>

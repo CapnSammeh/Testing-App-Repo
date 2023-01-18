@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_restricted_caller_access">
+    <sys_restricted_caller_access action="DELETE">
+        <operation>execute</operation>
+        <rca_type>real_rca</rca_type>
+        <source/>
+        <source_scope display_value="Content Publishing">b26210490b7203008cd6e7ae37673a6a</source_scope>
+        <source_table/>
+        <source_type>5</source_type>
+        <status>2</status>
+        <sys_class_name>sys_restricted_caller_access</sys_class_name>
+        <sys_created_by>vishnu.rai</sys_created_by>
+        <sys_created_on>2021-09-24 03:27:29</sys_created_on>
+        <sys_id>9bedb61d1b7ef850f639da09dc4bcb3d</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>b26210490b7203008cd6e7ae37673a6a</sys_name>
+        <sys_package display_value="Employee Center Core" source="sn_hr_sp">3d1da2705b021200a4656ede91f91ab6</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</sys_scope>
+        <sys_update_name>sys_restricted_caller_access_9bedb61d1b7ef850f639da09dc4bcb3d</sys_update_name>
+        <sys_updated_by>vishnu.rai</sys_updated_by>
+        <sys_updated_on>2021-09-24 03:29:55</sys_updated_on>
+        <target>0f3c54bb537132003585c3c606dc341f</target>
+        <target_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</target_scope>
+        <target_table>sys_script_include</target_table>
+        <target_type>2</target_type>
+    </sys_restricted_caller_access>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</application>
+        <file_path/>
+        <instance_id>5705a594dbb018d8413450b6f496194f</instance_id>
+        <instance_name>deloitteaus7</instance_name>
+        <name>sys_restricted_caller_access_9bedb61d1b7ef850f639da09dc4bcb3d</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_restricted_caller_access"><sys_restricted_caller_access action="INSERT_OR_UPDATE"><operation>execute</operation><rca_type>real_rca</rca_type><source/><source_scope display_value="Content Publishing">b26210490b7203008cd6e7ae37673a6a</source_scope><source_table/><source_type>5</source_type><status>2</status><sys_class_name>sys_restricted_caller_access</sys_class_name><sys_created_by>vishnu.rai</sys_created_by><sys_created_on>2021-09-24 03:27:29</sys_created_on><sys_id>9bedb61d1b7ef850f639da09dc4bcb3d</sys_id><sys_mod_count>1</sys_mod_count><sys_name>b26210490b7203008cd6e7ae37673a6a</sys_name><sys_package display_value="Employee Center Core" source="sn_hr_sp">3d1da2705b021200a4656ede91f91ab6</sys_package><sys_policy/><sys_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</sys_scope><sys_update_name>sys_restricted_caller_access_9bedb61d1b7ef850f639da09dc4bcb3d</sys_update_name><sys_updated_by>vishnu.rai</sys_updated_by><sys_updated_on>2021-09-24 03:29:55</sys_updated_on><target>0f3c54bb537132003585c3c606dc341f</target><target_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</target_scope><target_table>sys_script_include</target_table><target_type>2</target_type></sys_restricted_caller_access></record_update>]]></payload>
+        <payload_hash>-1985215675</payload_hash>
+        <record_name>b26210490b7203008cd6e7ae37673a6a</record_name>
+        <reverted_from/>
+        <source>4c0a46621b5638107663a82c274bcbcc</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>vishnu.rai</sys_created_by>
+        <sys_created_on>2021-09-24 03:29:55</sys_created_on>
+        <sys_id>4daefa1d1b7ef850f639da09dc4bcb77</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>17c15da38c10000001</sys_recorded_at>
+        <sys_updated_by>vishnu.rai</sys_updated_by>
+        <sys_updated_on>2021-09-24 03:29:55</sys_updated_on>
+        <type>Restricted Caller Access Privilege</type>
+        <update_guid>85aefa1d7c7ef850dc1546cb16720377</update_guid>
+        <update_guid_history>85aefa1d7c7ef850dc1546cb16720377:-1985215675,211ef61d357ef850ddbc91b0083c1b48:-1658102476</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>vishnu.rai</sys_created_by>
+        <sys_created_on>2021-09-24 03:35:44</sys_created_on>
+        <sys_db_object display_value="" name="sys_restricted_caller_access">sys_restricted_caller_access</sys_db_object>
+        <sys_id>14357011d2704f6886ebfc325b70f6a4</sys_id>
+        <sys_metadata>9bedb61d1b7ef850f639da09dc4bcb3d</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>b26210490b7203008cd6e7ae37673a6a</sys_name>
+        <sys_package display_value="Employee Center Core" source="sn_hr_sp">3d1da2705b021200a4656ede91f91ab6</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</sys_scope>
+        <sys_scope_delete display_value="">0583d6de2a2743609422ef5f67d2a400</sys_scope_delete>
+        <sys_update_name>sys_restricted_caller_access_9bedb61d1b7ef850f639da09dc4bcb3d</sys_update_name>
+        <sys_update_version display_value="sys_restricted_caller_access_9bedb61d1b7ef850f639da09dc4bcb3d">4daefa1d1b7ef850f639da09dc4bcb77</sys_update_version>
+        <sys_updated_by>vishnu.rai</sys_updated_by>
+        <sys_updated_on>2021-09-24 03:35:44</sys_updated_on>
+    </sys_metadata_delete>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</claim_owner_scope>
+        <claim_timestamp>185c6daca920000001</claim_timestamp>
+        <metadata_update_name>sys_restricted_caller_access_9bedb61d1b7ef850f639da09dc4bcb3d</metadata_update_name>
+        <previous_claim_app_version>26.0.4</previous_claim_app_version>
+        <previous_claim_name>Employee Center Core</previous_claim_name>
+        <previous_claim_scope>3d1da2705b021200a4656ede91f91ab6</previous_claim_scope>
+        <sys_created_by>sam.herring</sys_created_by>
+        <sys_created_on>2023-01-18 21:48:25</sys_created_on>
+        <sys_id>92cef79c1b68e110f639da09dc4bcbf1</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>sam.herring</sys_updated_by>
+        <sys_updated_on>2023-01-18 21:48:25</sys_updated_on>
+    </sys_claim>
+</record_update>

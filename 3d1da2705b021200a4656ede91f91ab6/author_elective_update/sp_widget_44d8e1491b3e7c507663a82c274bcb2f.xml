@@ -1,0 +1,465 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="DELETE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function() {
+  /* widget controller */
+  var c = this;
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.iconlink a label,h2 {&#13;
+  display: block;&#13;
+  font-size: 2.5rem;&#13;
+  font-weight: 300;&#13;
+  line-height: 1.1;&#13;
+  padding: 0;&#13;
+  margin: 0 0 10px 0;&#13;
+}&#13;
+&#13;
+/* TOP ICON ---------- */&#13;
+&#13;
+a.top_icon {&#13;
+  display: block;&#13;
+  padding: 20px;&#13;
+  text-align: center;&#13;
+}&#13;
+&#13;
+a.top_icon .fa {&#13;
+  display: block;&#13;
+  text-align: center;&#13;
+}&#13;
+&#13;
+/* CIRCLE ICON ---------- */&#13;
+&#13;
+a.circle_icon {&#13;
+  display: block;&#13;
+  padding: 20px 0px 20px 70px;&#13;
+  position: relative;&#13;
+}&#13;
+&#13;
+a.circle_icon .fa {&#13;
+  position:absolute;&#13;
+  left: 0px;&#13;
+  top: 10px;&#13;
+}&#13;
+&#13;
+/* COLOR BOX ---------- */&#13;
+&#13;
+a.color_box {&#13;
+  display: block;&#13;
+  position: relative;&#13;
+  padding: 20px 20px 20px 82px;&#13;
+  border-radius: 4px;&#13;
+  margin-bottom: 20px;&#13;
+}&#13;
+&#13;
+a.color_box .fa {&#13;
+  position:absolute;&#13;
+  left: 20px;&#13;
+  top: 20px;&#13;
+  width:42px;&#13;
+  text-align: center;&#13;
+}&#13;
+&#13;
+.icon-link-background-primary {&#13;
+  background-color: $brand-primary;&#13;
+}&#13;
+&#13;
+.icon-link-background-info {&#13;
+  background-color: $brand-info;&#13;
+}&#13;
+&#13;
+.icon-link-background-success {&#13;
+  background-color: $brand-success;&#13;
+}&#13;
+&#13;
+.icon-link-background-warning {&#13;
+  background-color: $brand-warning;&#13;
+}&#13;
+&#13;
+.icon-link-background-danger {&#13;
+  background-color: $brand-danger;&#13;
+}&#13;
+&#13;
+.icon-link-background-default {&#13;
+  background-color: $brand-primary;&#13;
+}&#13;
+&#13;
+.text-primary {&#13;
+  color: $brand-primary;&#13;
+  &#13;
+  &amp;:hover {&#13;
+    color: darken($brand-primary, 20%);&#13;
+  }&#13;
+}&#13;
+&#13;
+.text-info {&#13;
+  color: $brand-info;&#13;
+  &#13;
+  &amp;:hover {&#13;
+    color: darken($brand-info, 20%);&#13;
+  }&#13;
+}&#13;
+&#13;
+.text-success {&#13;
+  color: $brand-success;&#13;
+  &#13;
+  &amp;:hover {&#13;
+    color: darken($brand-success, 20%);&#13;
+  }&#13;
+}&#13;
+&#13;
+.text-warning {&#13;
+  color: $brand-warning;&#13;
+  &#13;
+  &amp;:hover {&#13;
+    color: darken($brand-warning, 20%);&#13;
+  }&#13;
+}&#13;
+&#13;
+.text-danger {&#13;
+  color: $brand-danger;&#13;
+  &#13;
+  &amp;:hover {&#13;
+    color: darken($brand-danger, 20%);&#13;
+  }&#13;
+}&#13;
+&#13;
+.text-default {&#13;
+  color: $brand-primary;&#13;
+  &#13;
+  &amp;:hover {&#13;
+    color: darken($brand-primary, 20%);&#13;
+  }&#13;
+}&#13;
+&#13;
+.high-contrast {&#13;
+  .text-primary {&#13;
+    color: darken($brand-primary, 10%);&#13;
+  }&#13;
+&#13;
+  .text-info {&#13;
+    color: darken($brand-info, 10%);&#13;
+  }&#13;
+&#13;
+  .text-success {&#13;
+    color: darken($brand-success, 10%);&#13;
+  }&#13;
+&#13;
+  .text-warning {&#13;
+    color: darken($brand-warning, 10%);&#13;
+  }&#13;
+&#13;
+  .text-danger {&#13;
+    color: darken($brand-danger, 10%);&#13;
+  }&#13;
+&#13;
+  .text-default {&#13;
+    color: darken($brand-primary, 10%);&#13;
+  }&#13;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>today</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]></link>
+        <name>Today</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function(){
+	var gr = $sp.getInstanceRecord();
+	data.href = $sp.getMenuHREF(gr);
+	data.target = options.target || "";
+	
+	var currentDate = new GlideDateTime().getDate;
+	var gdt = new GlideDateTime();
+	var month = gdt.getMonthLocalTime();
+	
+	var monthName = new sn_hr_sp.ihr_todayWidgetUtils().getMonthName(month, true);
+	data.month = monthName;
+	data.day = gdt.getDayOfMonthLocalTime();
+
+	var weather = new sn_hr_sp.ihr_todayWidgetUtils().getWeather_byCityId();
+	data.weather = weather;
+
+	//data.temperature = weather.temperature;
+	//data.weather_id = weather.weather_id;
+	//data.weather_desc = weather.weather_desc;
+	data.weather_image = 'ihr_today_' + weather.weather_icon_id + '.png';
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>james.taylor</sys_created_by>
+        <sys_created_on>2021-09-23 02:37:09</sys_created_on>
+        <sys_id>44d8e1491b3e7c507663a82c274bcb2f</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Today</sys_name>
+        <sys_package display_value="Employee Center Core" source="sn_hr_sp">3d1da2705b021200a4656ede91f91ab6</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</sys_scope>
+        <sys_update_name>sp_widget_44d8e1491b3e7c507663a82c274bcb2f</sys_update_name>
+        <sys_updated_by>james.taylor</sys_updated_by>
+        <sys_updated_on>2021-09-23 02:38:41</sys_updated_on>
+        <template><![CDATA[<div class="iconlink" ng-class="{'high-contrast': accessibilityModeEnabled}">
+  <!--// Top Icon -->
+  <span class="text-muted">Today,</span>
+  <a ng-if="::(options.link_template == 'Top Icon' || !options.link_template)" ng-href="{{::data.href}}" class="top_icon {{::options.class_name}}" target="{{::data.target}}">
+    <!-- <div class="m-b fa fa-{{::options.glyph}} fa-4x {{::options.class_name}} text-{{::options.color}}"></div> -->
+    <img src={{::data.weather_image}} width="100" height="100"/>
+    <h2>{{::data.day}} {{::data.month}}</h2>
+    <span class="text-muted">{{::data.weather.weather_desc}}</span>
+    <span class="text-muted">{{::data.weather.temperature.toFixed(2)}}</span>
+  </a>
+</div>]]></template>
+    </sp_widget>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</application>
+        <file_path/>
+        <instance_id>5705a594dbb018d8413450b6f496194f</instance_id>
+        <instance_name>deloitteaus7</instance_name>
+        <name>sp_widget_44d8e1491b3e7c507663a82c274bcb2f</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sp_widget"&gt;&lt;sp_widget action="INSERT_OR_UPDATE"&gt;&lt;category&gt;custom&lt;/category&gt;&lt;client_script&gt;&lt;![CDATA[api.controller=function() {
+  /* widget controller */
+  var c = this;
+};]]&gt;&lt;/client_script&gt;&lt;controller_as&gt;c&lt;/controller_as&gt;&lt;css&gt;.iconlink a label,h2 {&amp;#13;
+  display: block;&amp;#13;
+  font-size: 2.5rem;&amp;#13;
+  font-weight: 300;&amp;#13;
+  line-height: 1.1;&amp;#13;
+  padding: 0;&amp;#13;
+  margin: 0 0 10px 0;&amp;#13;
+}&amp;#13;
+&amp;#13;
+/* TOP ICON ---------- */&amp;#13;
+&amp;#13;
+a.top_icon {&amp;#13;
+  display: block;&amp;#13;
+  padding: 20px;&amp;#13;
+  text-align: center;&amp;#13;
+}&amp;#13;
+&amp;#13;
+a.top_icon .fa {&amp;#13;
+  display: block;&amp;#13;
+  text-align: center;&amp;#13;
+}&amp;#13;
+&amp;#13;
+/* CIRCLE ICON ---------- */&amp;#13;
+&amp;#13;
+a.circle_icon {&amp;#13;
+  display: block;&amp;#13;
+  padding: 20px 0px 20px 70px;&amp;#13;
+  position: relative;&amp;#13;
+}&amp;#13;
+&amp;#13;
+a.circle_icon .fa {&amp;#13;
+  position:absolute;&amp;#13;
+  left: 0px;&amp;#13;
+  top: 10px;&amp;#13;
+}&amp;#13;
+&amp;#13;
+/* COLOR BOX ---------- */&amp;#13;
+&amp;#13;
+a.color_box {&amp;#13;
+  display: block;&amp;#13;
+  position: relative;&amp;#13;
+  padding: 20px 20px 20px 82px;&amp;#13;
+  border-radius: 4px;&amp;#13;
+  margin-bottom: 20px;&amp;#13;
+}&amp;#13;
+&amp;#13;
+a.color_box .fa {&amp;#13;
+  position:absolute;&amp;#13;
+  left: 20px;&amp;#13;
+  top: 20px;&amp;#13;
+  width:42px;&amp;#13;
+  text-align: center;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.icon-link-background-primary {&amp;#13;
+  background-color: $brand-primary;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.icon-link-background-info {&amp;#13;
+  background-color: $brand-info;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.icon-link-background-success {&amp;#13;
+  background-color: $brand-success;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.icon-link-background-warning {&amp;#13;
+  background-color: $brand-warning;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.icon-link-background-danger {&amp;#13;
+  background-color: $brand-danger;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.icon-link-background-default {&amp;#13;
+  background-color: $brand-primary;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.text-primary {&amp;#13;
+  color: $brand-primary;&amp;#13;
+  &amp;#13;
+  &amp;amp;:hover {&amp;#13;
+    color: darken($brand-primary, 20%);&amp;#13;
+  }&amp;#13;
+}&amp;#13;
+&amp;#13;
+.text-info {&amp;#13;
+  color: $brand-info;&amp;#13;
+  &amp;#13;
+  &amp;amp;:hover {&amp;#13;
+    color: darken($brand-info, 20%);&amp;#13;
+  }&amp;#13;
+}&amp;#13;
+&amp;#13;
+.text-success {&amp;#13;
+  color: $brand-success;&amp;#13;
+  &amp;#13;
+  &amp;amp;:hover {&amp;#13;
+    color: darken($brand-success, 20%);&amp;#13;
+  }&amp;#13;
+}&amp;#13;
+&amp;#13;
+.text-warning {&amp;#13;
+  color: $brand-warning;&amp;#13;
+  &amp;#13;
+  &amp;amp;:hover {&amp;#13;
+    color: darken($brand-warning, 20%);&amp;#13;
+  }&amp;#13;
+}&amp;#13;
+&amp;#13;
+.text-danger {&amp;#13;
+  color: $brand-danger;&amp;#13;
+  &amp;#13;
+  &amp;amp;:hover {&amp;#13;
+    color: darken($brand-danger, 20%);&amp;#13;
+  }&amp;#13;
+}&amp;#13;
+&amp;#13;
+.text-default {&amp;#13;
+  color: $brand-primary;&amp;#13;
+  &amp;#13;
+  &amp;amp;:hover {&amp;#13;
+    color: darken($brand-primary, 20%);&amp;#13;
+  }&amp;#13;
+}&amp;#13;
+&amp;#13;
+.high-contrast {&amp;#13;
+  .text-primary {&amp;#13;
+    color: darken($brand-primary, 10%);&amp;#13;
+  }&amp;#13;
+&amp;#13;
+  .text-info {&amp;#13;
+    color: darken($brand-info, 10%);&amp;#13;
+  }&amp;#13;
+&amp;#13;
+  .text-success {&amp;#13;
+    color: darken($brand-success, 10%);&amp;#13;
+  }&amp;#13;
+&amp;#13;
+  .text-warning {&amp;#13;
+    color: darken($brand-warning, 10%);&amp;#13;
+  }&amp;#13;
+&amp;#13;
+  .text-danger {&amp;#13;
+    color: darken($brand-danger, 10%);&amp;#13;
+  }&amp;#13;
+&amp;#13;
+  .text-default {&amp;#13;
+    color: darken($brand-primary, 10%);&amp;#13;
+  }&amp;#13;
+}&lt;/css&gt;&lt;data_table&gt;sp_instance&lt;/data_table&gt;&lt;demo_data/&gt;&lt;description/&gt;&lt;docs/&gt;&lt;field_list/&gt;&lt;has_preview&gt;false&lt;/has_preview&gt;&lt;id&gt;today&lt;/id&gt;&lt;internal&gt;false&lt;/internal&gt;&lt;link&gt;&lt;![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]&gt;&lt;/link&gt;&lt;name&gt;Today&lt;/name&gt;&lt;option_schema/&gt;&lt;public&gt;false&lt;/public&gt;&lt;roles/&gt;&lt;script&gt;&lt;![CDATA[(function(){
+	var gr = $sp.getInstanceRecord();
+	data.href = $sp.getMenuHREF(gr);
+	data.target = options.target || "";
+	
+	var currentDate = new GlideDateTime().getDate;
+	var gdt = new GlideDateTime();
+	var month = gdt.getMonthLocalTime();
+	
+	var monthName = new sn_hr_sp.ihr_todayWidgetUtils().getMonthName(month, true);
+	data.month = monthName;
+	data.day = gdt.getDayOfMonthLocalTime();
+
+	var weather = new sn_hr_sp.ihr_todayWidgetUtils().getWeather_byCityId();
+	data.weather = weather;
+
+	//data.temperature = weather.temperature;
+	//data.weather_id = weather.weather_id;
+	//data.weather_desc = weather.weather_desc;
+	data.weather_image = 'ihr_today_' + weather.weather_icon_id + '.png';
+})();]]&gt;&lt;/script&gt;&lt;servicenow&gt;false&lt;/servicenow&gt;&lt;sys_class_name&gt;sp_widget&lt;/sys_class_name&gt;&lt;sys_created_by&gt;james.taylor&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2021-09-23 02:37:09&lt;/sys_created_on&gt;&lt;sys_id&gt;44d8e1491b3e7c507663a82c274bcb2f&lt;/sys_id&gt;&lt;sys_mod_count&gt;1&lt;/sys_mod_count&gt;&lt;sys_name&gt;Today&lt;/sys_name&gt;&lt;sys_package display_value="Employee Center Core" source="sn_hr_sp"&gt;3d1da2705b021200a4656ede91f91ab6&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Employee Center Core"&gt;3d1da2705b021200a4656ede91f91ab6&lt;/sys_scope&gt;&lt;sys_update_name&gt;sp_widget_44d8e1491b3e7c507663a82c274bcb2f&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;james.taylor&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2021-09-23 02:38:41&lt;/sys_updated_on&gt;&lt;template&gt;&lt;![CDATA[&lt;div class="iconlink" ng-class="{'high-contrast': accessibilityModeEnabled}"&gt;
+  &lt;!--// Top Icon --&gt;
+  &lt;span class="text-muted"&gt;Today,&lt;/span&gt;
+  &lt;a ng-if="::(options.link_template == 'Top Icon' || !options.link_template)" ng-href="{{::data.href}}" class="top_icon {{::options.class_name}}" target="{{::data.target}}"&gt;
+    &lt;!-- &lt;div class="m-b fa fa-{{::options.glyph}} fa-4x {{::options.class_name}} text-{{::options.color}}"&gt;&lt;/div&gt; --&gt;
+    &lt;img src={{::data.weather_image}} width="100" height="100"/&gt;
+    &lt;h2&gt;{{::data.day}} {{::data.month}}&lt;/h2&gt;
+    &lt;span class="text-muted"&gt;{{::data.weather.weather_desc}}&lt;/span&gt;
+    &lt;span class="text-muted"&gt;{{::data.weather.temperature.toFixed(2)}}&lt;/span&gt;
+  &lt;/a&gt;
+&lt;/div&gt;]]&gt;&lt;/template&gt;&lt;/sp_widget&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-1216191423</payload_hash>
+        <record_name>Today</record_name>
+        <reverted_from/>
+        <source>09e7e1091b3e7c507663a82c274bcbc1</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>james.taylor</sys_created_by>
+        <sys_created_on>2021-09-23 02:38:41</sys_created_on>
+        <sys_id>f459a9491b3e7c507663a82c274bcb4a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>17c1084f4680000001</sys_recorded_at>
+        <sys_updated_by>james.taylor</sys_updated_by>
+        <sys_updated_on>2021-09-23 02:38:41</sys_updated_on>
+        <type>Widget</type>
+        <update_guid>7059a9490b3e7c50367f420a9df42d4a</update_guid>
+        <update_guid_history>7059a9490b3e7c50367f420a9df42d4a:-1216191423,aef86549ef3e7c5066228f9c3950d9aa:1867444267</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Today">11d6b1451b7e7c507663a82c274bcbdf</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>james.taylor</sys_created_by>
+        <sys_created_on>2021-09-23 03:37:42</sys_created_on>
+        <sys_db_object display_value="" name="sp_widget">sp_widget</sys_db_object>
+        <sys_id>3eae8dcb9e134b8097e4229203664000</sys_id>
+        <sys_metadata>44d8e1491b3e7c507663a82c274bcb2f</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Today</sys_name>
+        <sys_package display_value="Employee Center Core" source="sn_hr_sp">3d1da2705b021200a4656ede91f91ab6</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</sys_scope>
+        <sys_scope_delete display_value="">0583d6de2a2743609422ef5f67d2a400</sys_scope_delete>
+        <sys_update_name>sp_widget_44d8e1491b3e7c507663a82c274bcb2f</sys_update_name>
+        <sys_update_version display_value="sp_widget_44d8e1491b3e7c507663a82c274bcb2f">f459a9491b3e7c507663a82c274bcb4a</sys_update_version>
+        <sys_updated_by>james.taylor</sys_updated_by>
+        <sys_updated_on>2021-09-23 03:37:42</sys_updated_on>
+    </sys_metadata_delete>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</claim_owner_scope>
+        <claim_timestamp>185c6daba380000001</claim_timestamp>
+        <metadata_update_name>sp_widget_44d8e1491b3e7c507663a82c274bcb2f</metadata_update_name>
+        <previous_claim_app_version>26.0.4</previous_claim_app_version>
+        <previous_claim_name>Employee Center Core</previous_claim_name>
+        <previous_claim_scope>3d1da2705b021200a4656ede91f91ab6</previous_claim_scope>
+        <sys_created_by>sam.herring</sys_created_by>
+        <sys_created_on>2023-01-18 21:48:21</sys_created_on>
+        <sys_id>11ceb79c1b68e110f639da09dc4bcb6e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>sam.herring</sys_updated_by>
+        <sys_updated_on>2023-01-18 21:48:21</sys_updated_on>
+    </sys_claim>
+</record_update>

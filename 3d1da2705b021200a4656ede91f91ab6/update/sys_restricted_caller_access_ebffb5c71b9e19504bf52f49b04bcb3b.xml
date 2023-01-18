@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_restricted_caller_access">
+    <sys_restricted_caller_access action="INSERT_OR_UPDATE">
+        <description/>
+        <operation>read</operation>
+        <rca_type>real_rca</rca_type>
+        <source>7cab210b1b5e19504bf52f49b04bcb74</source>
+        <source_scope display_value="Employee Center">4249e63a28d54d61bb6fbf61fd86cccb</source_scope>
+        <source_table>wf_activity</source_table>
+        <source_type>4</source_type>
+        <status>2</status>
+        <sys_class_name>sys_restricted_caller_access</sys_class_name>
+        <sys_created_by>ailyn.agoy</sys_created_by>
+        <sys_created_on>2022-10-07 05:16:28</sys_created_on>
+        <sys_id>ebffb5c71b9e19504bf52f49b04bcb3b</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>4249e63a28d54d61bb6fbf61fd86cccb</sys_name>
+        <sys_package display_value="Employee Center Core" source="sn_hr_sp">3d1da2705b021200a4656ede91f91ab6</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</sys_scope>
+        <sys_update_name>sys_restricted_caller_access_ebffb5c71b9e19504bf52f49b04bcb3b</sys_update_name>
+        <sys_updated_by>james.taylor</sys_updated_by>
+        <sys_updated_on>2022-10-18 06:19:52</sys_updated_on>
+        <target>3d1da2705b021200a4656ede91f91ab6</target>
+        <target_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</target_scope>
+        <target_table>sys_scope</target_table>
+        <target_type>3</target_type>
+    </sys_restricted_caller_access>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</claim_owner_scope>
+        <claim_timestamp>185c6dac63f0000001</claim_timestamp>
+        <metadata_update_name>sys_restricted_caller_access_ebffb5c71b9e19504bf52f49b04bcb3b</metadata_update_name>
+        <previous_claim_app_version>26.0.4</previous_claim_app_version>
+        <previous_claim_name>Employee Center Core</previous_claim_name>
+        <previous_claim_scope>3d1da2705b021200a4656ede91f91ab6</previous_claim_scope>
+        <sys_created_by>sam.herring</sys_created_by>
+        <sys_created_on>2023-01-18 21:48:24</sys_created_on>
+        <sys_id>82cef79c1b68e110f639da09dc4bcb90</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>sam.herring</sys_updated_by>
+        <sys_updated_on>2023-01-18 21:48:24</sys_updated_on>
+    </sys_claim>
+</record_update>

@@ -1,0 +1,529 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>sn_hr_sp.cd_ContentDelivery</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>cd_ContentDelivery</name>
+        <script><![CDATA[var cd_ContentDelivery = Class.create();
+cd_ContentDelivery.prototype = {
+    initialize: function() {
+    },
+
+    type: 'cd_ContentDelivery'
+};
+
+/* Get content for the specified sp_instance
+* @param instanceId String The ID of the sp_instance for which we want content
+* @return Array A sorted array of objects containing information about the content specified by @function _addContentToResult
+*/
+cd_ContentDelivery.getContentForWidgetInstance = function(instanceId) {
+	var results = {
+		contentMap: {},
+		contentArray: []
+	};
+gs.info("Enter here......");
+	cd_ContentDelivery._getStandardPortalContentForWidgetInstance(instanceId, results);
+	cd_ContentDelivery._getCampaignPortalContentForWidgetInstance(instanceId, results);
+
+	return results.contentArray.sort(function(a, b) {
+		var i = Number(a.order);
+		var j = Number(b.order);
+		var k = new GlideDateTime(a.availability_start_date.length > 0 ? a.availability_start_date : a.sys_created_on);
+		var l = new GlideDateTime(b.availability_start_date.length > 0 ? b.availability_start_date : b.sys_created_on);
+		return i < j ? -1 : i > j ? 1 : k.after(l) ? -1 : k.before(l) ? 1 : 0;
+	});
+};
+
+/* Get standard content for the specified sp_instance
+* @param instanceId String The ID of the sp_instance for which we want content
+* @param results Array Objects containing information about the content and to which we will append more objects
+*/
+cd_ContentDelivery._getStandardPortalContentForWidgetInstance = function(instanceId, results) {
+	// var cd_Audience = new sn_hr_sp.cd_Audience.cd_Audience();
+	var gdtNow = new GlideDateTime();
+	var user = gs.getUserID();
+	// get all active content associated with this sp_instance
+	var grContentVisibility = new GlideRecord('sn_cd_content_visibility');
+	grContentVisibility.addActiveQuery();
+	grContentVisibility.addNullQuery('content_location').addOrCondition('content_location', 'service_portal');
+	grContentVisibility.addQuery('sp_instance', instanceId);
+	grContentVisibility.addQuery('content.active', true);
+	grContentVisibility.addQuery('content.sys_class_name', 'INSTANCEOF', 'sn_cd_content_portal');
+	grContentVisibility.addNullQuery('approvers').addOrCondition('state', 'published');
+	grContentVisibility.addNullQuery('availability_start_date').addOrCondition('availability_start_date', '<=', gdtNow);
+	grContentVisibility.addNullQuery('availability_end_date').addOrCondition('availability_end_date', '>=', gdtNow);
+	// NOTE: we rely on event end being null if the content type is not event (BR enforces this)
+	grContentVisibility.addNullQuery('content.event_end').addOrCondition('content.event_end', '>=', gdtNow);
+	grContentVisibility.query();
+
+	while (grContentVisibility.next())
+			cd_ContentDelivery._addContentToResult(grContentVisibility.content.getRefRecord(), results, grContentVisibility);
+
+	// while (grContentVisibility.next())
+	// 	if ( ((grContentVisibility.getValue('use_adhoc_users') == true && grContentVisibility.getValue('users').indexOf(user)!=-1) || (grContentVisibility.getValue('use_adhoc_users') != true && cd_Audience.isUserInAudience(grContentVisibility.getValue("audience"), user))) && !cd_ContentDelivery._hasUnprocessedTodoScheduledContent(grContentVisibility) )
+	// 		cd_ContentDelivery._addContentToResult(grContentVisibility.content.getRefRecord(), results, grContentVisibility);
+};
+
+/* Get campaign content for the specified sp_instance
+* @param instanceId String The ID of the sp_instance for which we want content
+* @param results Array Objects containing information about the content and to which we will append more objects
+*/
+cd_ContentDelivery._getCampaignPortalContentForWidgetInstance = function(instanceId, results) {
+	if (!instanceId || !(new GlidePluginManager().isActive('com.sn_content_automation')))
+		return;
+
+	var contentIds = new sn_ca.ca_CampaignContent().getCampaignContentForUserAndWidgetInstance(gs.getUserID(), instanceId);
+	if (contentIds && contentIds.length > 0) {
+		var grContentPortal = new GlideRecord('sn_cd_content_portal');
+		var grCampaignContent = new GlideRecord('sn_ca_campaign_item');
+		for (var i = 0; i < contentIds.length; i++) {
+			if (grContentPortal.get(contentIds[i].id) && grCampaignContent.get(contentIds[i].campaignItemId) && !cd_ContentDelivery._hasUnprocessedTodoCampaignContent(grCampaignContent)) {
+				var idx = cd_ContentDelivery._addContentToResult(grContentPortal, results, null, grCampaignContent);
+				var contentJson = results.contentArray[idx];
+				
+				// the keys of campaignSet will be the ids
+				// of the campaigns that are publishing the content
+				if (!contentJson.hasOwnProperty('campaignSet'))
+					contentJson.campaignSet = {};
+				
+				var campaignId = contentIds[i].campaignId;
+				contentJson.campaignSet[campaignId] = null;
+			}
+		}
+	}
+};
+
+/* Get content for the specified sys_ux_custom_content_root_elem
+* @param contentIdentifier String The identifier tag for which we want content
+* @return Array A sorted array of objects containing information about the content
+*/
+cd_ContentDelivery.getContentForWorkspaceInstance = function(contentIdentifier) {
+	var results = {
+		contentMap: {},
+		contentArray: []
+	};
+
+	cd_ContentDelivery._getStandardPortalContentForWorkspaceInstance(contentIdentifier, results);
+
+	return results.contentArray.sort(function(a, b) {
+		var i = Number(a.order);
+		var j = Number(b.order);
+		return i < j ? -1 : i > j ? 1 : 0;
+	});
+};
+
+/* Get standard content for the specified sys_ux_custom_content_root_elem
+* @param contentIdentifier String The identifier tag for which we want content
+* @param results Array Objects containing information about the content and to which we will append more objects
+*/
+cd_ContentDelivery._getStandardPortalContentForWorkspaceInstance = function(contentIdentifier, results) {
+	var cd_Audience = new sn_cd.cd_Audience();
+	var gdtNow = new GlideDateTime();
+	var user = gs.getUserID();
+	// get all active content associated with this sp_instance
+	var grContentVisibility = new GlideRecord('sn_cd_content_visibility');
+	if (!grContentVisibility.isValidField("content_identifier"))
+		return;
+	grContentVisibility.addActiveQuery();
+	grContentVisibility.addQuery('content_location', 'workspace');
+	grContentVisibility.addQuery('content_identifier', contentIdentifier);
+	grContentVisibility.addQuery('content.active', true);
+	grContentVisibility.addQuery('content.sys_class_name', 'INSTANCEOF', 'sn_cd_content_portal');
+	grContentVisibility.addNullQuery('approvers').addOrCondition('state', 'published');
+	grContentVisibility.addNullQuery('availability_start_date').addOrCondition('availability_start_date', '<=', gdtNow);
+	grContentVisibility.addNullQuery('availability_end_date').addOrCondition('availability_end_date', '>=', gdtNow);
+	grContentVisibility.addNotNullQuery('audience');
+	// NOTE: we rely on event end being null if the content type is not event (BR enforces this)
+	grContentVisibility.addNullQuery('content.event_end').addOrCondition('content.event_end', '>=', gdtNow);
+	grContentVisibility.query();
+
+	while (grContentVisibility.next())
+		if (cd_Audience.isUserInAudience(grContentVisibility.getValue("audience"), user))
+			cd_ContentDelivery._addContentToResult(grContentVisibility.content.getRefRecord(), results);
+};
+
+/**
+* Get an object describing the specified content
+* @param string contentId The sys id of the portal content record we want
+* @return Array An array (max length one in this case) of content object information
+*/
+cd_ContentDelivery.getPortalContentById = function(contentId) {
+	if (!contentId)
+		return [];
+
+	var results = {
+		contentMap: {},
+		contentArray: []
+	};
+
+	var grContentPortal = new GlideRecord('sn_cd_content_portal');
+	if (grContentPortal.get(contentId))
+		cd_ContentDelivery._addContentToResult(grContentPortal, results);
+
+	return results.contentArray;
+};
+
+/** Get portal content referencing the specified schedule
+* @param scheduleId string cmn_schedule sys_id to get portal content by
+* @return Array Objects representing a portal content record specified by @function _addContentToResult
+*/
+cd_ContentDelivery.getPortalContentByScheduleId = function(scheduleId) {
+	if (!scheduleId)
+		return [];
+
+	var results = {
+		contentMap: {},
+		contentArray: []
+	};
+
+	var grContentPortal = new GlideRecord('sn_cd_content_portal');
+	grContentPortal.addQuery('schedule', scheduleId);
+	grContentPortal.query();
+
+	while (grContentPortal.next())
+		cd_ContentDelivery._addContentToResult(grContentPortal, results);
+
+	return results.contentArray;
+};
+
+/**
+ * This gets content using the availability dates and end dates, but ignores the audience.
+ * It is expected to be called by the Holiday Calendar widget to get other calendars 
+ * that can be displayed via the dropdown, 
+ * @param instanceId String The ID of the sp_instance for which we want content
+ * @return Array A sorted array of objects containing information about the content specified by @function _addContentToResult
+ */
+cd_ContentDelivery.getContentForWidgetInstanceIgnoreAudience = function(instanceId) {
+	var gdtNow = new GlideDateTime();
+
+	var results = {
+		contentMap: {},
+		contentArray: []
+	};
+
+	var grContentVisibility = new GlideRecord('sn_cd_content_visibility');
+	grContentVisibility.addActiveQuery();
+	grContentVisibility.addQuery('sp_instance', instanceId);
+	grContentVisibility.addQuery('content.active', true);
+	grContentVisibility.addNullQuery('availability_start_date').addOrCondition('availability_start_date', '<=', gdtNow);
+	grContentVisibility.addNullQuery('availability_end_date').addOrCondition('availability_end_date', '>=', gdtNow);
+	// NOTE: we rely on event end being null if the content type is not event (BR enforces this)
+	grContentVisibility.addNullQuery('content.event_end').addOrCondition('content.event_end', '>=', gdtNow);
+
+	grContentVisibility.query();
+	while (grContentVisibility.next()) {
+		var grContentPortal = new GlideRecord('sn_cd_content_portal');
+		if (grContentPortal.get(grContentVisibility.content)) 
+			cd_ContentDelivery._addContentToResult(grContentPortal, results);
+	}
+	
+	return results.contentArray.sort(function(a, b) {
+		var i = Number(a.order);
+		var j = Number(b.order);
+		return i < j ? -1 : i > j ? 1 : 0;
+	});
+};
+
+/**
+* Add information about a portal content record to an array
+* @param grContent GlideRecord [sn_cd_content_portal] Content record from which we will get information
+* @param accumulatedContent Array An array of objects to which we will add information about the portal content
+* @param grContentVisibility GlideRecord [sn_cd_content_visibility] Optional, used to generate link to user todo if applicable
+* @param grCampaignContent GlideRecord [sn_ca_campaign_item] Optional, used to generate link to user todo if applicable
+* @return the index of the content
+*/
+cd_ContentDelivery._addContentToResult = function(grContent, accumulatedContent, grContentVisibility, grCampaignContent) {
+	var id = grContent.getUniqueValue();
+	var hasCV = grContentVisibility != null;
+	var isBanner = grContent.content_type == 'a673597a0b4303008cd6e7ae37673a6f';
+	var isValid = hasCV && isBanner;
+	if (!accumulatedContent.contentMap.hasOwnProperty(id)) {
+		accumulatedContent.contentArray.push({
+			title: grContent.getDisplayValue('title'),
+			url: cd_ContentDelivery._getUrlFromContent(grContent, grContentVisibility, grCampaignContent),
+			order: grContent.order.toString(),
+			user_ref_table: grContent.user_reference_table.toString(),
+			schedule: grContent.schedule.toString(),
+			rich_text: cd_ContentDelivery.getRichTextForContent(grContent, "rich_text"),
+			event_start: grContent.event_start.toString(),
+			event_end: grContent.event_end.toString(),
+			sys_id: id,
+			add_icon: grContent.add_icon.toString() === 'true',
+			icon: grContent.icon.toString(),
+			icon_size: grContent.icon_size.toString(),
+			add_background_image: grContent.add_background_image.toString() === 'true',
+			background_image: grContent.getDisplayValue('image'),
+			background_color: grContent.background_color.toString(),
+			background_size: grContent.background_size.toString(),
+			background_position: grContent.background_position.toString(),
+			add_gradient: grContent.add_gradient.toString() === 'true',
+			text_over_background: grContent.text_over_background.toString() === 'true',
+			text_color: grContent.text_color.toString(),
+			text_alignment: grContent.text_alignment.toString(),
+			heading_text: cd_ContentDelivery.getRichTextForContent(grContent, "heading_text"),
+			body_text: cd_ContentDelivery.getRichTextForContent(grContent, "body_text"),
+			action: grContent.call_to_action.toString(),
+			show_button: grContent.show_button.toString(),
+			link_text: grContent.link_text.toString(),
+			button_text: grContent.button_text.toString(),
+			use_custom_html: grContent.use_custom_html.toString() === 'true',
+			use_block: grContent.use_block.toString() === 'true',
+			image_src: grContent.getDisplayValue('image'),
+			is_clickable: cd_ContentDelivery.isClickable(grContent),
+			type: grContent.type.toString(),
+			content_type: grContent.content_type.toString(),
+			sys_created_on: isValid && grContentVisibility.sys_created_on != null ? grContentVisibility.sys_created_on.toString() : 0,
+			availability_start_date: isValid && grContentVisibility.availability_start_date != null ? grContentVisibility.availability_start_date.toString() : 0
+		});
+		accumulatedContent.contentMap[id] = accumulatedContent.contentArray.length - 1;
+	}
+	return accumulatedContent.contentMap[id];
+};
+
+/* Get the rich text from a content record
+* @param grContent GlideRecord [sn_cd_content_portal] Content record to get rich text from
+* @param field string The field on grContent to get rich text for
+* @return String Parsed rich text from @param grContent
+*/
+cd_ContentDelivery.getRichTextForContent = function(grContent, field) {
+	if (gs.nil(grContent[field]) && gs.nil(grContent.block))
+		return null;
+
+	var userTable;
+	var userRefField;
+	
+	//TODO: Add condition to test if the content type is valid and has Use block content allowed
+	if (grContent.use_block) {
+		userTable = grContent.block.user_reference_table.toString();
+		userRefField = grContent.block.user_column.toString();
+	} else {
+		userTable = grContent.user_reference_table.toString();
+		userRefField = grContent.user_column.toString();
+	}
+	
+	var glideRec;
+
+	if (userTable && new GlideRecord(userTable).isValid()) {			
+		var grsUserTable = new GlideRecordSecure(userTable);
+		if (new GlideTableHierarchy('sys_user').getAllExtensions().indexOf(userTable) != -1) {
+			if (grsUserTable.get(gs.getUserID()))
+				glideRec = grsUserTable;
+		} else if (userRefField && grsUserTable.isValidField(userRefField)) {
+			if (grsUserTable.isValidField("active"))
+				grsUserTable.addActiveQuery();
+			grsUserTable.addQuery(userRefField, gs.getUserID());
+			grsUserTable.query();
+			if (grsUserTable.next())
+				glideRec = grsUserTable;
+		}
+	}
+	
+	var contentBody;
+
+	if (grContent.use_block && !gs.nil(grContent.block)) {		
+		if (grContent.block.user_specific) 
+			contentBody = grContent.block.rich_text_user_specific.toString();
+		else 
+			contentBody = grContent.block.rich_text.toString();
+	} else if (grContent[field])
+		contentBody = grContent[field].toString();
+		
+	return new sn_cd.cd_ContentParser().parseRichTextHtmlBody(contentBody, glideRec);
+};
+
+/* Get the URL to from the portal content record
+ * @param grContent GlideRecord [sn_cd_content_portal] Content record to get the linked content from
+ * @param grContentVisibility GlideRecord [sn_cd_content_visibility] Optional, if provided check for linked todo content
+ * @param grCampaignContent GlideRecord [sn_ca_campaign_item] Optional, if provided check for linked todo content
+ * @return String The correct URL to pass to widget
+ */
+cd_ContentDelivery._getUrlFromContent = function(grContent, grContentVisibility, grCampaignContent) {
+	// Check linked todo
+	if (grContentVisibility && !grContentVisibility.todo_scheduled_content.nil()) {
+		var todoScheduledContentSysId = grContentVisibility.todo_scheduled_content.toString();
+		var todoTaskGr = new GlideRecord("sn_cd_task");
+		todoTaskGr.addQuery("assigned_to", gs.getUserID());
+		todoTaskGr.addQuery("created_from_scheduled_content", todoScheduledContentSysId);
+		todoTaskGr.query();
+		if (todoTaskGr.next()) {
+			var taskSysId = todoTaskGr.getUniqueValue();
+			var todoUrl = "/esc?id=hrm_todos_page";
+			todoUrl += "&todo=" + taskSysId;
+			return todoUrl;
+		}
+	} else if (grCampaignContent && !grCampaignContent.todo_campaign_content.nil()) {
+		var todoCampaignItemSysId = grCampaignContent.todo_campaign_content.toString();
+		var todoTaskGr = new GlideRecord("sn_cd_task");
+		todoTaskGr.addQuery("assigned_to", gs.getUserID());
+		todoTaskGr.addQuery("created_from_campaign_content", todoCampaignItemSysId);
+		todoTaskGr.query();
+		if (todoTaskGr.next()) {
+			var taskSysId = todoTaskGr.getUniqueValue();
+			var todoUrl = "/esc?id=hrm_todos_page";
+			todoUrl += "&todo=" + taskSysId;
+			return todoUrl;
+		}
+	}
+	// Else check kb article
+	var Kb = new cd_KnowledgeBase();
+	return Kb.getUrlAsset(grContent.url_asset);
+};
+
+/*
+ * Checks if content is associated to scheduled to-do content and if that content has been processed
+ *   and posted to user inboxes yet.
+ * @param grContentVisibility GlideRecord [sn_cd_content_visibility] A scheduled content record 
+ * @return boolean true if the content has associated to-do content that has not yet been processed, false otherwise
+ */
+cd_ContentDelivery._hasUnprocessedTodoScheduledContent = function(grContentVisibility) {
+	if (grContentVisibility.todo_scheduled_content.nil())
+		return false;
+	var todoScheduledContentId = grContentVisibility.todo_scheduled_content.toString();
+	var todoScheduledContentStatus = grContentVisibility.todo_scheduled_content.notification_status.toString();
+	// If all are unprocessed or an error occured, don't bother querying tasks
+	if (["pending", "error"].indexOf(todoScheduledContentStatus) > -1)
+		return true;
+	// Check if individual user todo has been processed
+	var grTask = new GlideRecord("sn_cd_task");
+	grTask.addQuery("created_from_scheduled_content", todoScheduledContentId);
+	grTask.addQuery("assigned_to", gs.getUserID());
+	grTask.query();
+	return !grTask.hasNext();
+};
+
+cd_ContentDelivery._hasUnprocessedTodoCampaignContent = function(grCampaignItem) {
+	if (grCampaignItem.todo_campaign_content.nil())
+		return false;
+	var todoCampaignContentId = grCampaignItem.todo_campaign_content.toString();
+	// Check if individual user todo has been processed
+	var grTask = new GlideRecord("sn_cd_task");
+	grTask.addQuery("created_from_campaign_content", todoCampaignContentId);
+	grTask.addQuery("assigned_to", gs.getUserID());
+	grTask.query();
+	return !grTask.hasNext();
+};
+
+/*
+* @param grContent GlideRecord a content record
+* @return boolean true if the content is clickable (i.e. it has a button)
+*   or a link in it. false otherwise
+*/
+cd_ContentDelivery.isClickable = function(grContent) {
+	if (grContent.sys_class_name == 'sn_cd_content_todo')
+		return true;
+	
+	var isClickableHTML = function(text) {
+		return text.indexOf('</a>') >= 0;
+	};
+	
+	var isBanner = grContent.content_type == 'a673597a0b4303008cd6e7ae37673a6f';
+	var isRichText = grContent.content_type == '97a35d7a0b4303008cd6e7ae37673a47';
+	var isEmail = grContent.content_type == '02dccfc33b630300d901655593efc4df';
+	
+	if (isBanner) {
+		if (grContent.use_custom_html)
+			return isClickableHTML(grContent.rich_text + ''); 
+		else 
+			return grContent.show_button.toString() == "true";
+	} else if (isRichText) {
+		if (grContent.use_block)
+			return isClickableHTML(grContent.block.rich_text + '');
+		else 
+			return isClickableHTML(grContent.rich_text + '');
+	} else if (isEmail) {
+		if (grContent.use_block)
+			return isClickableHTML(grContent.block.rich_text + '');
+		else 
+			return isClickableHTML(grContent.rich_text_plain_html + '');
+	} else if (grContent.content_type.category == 'portal_content')
+		return true;
+	
+	return false;
+};
+
+/* Given a service portal context, returns true if the content widget is in preview mode
+* @param Object widget $sp context object
+* @return true if the content is being previewed, false otherwise
+*/
+cd_ContentDelivery.isContentPreview = function($sp) {
+	if (!$sp || typeof $sp.getParameter != 'function')
+		return false;
+	return $sp.getParameter('is_preview') == 'true';
+};
+
+/* Get the widget that should rendered for this preview called by CD Preview Widget
+* @param Object widget $sp context object
+* @return Object the widget object to render
+*/
+cd_ContentDelivery.getWidgetForPreview = function($sp) {
+	// TODO: allow preview of standard portal content from Content Publishing, STRY51126195
+	
+	if (new GlidePluginManager().isActive('com.sn_content_automation'))
+		return sn_ca.ca_CampaignPortalPreview.getWidgetForPreview($sp);
+};
+
+/* Determine if the widget is for portal or preview and return the appropriate content 
+* @param Object widget $sp context object
+* @return Array the content item(s) for data.items
+*/
+cd_ContentDelivery.getContent = function($sp) {
+	var grInstanceRecord = $sp.getInstanceRecord();
+	var spInstanceId = grInstanceRecord.getUniqueValue();
+	
+	if (cd_ContentDelivery.isContentPreview($sp))
+		return sn_ca.ca_CampaignPortalPreview.getContentForPreview($sp);
+	else
+		return cd_ContentDelivery.getContentForWidgetInstance(spInstanceId);
+};
+
+/* Creates the info object that holds the display info for the content popover in portal preview
+* @param data Object the data object that has the items info
+* @param additionalDetails Array objects with keys label and value
+* @return Object the object with items with the info objects
+*/
+cd_ContentDelivery.setInfoObjectOnContentItem = function(item, additionalDetails) {	
+	item.infoObject = {
+		title: gs.getMessage('Content Details'),
+		sections: [{
+			sectionTitle: '',
+			details: [
+				{ label: gs.getMessage('Title'), value: item['content_title']},
+				{ label: gs.getMessage('Order'), value: item['order']},
+			].concat(additionalDetails),
+		}],
+	};
+	return item;
+};
+
+]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>vishnu.rai</sys_created_by>
+        <sys_created_on>2021-09-24 08:14:46</sys_created_on>
+        <sys_id>c38f3f9d1b323c50f639da09dc4bcb53</sys_id>
+        <sys_mod_count>13</sys_mod_count>
+        <sys_name>cd_ContentDelivery</sys_name>
+        <sys_package display_value="Employee Center Core" source="sn_hr_sp">3d1da2705b021200a4656ede91f91ab6</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</sys_scope>
+        <sys_update_name>sys_script_include_c38f3f9d1b323c50f639da09dc4bcb53</sys_update_name>
+        <sys_updated_by>vishnu.rai</sys_updated_by>
+        <sys_updated_on>2021-09-24 08:47:13</sys_updated_on>
+    </sys_script_include>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</claim_owner_scope>
+        <claim_timestamp>185c6dabb930000001</claim_timestamp>
+        <metadata_update_name>sys_script_include_c38f3f9d1b323c50f639da09dc4bcb53</metadata_update_name>
+        <previous_claim_app_version>26.0.4</previous_claim_app_version>
+        <previous_claim_name>Employee Center Core</previous_claim_name>
+        <previous_claim_scope>3d1da2705b021200a4656ede91f91ab6</previous_claim_scope>
+        <sys_created_by>sam.herring</sys_created_by>
+        <sys_created_on>2023-01-18 21:48:21</sys_created_on>
+        <sys_id>d5ceb79c1b68e110f639da09dc4bcb89</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>sam.herring</sys_updated_by>
+        <sys_updated_on>2023-01-18 21:48:21</sys_updated_on>
+    </sys_claim>
+</record_update>

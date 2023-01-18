@@ -1,0 +1,495 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_rel_widget_clone">
+    <sp_rel_widget_clone action="INSERT_OR_UPDATE">
+        <child display_value="iHR Upcoming Events (CD)">2d24ac641bb27850f639da09dc4bcb00</child>
+        <cloned>2021-09-21 08:19:29</cloned>
+        <last_validated>2021-09-21 08:19:29</last_validated>
+        <parent display_value="Upcoming Events (CD)">62974aeb0b5303008cd6e7ae37673a42</parent>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;sp_widget&gt;&lt;category&gt;custom&lt;/category&gt;&lt;client_script&gt;&lt;![CDATA[function cdUpcomingEventsController($scope, $sce, $timeout, i18n, $window, cdAnalytics) {
+	var c = this;
+	
+	$scope.cdAnalytics = cdAnalytics;
+
+	$scope.clickAction = 'Event Clickthrough';
+	c.i18n = i18n;
+	c.i18n.loadMessage('show_upcoming_event', 'Show upcoming event {0}');
+	c.i18n.loadMessage('hide_upcoming_event', 'Hide upcoming event {0}');
+	
+	c.loadData = function(callback) {
+		c.server.get({action: 'loadData'}).then(callback);
+	};
+
+	c.toggleDetail = function(e, i) {
+		e.preventDefault();
+		
+		if ($scope.togglingDetail)
+			return;
+		$scope.togglingDetail = true;
+		
+		// Prevent 'space' triggering two toggles
+		$timeout(function() {
+			$scope.togglingDetail = false;
+		}, 500);
+		
+		var $panelCollapse = $(e.delegateTarget).closest('.panel-heading').next('.panel-collapse');
+		
+		// clear animation queue
+		$panelCollapse.stop();
+		$panelCollapse.clearQueue();
+		
+		// hide other opened panel
+		if (c.lastOpenedPanel &amp;&amp; c.lastOpenedPanelIndex != i)
+			c.lastOpenedPanel.slideUp();
+		
+		// if user clicks the same panel, set index to -1
+		c.lastOpenedPanelIndex = c.lastOpenedPanelIndex == i ? -1 : i;		
+		c.lastOpenedPanel = $panelCollapse;
+		
+		$panelCollapse.slideToggle();
+		
+		if (!c.data.isContentPreview &amp;&amp; c.lastOpenedPanelIndex &gt;= 0 ) {
+			// This event was opened
+			var eItem = c.data.items[c.lastOpenedPanelIndex];
+			cdAnalytics.trackEvent('Event Expand', eItem);
+		}
+		
+		if (!$panelCollapse.hasClass('checked'))
+			// add class "checked" to use as flag for single run
+			// if element has an href and no target attribute, add target=_blank
+			$panelCollapse.addClass('checked').find('*[href]').each(function openLinkInNewTab () {
+				if (!this.getAttribute('target'))
+					this.setAttribute('target', '_blank');
+			});
+	};
+
+	c.displayItems = function(response) {
+		c.data = response.data;
+		
+		if (!c.data.items)
+			return;
+		
+		c.data.items.forEach(function(o) {
+			o.html = $sce.trustAsHtml(o.rich_text);
+			
+			if (!c.data.isContentPreview)
+				cdAnalytics.trackEvent('Event Impression', o);
+		});
+
+		c.data.items.sort(function(a, b) {
+			var key = 'event_start_numeric';
+			return a[key] &lt; b[key] ? -1 : a[key] &gt; b[key] ? 1 : 0;
+		});
+
+		if (c.data.items.length === 1)
+			$timeout(c.slideToShow);
+	};
+	
+	c.loadData(c.displayItems);
+}]]&gt;&lt;/client_script&gt;&lt;controller_as&gt;c&lt;/controller_as&gt;&lt;css&gt;$preview-outline: #005B9D !default;&amp;#13;
+$preview-outline-inactive: #485563 !default;&amp;#13;
+$preview-outline-text-color: #FFFFFF !default;&amp;#13;
+&amp;#13;
+.upcoming-events-widget {&amp;#13;
+  /* Remove heading text while remaining WCAG-compliant */&amp;#13;
+  &amp;amp;:not(.show-heading) {&amp;#13;
+    .panel {      &amp;#13;
+      .panel-heading {&amp;#13;
+        position: absolute;&amp;#13;
+        left: -9999px;&amp;#13;
+        top: -9999px;&amp;#13;
+      }&amp;#13;
+&amp;#13;
+      .panel {&amp;#13;
+        .panel-heading {&amp;#13;
+          position: relative;&amp;#13;
+          left: inherit;&amp;#13;
+          top: inherit;&amp;#13;
+        }&amp;#13;
+      }&amp;#13;
+    }&amp;#13;
+  }&amp;#13;
+  &amp;#13;
+  /* Remove bounding box style for outermost panel */ &amp;#13;
+  &amp;amp;:not(.show-bounding-box) {&amp;#13;
+  	.panel {&amp;#13;
+      border-color: transparent;&amp;#13;
+      border-radius: 0;&amp;#13;
+      box-shadow: none;&amp;#13;
+      .panel {&amp;#13;
+        border-color: $color-lighter;&amp;#13;
+      }&amp;#13;
+    }&amp;#13;
+  }&amp;#13;
+  &amp;amp;:not(.show-background) {&amp;#13;
+    .panel, .panel-heading, .panel-footer {&amp;#13;
+      background: none !important;&amp;#13;
+      border: none !important;&amp;#13;
+      box-shadow: none !important;&amp;#13;
+    }&amp;#13;
+  }&amp;#13;
+}&amp;#13;
+&amp;#13;
+.upcoming-list{&amp;#13;
+	list-style : none;&amp;#13;
+  padding-left : 0;&amp;#13;
+  margin-bottom : 0;&amp;#13;
+}&amp;#13;
+.event-date {&amp;#13;
+  display: none;&amp;#13;
+}&amp;#13;
+img {&amp;#13;
+  width: 100%; height: auto;&amp;#13;
+}&amp;#13;
+.heading-text&amp;#13;
+{&amp;#13;
+  padding-top:2px;&amp;#13;
+  p:not(.addToCalendar) {&amp;#13;
+    color : #1F8476;&amp;#13;
+    width: fit-content;&amp;#13;
+  }&amp;#13;
+}&amp;#13;
+.row-line-space {&amp;#13;
+  display:inline-block;&amp;#13;
+  padding-top:4px;&amp;#13;
+  padding-bottom:4px;&amp;#13;
+  color: $color-darker;&amp;#13;
+}&amp;#13;
+.panel-footer&amp;#13;
+{&amp;#13;
+  background-color: $color-lightest;&amp;#13;
+  padding: 3px 15px; }&amp;#13;
+.panel &amp;gt; .panel-body {&amp;#13;
+  padding: 0;&amp;#13;
+  &amp;#13;
+  .panel-group {&amp;#13;
+    margin-bottom: 0;&amp;#13;
+  }&amp;#13;
+  .panel {&amp;#13;
+    border-bottom: 0;&amp;#13;
+    border-color: none;&amp;#13;
+    border-left: 0;&amp;#13;
+    border-radius: 0;&amp;#13;
+    border-right: 0;&amp;#13;
+    box-shadow: none;&amp;#13;
+    &amp;amp;:first-child {&amp;#13;
+      border-top: none;&amp;#13;
+    }&amp;#13;
+    .panel-heading {&amp;#13;
+      background: none;&amp;#13;
+      border-radius: none;&amp;#13;
+      border: 1px solid transparent;&amp;#13;
+    }&amp;#13;
+    .preview-outline {&amp;#13;
+      border: 3px solid $preview-outline;&amp;#13;
+    }&amp;#13;
+  }&amp;#13;
+  .remove-margin {&amp;#13;
+    margin-top:0px;&amp;#13;
+    margin-bottom:0px;&amp;#13;
+  }&amp;#13;
+  .date {&amp;#13;
+    @extend .remove-margin {&amp;#13;
+      margin-top:112px;&amp;#13;
+    }&amp;#13;
+  }&amp;#13;
+  .start-date-label, .end-date-label {&amp;#13;
+  	margin-bottom:0;&amp;#13;
+  }&amp;#13;
+  #calIcon {&amp;#13;
+    margin-right:3px;&amp;#13;
+  }&amp;#13;
+  .eventsCal {&amp;#13;
+    float:right;&amp;#13;
+    font-size:normal;&amp;#13;
+    font-family: inherit;&amp;#13;
+    color: $primary;&amp;#13;
+    padding: 5px 0px 0px 0px;&amp;#13;
+  }&amp;#13;
+  .hr-override {&amp;#13;
+    margin-top:5px!important;&amp;#13;
+    margin-bottom:5px !important;&amp;#13;
+  }&amp;#13;
+  .sn-download-link {&amp;#13;
+    margin:0;&amp;#13;
+    font-size:1.4rem;&amp;#13;
+    font-weight:normal;&amp;#13;
+    display:inline-block;&amp;#13;
+  }&amp;#13;
+}&amp;#13;
+.addToCalendar {&amp;#13;
+  color: #03498e;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.preview-outline {&amp;#13;
+  border: 3px solid $preview-outline;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.preview-info-tab {&amp;#13;
+  background-color: $preview-outline;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.preview-info-container {&amp;#13;
+  z-index: auto;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.preview-info-container-compact {&amp;#13;
+  background-color: $preview-outline;&amp;#13;
+  z-index: auto;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.preview-info-tab-compact {&amp;#13;
+  background-color: $preview-outline;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.preview-info-popup {&amp;#13;
+  color: $preview-outline-text-color !important;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.preview-info-tab-text {&amp;#13;
+  color: $preview-outline-text-color;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.preview-outline-inactive {&amp;#13;
+  border: 3px solid $preview-outline-inactive !important;&amp;#13;
+&amp;#13;
+  .preview-info-tab {&amp;#13;
+    background-color: $preview-outline-inactive !important;&amp;#13;
+  }&amp;#13;
+&amp;#13;
+  .preview-info-container-compact {&amp;#13;
+    background-color: $preview-outline-inactive !important;&amp;#13;
+  }&amp;#13;
+&amp;#13;
+  .preview-info-tab-compact {&amp;#13;
+    background-color: $preview-outline-inactive !important;&amp;#13;
+  }&amp;#13;
+}&amp;#13;
+@media screen and (max-width: 420px) {&amp;#13;
+  .preview-info-item-section {&amp;#13;
+    	width: 200px;&amp;#13;
+  }&amp;#13;
+}&lt;/css&gt;&lt;data_table&gt;sp_instance&lt;/data_table&gt;&lt;demo_data/&gt;&lt;description&gt;Displays portal content with Content type of Event. Used to show upcoming events.&lt;/description&gt;&lt;docs/&gt;&lt;field_list/&gt;&lt;has_preview&gt;false&lt;/has_preview&gt;&lt;id&gt;cd-upcoming-events&lt;/id&gt;&lt;internal&gt;false&lt;/internal&gt;&lt;link&gt;&lt;![CDATA[function eventCalendarLink (scope, elem, attr) {
+
+	elem[0].onkeydown = function (e) {
+		var $focused = $(document.activeElement);
+		switch (e.keyCode) {
+			case 37:
+			case 38:
+				if ($focused.prev().length)
+					$focused.prev().focus();
+				break;
+			case 39:
+			case 40:
+				if ($focused.next().length)
+					$focused.next().focus();
+				break;
+			case 13:
+				// For IE
+				if ($focused &amp;&amp; !!document.documentMode &amp;&amp; !/a/i.test($focused[0].tagName))
+					$focused.click();
+		}
+	};
+
+	scope.downloadAllEvents = function () {
+		var spInstanceId = scope.data.spInstanceId;
+		window.open("/sn_cd_downloadICS.do?sysparm_type=event&amp;sysparm_sp_instance_id=" + spInstanceId);
+		
+		if (!scope.data.isContentPreview) {
+			for(var i = 0; i &lt; scope.data.items.length; i++) {
+				var eItem = scope.data.items[i];
+				scope.cdAnalytics.trackEvent('Event Download', eItem);
+			}
+		}
+	};
+
+	scope.downloadIndividualEvent = function(sysId, idx) {
+		var eItem = scope.data.items[idx];
+		
+		if (!scope.data.isContentPreview)
+			scope.cdAnalytics.trackEvent('Event Download', eItem);
+		
+		window.open("/sn_cd_downloadICS.do?sysparm_type=event&amp;sysparm_sys_id=" + sysId);
+	};
+}]]&gt;&lt;/link&gt;&lt;name&gt;Upcoming Events (CD)&lt;/name&gt;&lt;option_schema&gt;[{"name":"displayHeadingText","section":"other","default_value":"true","label":"Display Heading Text","type":"boolean"},&amp;#13;
+{"name":"displayBoundingBox","section":"other","default_value":"true","label":"Display Bounding Box","type":"boolean"},&amp;#13;
+{"name":"showBackground","section":"other","default_value":"true","label":"Display Widget Background Color","type":"boolean"}]&lt;/option_schema&gt;&lt;public&gt;false&lt;/public&gt;&lt;roles&gt;snc_internal,sn_asc.alumni&lt;/roles&gt;&lt;script&gt;&lt;![CDATA[(function () {
+	if (!input || input.action != "loadData")
+		return;
+
+	var grInstanceRecord = $sp.getInstanceRecord();
+	// add sp_instance id to scope in case 'Add all to calendar' is clicked -- need to know which sp_instance events we are showing the user
+	data.spInstanceId = grInstanceRecord.getUniqueValue();
+	// Get options from sp instance to hide/show heading text
+	data.displayHeadingText = options.displayHeadingText == 'true';
+	// Get options from sp instance to hide/show bounding box style	
+	data.displayBoundingBox = options.displayBoundingBox == 'true';
+	// Get options from sp instance to hide/show the background
+	data.showBackground = options.showBackground == 'true';
+	data.messages = {
+		'addToCalendarLabel': gs.getMessage('Add {0} to calendar'), // {0} is the event to add
+		'openUpcomingEventLabel': gs.getMessage('Open upcoming event {0}')
+	};
+
+	data.isContentPreview = cd_ContentDelivery.isContentPreview($sp);
+	var contentArray = cd_ContentDelivery.getContent($sp);
+	
+	for (var i = 0; i &lt; contentArray.length; i++) {
+		if (!contentArray[i].event_start)
+			continue;
+		var startDateTime = new GlideDateTime(contentArray[i].event_start);
+		var startDate = startDateTime.getLocalDate();
+		var startDayAbv = gs.getMessage(startDate.getByFormat('EEE'));
+		var startTime = startDateTime.getLocalTime().getByFormat('h:mm a');
+
+		var endDateTime = new GlideDateTime(contentArray[i].event_end);
+		var endDate = endDateTime.getLocalDate();
+		var endDayAbv = gs.getMessage(endDate.getByFormat('EEE'));
+		var endTime = endDateTime.getLocalTime().getByFormat('h:mm a');
+		var onSingleDay = startDate.getByFormat('d') == endDate.getByFormat('d') &amp;&amp; (GlideDate.subtract(startDate, endDate).getDayPart() == 0);
+		
+		var startMonth = gs.getMessage(startDate.getByFormat('MMM'));
+		var startMonthAndDay =  startMonth + ' ' + startDate.getByFormat('d');
+		if (onSingleDay) {
+			contentArray[i].date_line_one = gs.getMessage("{0}, {1} {2} - {3}", [startDayAbv, startDate.getDisplayValue(), startTime, endTime]);
+			contentArray[i].date_header = startMonthAndDay;
+		} else {
+			contentArray[i].date_line_one = gs.getMessage('{0}, {1} {2}', [startDayAbv, startDate.getDisplayValue(), startTime]);
+			contentArray[i].date_line_two = gs.getMessage('{0}, {1} {2}', [endDayAbv, endDate.getDisplayValue(), endTime]);
+
+			var endMonth = gs.getMessage(endDate.getByFormat('MMM'));
+			var endMonthAndDay =  endMonth + ' ' + endDate.getByFormat('d');
+			contentArray[i].date_header = gs.getMessage('{0} - {1}', [startMonthAndDay, endMonthAndDay]);
+		}
+		
+		contentArray[i].event_start_numeric = startDateTime.getNumericValue();
+	}
+	
+	data.items = contentArray;
+	
+	data.items.forEach(function(item) {
+		var additionalDetails = [
+			{ label: gs.getMessage('Portal Content'), value: 'Portal Event'},
+			{ label: 'Event Start', value: item.event_start},
+			{ label: 'Event End', value: item.event_end},
+		];
+		
+		cd_ContentDelivery.setInfoObjectOnContentItem(item, additionalDetails);
+	});	
+	
+})();]]&gt;&lt;/script&gt;&lt;servicenow&gt;false&lt;/servicenow&gt;&lt;sys_class_name&gt;sp_widget&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2018-01-02 22:30:42&lt;/sys_created_on&gt;&lt;sys_id&gt;62974aeb0b5303008cd6e7ae37673a42&lt;/sys_id&gt;&lt;sys_mod_count&gt;241&lt;/sys_mod_count&gt;&lt;sys_name&gt;Upcoming Events (CD)&lt;/sys_name&gt;&lt;sys_package display_value="Content Publishing" source="sn_cd"&gt;b26210490b7203008cd6e7ae37673a6a&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Content Publishing"&gt;b26210490b7203008cd6e7ae37673a6a&lt;/sys_scope&gt;&lt;sys_update_name&gt;sp_widget_62974aeb0b5303008cd6e7ae37673a42&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2021-03-25 06:11:23&lt;/sys_updated_on&gt;&lt;template&gt;&lt;![CDATA[&lt;section class="upcoming-events-widget"
+         ng-class="[{'show-heading': c.data.displayHeadingText},
+                   {'show-bounding-box': c.data.displayBoundingBox},
+                   {'show-background': c.data.showBackground}]"&gt;
+  &lt;div ng-if="c.data.items.length" class="panel panel-{{::c.options.color}} b" rect="rect"&gt;
+  &lt;div class="panel-heading"&gt;
+    &lt;h3 class="h4 panel-title" ng-bind="::options.title" id="header-{{data.spInstanceId}}"&gt;&lt;/h3&gt;
+  &lt;/div&gt;
+  &lt;div class="panel-body transclude"&gt;
+    &lt;div class="panel-group"&gt;
+      &lt;ul class="upcoming-list" aria-labelledby="header-{{data.spInstanceId}}"&gt;
+      	&lt;li class="panel upcoming-event-panel" ng-repeat="item in data.items track by $index"&gt;
+          &lt;div class="panel-heading" ng-class="{'preview-outline preview-info-container-parent': item.is_preview &amp;&amp; item.is_content_active == 1, 'preview-outline-inactive preview-info-container-parent': item.is_preview &amp;&amp; item.is_content_active == 0}" role="presentation"&gt;
+            
+            &lt;portal-content-preview-info-tab is-compact="true" item="item" data="c.data" index="$index"&gt;
+            &lt;/portal-content-preview-info-tab&gt;
+            
+            &lt;div class="heading-text"&gt;
+              &lt;div class="remove-margin h5"&gt;
+                &lt;p title="{{::item.title}}"
+                  aria-expanded="{{c.lastOpenedPanelIndex === $index}}"
+                  aria-controls="{{data.spInstanceId}}-panel-{{$index}}"
+                  id="item-title-{{item.sys_id}}"
+                  data-toggle="tooltip"&gt;
+                  {{::item.title}}
+                &lt;/p&gt;
+                &lt;span class="pull-right" title="{{ c.lastOpenedPanelIndex === $index ? c.i18n.getMessage('hide_upcoming_event').withValues([item.title]) : c.i18n.getMessage('show_upcoming_event').withValues([item.title]) }}" data-toggle="tooltip"&gt;
+                    &lt;button alt="{{::item.date_header}}"
+                      ng-class='["pull-right toggle fa", (c.lastOpenedPanelIndex === $index ? "fa-minus-square-o" : "fa-plus-square-o")]'
+                      aria-expanded="{{c.lastOpenedPanelIndex === $index}}"
+                      aria-describedby="date_header_{{$index}}"
+                      aria-controls="{{data.spInstanceId}}-panel-{{$index}}"
+                      role="button"
+                      aria-label="{{ c.lastOpenedPanelIndex === $index ? c.i18n.getMessage('hide_upcoming_event').withValues([item.title]) : c.i18n.getMessage('show_upcoming_event').withValues([item.title]) }}"
+                      style="border:none;"
+                      ng-click="c.toggleDetail($event, $index)"
+                            &gt;&lt;/button&gt;
+                &lt;/span&gt;
+              &lt;/div&gt;
+              &lt;span id="date_header_{{$index}}" class="date row-line-space"&gt;{{::item.date_header}}&lt;/span&gt;
+              &lt;div ng-click="$event.stopPropagation()"&gt;
+                &lt;p class="addToCalendar"
+                  ng-click="downloadIndividualEvent(item.sys_id, $index)"
+                  aria-labelledby="item-title-{{item.sys_id}} add-to-cal-{{item.sys_id}}"
+                  aria-label="Add to calendar : {{::item.title}}"
+                  role="button"
+                  tabindex="0"&gt;
+                  &lt;i class="fa fa-calendar-plus-o" aria-hidden="true"&gt;&lt;/i&gt;
+                  &lt;span id="add-to-cal-{{item.sys_id}}"&gt;${Add to calendar}&lt;/span&gt;
+                &lt;/p&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class="panel-collapse collapse" id="{{data.spInstanceId}}-panel-{{$index}}"&gt;
+            &lt;div class="panel-body"&gt;
+              &lt;div class="panel panel-default" ng-if="item.url"&gt;
+                &lt;img alt="{{item.url}}" class="img-responsive" ng-src="{{item.url}}" src="{{item.url}}"&gt;
+              &lt;/div&gt;
+              &lt;p class="start-date-label" ng-if="item.date_line_two"&gt;
+							  ${Starts:}
+              &lt;/p&gt;
+              &lt;p class="start-date"&gt;
+                {{::item.date_line_one}}
+              &lt;/p&gt;
+              &lt;p class="end-date-label" ng-if="item.date_line_two"&gt;
+                ${Ends:}
+              &lt;/p&gt;
+              &lt;p class="end-date"&gt;
+                {{::item.date_line_two}}
+              &lt;/p&gt;
+  
+              &lt;div cd-html html="{{::item.html}}" item="item" disable-tracking="c.data.isContentPreview" action="clickAction" /&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/li&gt;
+      &lt;/ul&gt;      
+    &lt;/div&gt;
+    &lt;div class="panel-footer transclude" &gt;
+      &lt;p class="eventsCal"
+        ng-click="downloadAllEvents()"
+        role="button" tabindex="0"
+        aria-label="Add all Upcoming Events to calendar"
+        aria-labelledby="header-{{data.spInstanceId}} add-all-to-cal-{{data.spInstanceId}}"&gt;
+        &lt;i id="calIcon" class="fa fa-calendar-plus-o" aria-hidden="true"&gt;&lt;/i&gt;
+        &lt;span id="add-all-to-cal-{{data.spInstanceId}}"&gt;${Add all to calendar}&lt;/span&gt;
+      &lt;/p&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;]]&gt;&lt;/template&gt;&lt;/sp_widget&gt;</payload>
+        <sys_class_name>sp_rel_widget_clone</sys_class_name>
+        <sys_created_by>vishnu.rai</sys_created_by>
+        <sys_created_on>2021-09-21 08:19:29</sys_created_on>
+        <sys_id>6924a4a41bb27850f639da09dc4bcbd9</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>2d24ac641bb27850f639da09dc4bcb00</sys_name>
+        <sys_package display_value="Employee Center Core" source="sn_hr_sp">3d1da2705b021200a4656ede91f91ab6</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</sys_scope>
+        <sys_update_name>sp_rel_widget_clone_6924a4a41bb27850f639da09dc4bcbd9</sys_update_name>
+        <sys_updated_by>vishnu.rai</sys_updated_by>
+        <sys_updated_on>2021-09-21 08:19:29</sys_updated_on>
+    </sp_rel_widget_clone>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</claim_owner_scope>
+        <claim_timestamp>185c6dacab30000001</claim_timestamp>
+        <metadata_update_name>sp_rel_widget_clone_6924a4a41bb27850f639da09dc4bcbd9</metadata_update_name>
+        <previous_claim_app_version>26.0.4</previous_claim_app_version>
+        <previous_claim_name>Employee Center Core</previous_claim_name>
+        <previous_claim_scope>3d1da2705b021200a4656ede91f91ab6</previous_claim_scope>
+        <sys_created_by>sam.herring</sys_created_by>
+        <sys_created_on>2023-01-18 21:48:25</sys_created_on>
+        <sys_id>9ecef79c1b68e110f639da09dc4bcbf3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>sam.herring</sys_updated_by>
+        <sys_updated_on>2023-01-18 21:48:25</sys_updated_on>
+    </sys_claim>
+</record_update>

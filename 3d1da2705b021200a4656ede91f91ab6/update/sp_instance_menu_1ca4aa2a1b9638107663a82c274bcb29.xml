@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_instance_menu">
+    <sp_instance_menu action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <class_name/>
+        <color>default</color>
+        <css/>
+        <glyph/>
+        <id/>
+        <order>1</order>
+        <roles/>
+        <short_description/>
+        <size>md</size>
+        <sp_column/>
+        <sp_widget display_value="Header Menu">5ef595c1cb12020000f8d856634c9c6e</sp_widget>
+        <sys_class_name>sp_instance_menu</sys_class_name>
+        <sys_created_by>james.taylor</sys_created_by>
+        <sys_created_on>2021-09-03 02:17:41</sys_created_on>
+        <sys_id>1ca4aa2a1b9638107663a82c274bcb29</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>IHR Header</sys_name>
+        <sys_package display_value="Employee Center Core" source="sn_hr_sp">3d1da2705b021200a4656ede91f91ab6</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</sys_scope>
+        <sys_update_name>sp_instance_menu_1ca4aa2a1b9638107663a82c274bcb29</sys_update_name>
+        <sys_updated_by>james.taylor</sys_updated_by>
+        <sys_updated_on>2021-10-21 01:11:35</sys_updated_on>
+        <title>IHR Header</title>
+        <url/>
+        <widget_parameters><![CDATA[{"enable_cart": { "displayValue": "false","value": false},"auto_update_cart": {"displayValue": "true","value": true}, "exclude_search_on_homepage": {"displayValue": "false","value": true}}]]></widget_parameters>
+    </sp_instance_menu>
+    <sys_translated_text action="delete_multiple" query="documentkey=1ca4aa2a1b9638107663a82c274bcb29"/>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</claim_owner_scope>
+        <claim_timestamp>185c6dac0780000001</claim_timestamp>
+        <metadata_update_name>sp_instance_menu_1ca4aa2a1b9638107663a82c274bcb29</metadata_update_name>
+        <previous_claim_app_version>26.0.4</previous_claim_app_version>
+        <previous_claim_name>Employee Center Core</previous_claim_name>
+        <previous_claim_scope>3d1da2705b021200a4656ede91f91ab6</previous_claim_scope>
+        <sys_created_by>sam.herring</sys_created_by>
+        <sys_created_on>2023-01-18 21:48:23</sys_created_on>
+        <sys_id>21cef79c1b68e110f639da09dc4bcb0a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>sam.herring</sys_updated_by>
+        <sys_updated_on>2023-01-18 21:48:23</sys_updated_on>
+    </sys_claim>
+</record_update>

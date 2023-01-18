@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_rel_widget_clone">
+    <sp_rel_widget_clone action="INSERT_OR_UPDATE">
+        <child display_value="Support Details">00e018781b07b490f639da09dc4bcbfe</child>
+        <cloned>2021-10-04 11:49:27</cloned>
+        <last_validated>2021-10-04 11:49:27</last_validated>
+        <parent display_value="My Company">e36ebd1b1bf674907663a82c274bcb47</parent>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;sp_widget&gt;&lt;category&gt;custom&lt;/category&gt;&lt;client_script&gt;&lt;![CDATA[api.controller=function() {
+  /* widget controller */
+  var c = this;
+};]]&gt;&lt;/client_script&gt;&lt;controller_as&gt;c&lt;/controller_as&gt;&lt;css&gt;.iconlink a label,h2 {&amp;#13;
+  display: block;&amp;#13;
+  font-size: 52px;&amp;#13;
+  font-weight: 800;&amp;#13;
+  line-height: 1.0;&amp;#13;
+  margin-top: 10%;&amp;#13;
+  text-align: left;&amp;#13;
+  color: white;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.iconlink h3 {&amp;#13;
+  display: block;&amp;#13;
+  font-size: 40px;&amp;#13;
+  font-weight: 600;&amp;#13;
+  line-height: 1.0;&amp;#13;
+  margin: 0 0 0 0;&amp;#13;
+  text-align: left;&amp;#13;
+  color: white;&amp;#13;
+}&amp;#13;
+&amp;#13;
+/* TOP ICON ---------- */&amp;#13;
+&amp;#13;
+div.top_icon {&amp;#13;
+  display: block;&amp;#13;
+  padding: 5px;&amp;#13;
+  text-align: center;&amp;#13;
+}&amp;#13;
+&amp;#13;
+div.top_icon .fa {&amp;#13;
+  display: block;&amp;#13;
+  text-align: center;&amp;#13;
+}&amp;#13;
+&amp;#13;
+&amp;#13;
+.icon-link-background-primary {&amp;#13;
+  background-color: $brand-primary;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.icon-link-background-info {&amp;#13;
+  background-color: $brand-info;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.icon-link-background-success {&amp;#13;
+  background-color: $brand-success;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.icon-link-background-warning {&amp;#13;
+  background-color: $brand-warning;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.icon-link-background-danger {&amp;#13;
+  background-color: $brand-danger;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.icon-link-background-default {&amp;#13;
+  background-color: $brand-primary;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.text-primary {&amp;#13;
+  color: $brand-primary;&amp;#13;
+  &amp;#13;
+  &amp;amp;:hover {&amp;#13;
+    color: darken($brand-primary, 20%);&amp;#13;
+  }&amp;#13;
+}&amp;#13;
+&amp;#13;
+.text-info {&amp;#13;
+  color: $brand-info;&amp;#13;
+  &amp;#13;
+  &amp;amp;:hover {&amp;#13;
+    color: darken($brand-info, 20%);&amp;#13;
+  }&amp;#13;
+}&amp;#13;
+&amp;#13;
+.text-success {&amp;#13;
+  color: $brand-success;&amp;#13;
+  &amp;#13;
+  &amp;amp;:hover {&amp;#13;
+    color: darken($brand-success, 20%);&amp;#13;
+  }&amp;#13;
+}&amp;#13;
+&amp;#13;
+.text-warning {&amp;#13;
+  color: $brand-warning;&amp;#13;
+  &amp;#13;
+  &amp;amp;:hover {&amp;#13;
+    color: darken($brand-warning, 20%);&amp;#13;
+  }&amp;#13;
+}&amp;#13;
+&amp;#13;
+.text-danger {&amp;#13;
+  color: $brand-danger;&amp;#13;
+  &amp;#13;
+  &amp;amp;:hover {&amp;#13;
+    color: darken($brand-danger, 20%);&amp;#13;
+  }&amp;#13;
+}&amp;#13;
+&amp;#13;
+.text-default {&amp;#13;
+  color: $brand-primary;&amp;#13;
+  &amp;#13;
+  &amp;amp;:hover {&amp;#13;
+    color: darken($brand-primary, 20%);&amp;#13;
+  }&amp;#13;
+}&amp;#13;
+&amp;#13;
+.high-contrast {&amp;#13;
+  .text-primary {&amp;#13;
+    color: darken($brand-primary, 10%);&amp;#13;
+  }&amp;#13;
+&amp;#13;
+  .text-info {&amp;#13;
+    color: darken($brand-info, 10%);&amp;#13;
+  }&amp;#13;
+&amp;#13;
+  .text-success {&amp;#13;
+    color: darken($brand-success, 10%);&amp;#13;
+  }&amp;#13;
+&amp;#13;
+  .text-warning {&amp;#13;
+    color: darken($brand-warning, 10%);&amp;#13;
+  }&amp;#13;
+&amp;#13;
+  .text-danger {&amp;#13;
+    color: darken($brand-danger, 10%);&amp;#13;
+  }&amp;#13;
+&amp;#13;
+  .text-default {&amp;#13;
+    color: darken($brand-primary, 10%);&amp;#13;
+  }&amp;#13;
+}&lt;/css&gt;&lt;data_table&gt;sp_instance&lt;/data_table&gt;&lt;demo_data/&gt;&lt;description&gt;Display the company of the currently logged in user.&lt;/description&gt;&lt;docs/&gt;&lt;field_list/&gt;&lt;has_preview&gt;false&lt;/has_preview&gt;&lt;id&gt;my-company&lt;/id&gt;&lt;internal&gt;false&lt;/internal&gt;&lt;link&gt;&lt;![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]&gt;&lt;/link&gt;&lt;name&gt;My Company&lt;/name&gt;&lt;option_schema/&gt;&lt;public&gt;false&lt;/public&gt;&lt;roles/&gt;&lt;script&gt;&lt;![CDATA[(function(){
+	var user = gs.getUser();
+	data.first_name = user.getFirstName();
+	
+	gs.info('USER: ' + user.name);
+	
+	var company = new GlideRecord('core_company');
+		company.get(user.getCompanyID());
+		gs.info('COMPANY: ' + company.name);
+		data.company = company.name.toString();
+
+})();]]&gt;&lt;/script&gt;&lt;servicenow&gt;false&lt;/servicenow&gt;&lt;sys_class_name&gt;sp_widget&lt;/sys_class_name&gt;&lt;sys_created_by&gt;james.taylor&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2021-09-30 03:57:13&lt;/sys_created_on&gt;&lt;sys_id&gt;e36ebd1b1bf674907663a82c274bcb47&lt;/sys_id&gt;&lt;sys_mod_count&gt;30&lt;/sys_mod_count&gt;&lt;sys_name&gt;My Company&lt;/sys_name&gt;&lt;sys_package display_value="Human Resources: Core" source="sn_hr_core"&gt;d4ac3fff5b311200a4656ede91f91af2&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Human Resources: Core"&gt;d4ac3fff5b311200a4656ede91f91af2&lt;/sys_scope&gt;&lt;sys_update_name&gt;sp_widget_e36ebd1b1bf674907663a82c274bcb47&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;mark.galulu&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2021-10-04 03:07:03&lt;/sys_updated_on&gt;&lt;template&gt;&lt;![CDATA[&lt;div class="iconlink" ng-class="{'high-contrast': accessibilityModeEnabled}"&gt;
+  &lt;!--// Top Icon --&gt;
+  &lt;!--&lt;h2 class="text-primary"&gt;Today,&lt;/h2&gt;--&gt;
+  &lt;div class="top_icon"&gt;
+    &lt;h2&gt;Hi, {{::data.first_name}} ({{::data.company}})&lt;/h2&gt;
+    &lt;h3&gt; Welcome to OZ Minerals Portal &lt;/h3&gt;
+  &lt;/div&gt;
+&lt;/div&gt;]]&gt;&lt;/template&gt;&lt;/sp_widget&gt;</payload>
+        <sys_class_name>sp_rel_widget_clone</sys_class_name>
+        <sys_created_by>james.taylor</sys_created_by>
+        <sys_created_on>2021-10-04 11:49:27</sys_created_on>
+        <sys_id>80e058781b07b490f639da09dc4bcb01</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>00e018781b07b490f639da09dc4bcbfe</sys_name>
+        <sys_package display_value="Employee Center Core" source="sn_hr_sp">3d1da2705b021200a4656ede91f91ab6</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</sys_scope>
+        <sys_update_name>sp_rel_widget_clone_80e058781b07b490f639da09dc4bcb01</sys_update_name>
+        <sys_updated_by>james.taylor</sys_updated_by>
+        <sys_updated_on>2021-10-04 11:49:27</sys_updated_on>
+    </sp_rel_widget_clone>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</claim_owner_scope>
+        <claim_timestamp>185c6dac9e40000001</claim_timestamp>
+        <metadata_update_name>sp_rel_widget_clone_80e058781b07b490f639da09dc4bcb01</metadata_update_name>
+        <previous_claim_app_version>26.0.4</previous_claim_app_version>
+        <previous_claim_name>Employee Center Core</previous_claim_name>
+        <previous_claim_scope>3d1da2705b021200a4656ede91f91ab6</previous_claim_scope>
+        <sys_created_by>sam.herring</sys_created_by>
+        <sys_created_on>2023-01-18 21:48:25</sys_created_on>
+        <sys_id>92cef79c1b68e110f639da09dc4bcbe6</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>sam.herring</sys_updated_by>
+        <sys_updated_on>2023-01-18 21:48:25</sys_updated_on>
+    </sys_claim>
+</record_update>

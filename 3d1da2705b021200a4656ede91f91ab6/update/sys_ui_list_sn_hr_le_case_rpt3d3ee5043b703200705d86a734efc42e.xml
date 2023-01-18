@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_list parent="" relationship="" sys_domain="global" table="sn_hr_le_case" version="2" view="RPT3d3ee5043b703200705d86a734efc42e">
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>number</element>
+            <list_id display_value="sn_hr_le_case" element="NULL" name="sn_hr_le_case" parent="NULL" relationship="NULL" sys_domain="global" view="34ae819f1b2ed110f639da09dc4bcbdf">f8ae819f1b2ed110f639da09dc4bcbe0</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>0</position>
+            <sum>false</sum>
+            <sys_created_by>james.taylor</sys_created_by>
+            <sys_created_on>2022-10-20 06:35:01</sys_created_on>
+            <sys_id>b4ae819f1b2ed110f639da09dc4bcbe1</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>james.taylor</sys_updated_by>
+            <sys_updated_on>2022-10-20 06:35:01</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>subject_person</element>
+            <list_id display_value="sn_hr_le_case" element="NULL" name="sn_hr_le_case" parent="NULL" relationship="NULL" sys_domain="global" view="34ae819f1b2ed110f639da09dc4bcbdf">f8ae819f1b2ed110f639da09dc4bcbe0</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>1</position>
+            <sum>false</sum>
+            <sys_created_by>james.taylor</sys_created_by>
+            <sys_created_on>2022-10-20 06:35:01</sys_created_on>
+            <sys_id>38ae819f1b2ed110f639da09dc4bcbe1</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>james.taylor</sys_updated_by>
+            <sys_updated_on>2022-10-20 06:35:01</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>subject_person.manager</element>
+            <list_id display_value="sn_hr_le_case" element="NULL" name="sn_hr_le_case" parent="NULL" relationship="NULL" sys_domain="global" view="34ae819f1b2ed110f639da09dc4bcbdf">f8ae819f1b2ed110f639da09dc4bcbe0</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>2</position>
+            <sum>false</sum>
+            <sys_created_by>james.taylor</sys_created_by>
+            <sys_created_on>2022-10-20 06:35:01</sys_created_on>
+            <sys_id>b8ae819f1b2ed110f639da09dc4bcbe1</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>james.taylor</sys_updated_by>
+            <sys_updated_on>2022-10-20 06:35:01</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>subject_person.location</element>
+            <list_id display_value="sn_hr_le_case" element="NULL" name="sn_hr_le_case" parent="NULL" relationship="NULL" sys_domain="global" view="34ae819f1b2ed110f639da09dc4bcbdf">f8ae819f1b2ed110f639da09dc4bcbe0</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>3</position>
+            <sum>false</sum>
+            <sys_created_by>james.taylor</sys_created_by>
+            <sys_created_on>2022-10-20 06:35:01</sys_created_on>
+            <sys_id>3cae819f1b2ed110f639da09dc4bcbe1</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>james.taylor</sys_updated_by>
+            <sys_updated_on>2022-10-20 06:35:01</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>subject_person_hr_profile.employment_start_date</element>
+            <list_id display_value="sn_hr_le_case" element="NULL" name="sn_hr_le_case" parent="NULL" relationship="NULL" sys_domain="global" view="34ae819f1b2ed110f639da09dc4bcbdf">f8ae819f1b2ed110f639da09dc4bcbe0</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>4</position>
+            <sum>false</sum>
+            <sys_created_by>james.taylor</sys_created_by>
+            <sys_created_on>2022-10-20 06:35:01</sys_created_on>
+            <sys_id>bcae819f1b2ed110f639da09dc4bcbe1</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>james.taylor</sys_updated_by>
+            <sys_updated_on>2022-10-20 06:35:01</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>state</element>
+            <list_id display_value="sn_hr_le_case" element="NULL" name="sn_hr_le_case" parent="NULL" relationship="NULL" sys_domain="global" view="34ae819f1b2ed110f639da09dc4bcbdf">f8ae819f1b2ed110f639da09dc4bcbe0</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>5</position>
+            <sum>false</sum>
+            <sys_created_by>james.taylor</sys_created_by>
+            <sys_created_on>2022-10-20 06:35:01</sys_created_on>
+            <sys_id>30ae819f1b2ed110f639da09dc4bcbe2</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>james.taylor</sys_updated_by>
+            <sys_updated_on>2022-10-20 06:35:01</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>assigned_to</element>
+            <list_id display_value="sn_hr_le_case" element="NULL" name="sn_hr_le_case" parent="NULL" relationship="NULL" sys_domain="global" view="34ae819f1b2ed110f639da09dc4bcbdf">f8ae819f1b2ed110f639da09dc4bcbe0</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>6</position>
+            <sum>false</sum>
+            <sys_created_by>james.taylor</sys_created_by>
+            <sys_created_on>2022-10-20 06:35:01</sys_created_on>
+            <sys_id>b0ae819f1b2ed110f639da09dc4bcbe2</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>james.taylor</sys_updated_by>
+            <sys_updated_on>2022-10-20 06:35:01</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>opened_for</element>
+            <list_id display_value="sn_hr_le_case" element="NULL" name="sn_hr_le_case" parent="NULL" relationship="NULL" sys_domain="global" view="34ae819f1b2ed110f639da09dc4bcbdf">f8ae819f1b2ed110f639da09dc4bcbe0</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>7</position>
+            <sum>false</sum>
+            <sys_created_by>james.taylor</sys_created_by>
+            <sys_created_on>2022-10-20 06:35:01</sys_created_on>
+            <sys_id>34ae819f1b2ed110f639da09dc4bcbe2</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>james.taylor</sys_updated_by>
+            <sys_updated_on>2022-10-20 06:35:01</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element/>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <name>sn_hr_le_case</name>
+            <parent/>
+            <position/>
+            <relationship/>
+            <sum>false</sum>
+            <sys_class_name>sys_ui_list</sys_class_name>
+            <sys_created_by>james.taylor</sys_created_by>
+            <sys_created_on>2022-10-20 06:35:01</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>f8ae819f1b2ed110f639da09dc4bcbe0</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>sn_hr_le_case</sys_name>
+            <sys_package display_value="Employee Center Core" source="sn_hr_sp">3d1da2705b021200a4656ede91f91ab6</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</sys_scope>
+            <sys_update_name>sys_ui_list_sn_hr_le_case_RPT3d3ee5043b703200705d86a734efc42e</sys_update_name>
+            <sys_updated_by>james.taylor</sys_updated_by>
+            <sys_updated_on>2022-10-20 06:35:01</sys_updated_on>
+            <sys_user/>
+            <view display_value="Rpt3d3ee5043b703200705d86a734efc42e" name="RPT3d3ee5043b703200705d86a734efc42e">34ae819f1b2ed110f639da09dc4bcbdf</view>
+            <view_name/>
+        </sys_ui_list>
+    </sys_ui_list>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Employee Center Core">3d1da2705b021200a4656ede91f91ab6</claim_owner_scope>
+        <claim_timestamp>185c6dabd510000001</claim_timestamp>
+        <metadata_update_name>sys_ui_list_sn_hr_le_case_RPT3d3ee5043b703200705d86a734efc42e</metadata_update_name>
+        <previous_claim_app_version>26.0.4</previous_claim_app_version>
+        <previous_claim_name>Employee Center Core</previous_claim_name>
+        <previous_claim_scope>3d1da2705b021200a4656ede91f91ab6</previous_claim_scope>
+        <sys_created_by>sam.herring</sys_created_by>
+        <sys_created_on>2023-01-18 21:48:22</sys_created_on>
+        <sys_id>e5ceb79c1b68e110f639da09dc4bcbb7</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>sam.herring</sys_updated_by>
+        <sys_updated_on>2023-01-18 21:48:22</sys_updated_on>
+    </sys_claim>
+</record_update>
